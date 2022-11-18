@@ -66,4 +66,18 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
+    func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool){
+        let newEnsayo = EnsayoEntity(context: gestorCoreData.contexto)
+        newEnsayo.nombre = nombre
+        newEnsayo.fecha = fecha
+        newEnsayo.enProceso = enProceso
+        // newEnsayo.personaRelation = persona
+        guardarDatos()
+    }
+    
+    func deleteEnsayo(ensayo: EnsayoEntity){
+        gestorCoreData.contexto.delete(ensayo)
+        guardarDatos()
+    }
+    
 }
