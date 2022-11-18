@@ -15,6 +15,7 @@
 		296BB87D2927DFD000FAE131 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB87C2927DFD000FAE131 /* Login.swift */; };
 		296BB87F2927E07800FAE131 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB87E2927E07800FAE131 /* CoreDataManager.swift */; };
 		296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8802927E36B00FAE131 /* ViewModel.swift */; };
+		296BB8832927EED100FAE131 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8822927EED100FAE131 /* Registro.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		296BB87C2927DFD000FAE131 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Crystalite/GestionCrystalite/Login.swift; sourceTree = SOURCE_ROOT; };
 		296BB87E2927E07800FAE131 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		296BB8802927E36B00FAE131 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		296BB8822927EED100FAE131 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				296BB87C2927DFD000FAE131 /* Login.swift */,
 				296BB8682927D32300FAE131 /* CrystaliteApp.swift */,
 				296BB86A2927D32300FAE131 /* Principal.swift */,
+				296BB8822927EED100FAE131 /* Registro.swift */,
 			);
 			path = GestionCrystalite;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				296BB87B2927D43400FAE131 /* CrytaliteModel.xcdatamodeld in Sources */,
 				296BB8692927D32300FAE131 /* CrystaliteApp.swift in Sources */,
 				296BB87F2927E07800FAE131 /* CoreDataManager.swift in Sources */,
+				296BB8832927EED100FAE131 /* Registro.swift in Sources */,
 				296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */,
 				296BB87D2927DFD000FAE131 /* Login.swift in Sources */,
 			);
