@@ -19,7 +19,7 @@ struct Login: View {
                 }.frame(width: 272, height: 58, alignment: .center)
                 VStack(alignment: .leading, spacing: 1) {
                     Text("Contraseña")
-                    TextField("Introducir contraseña", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Introducir contraseña", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 272, height: 34).background(.white).cornerRadius(15)
                 }.frame(width: 272, height: 58, alignment: .center)
                 
                 
