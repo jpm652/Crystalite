@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Registro: View {
     var body: some View {
-        Text("Pagina Registro")
+        Text("Pagina Registro 2")
     }
 }
 
