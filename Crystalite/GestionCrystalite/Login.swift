@@ -23,12 +23,18 @@ struct Login: View {
                 }.frame(width: 272, height: 58, alignment: .center)
                 
                 
-                Button("Iniciar sesion") {
+                Button() {
                     /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                } label: {
+                    Text("Iniciar sesion")
+                        .frame(width: 245, height: 59).background(Color(red: 160/255, green: 210/255, blue: 235/255)).tint(.black).clipShape(RoundedRectangle (cornerRadius: 19)).padding(.all, 15)
                 }
                 Divider()
-                Button("Registrarse") {
+                Button() {
                     /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                } label: {
+                    Text("Registrarse")
+                        .frame(width: 245, height: 59).background(Color(red: 160/255, green: 210/255, blue: 235/255)).tint(.black).clipShape(RoundedRectangle (cornerRadius: 19)).padding(.top, 10)
                 }
             }
         }
