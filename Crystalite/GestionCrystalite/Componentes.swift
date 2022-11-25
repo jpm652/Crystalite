@@ -47,12 +47,12 @@ struct ElementoView: View{
                 Text(nombre)
                 
             }.frame(width: 170, alignment: .leading)
-            //TextField(String(valor), text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 30)
-//            Button{
-//                
-//            }label: {
-//                Image(systemName: "plus.circle")
-//            }
+            TextField(String(valor), text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 30)
+            Button{
+                
+            }label: {
+                Image(systemName: "plus.circle")
+            }
         }
         .frame(width: 300, height: 60)
         .background(.white)
@@ -144,5 +144,6 @@ struct elementoResultadoFila: View{
     }
     
 }
+
 
 

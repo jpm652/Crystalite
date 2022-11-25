@@ -22,6 +22,7 @@ class ViewModel: ObservableObject{
     init(){
         
         addElemento(iniciales: "Al", nombre: "Aluminio", descripcion: "", valor: 0.0)
+        
         cargarDatos()
     }
     

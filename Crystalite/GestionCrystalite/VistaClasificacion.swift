@@ -14,7 +14,7 @@ struct VistaClasificacion: View {
     
     var body: some View {
         
-        ZStack{
+        ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
             
             VStack(){
@@ -43,28 +43,20 @@ struct VistaClasificacion: View {
                 }
                 
                 Spacer().frame(height: 25)
-                
-                VStack{
-                    List(){
-                        ForEach(vm.elementoArray){ elemento in
-                            Section(header: ElementoView(iniciales: elemento.iniciales ?? "", nombre: "Aluminio", valor: 0.0).environmentObject(vm)){
-                                Slider(value: $valorElemento, in: 0...10)
-                            }
-                        }
-                        
-                    }
+
+                ScrollView{
+                    ElementoView(iniciales: "Al", nombre: "Aluminio", valor: 0.0)
+                    ElementoView(iniciales: "Ba", nombre: "Bario", valor: 0.0)
+                    ElementoView(iniciales: "Ca", nombre: "Calcio", valor: 0.0)
+                    ElementoView(iniciales: "Mg", nombre: "Magnesio", valor: 0.0)
+                    ElementoView(iniciales: "K", nombre: "Potasio", valor: 0.0)
+                    ElementoView(iniciales: "RI", nombre: "Índice de Refracción", valor: 0.0)
                 }
                 
-//                    ElementoView(iniciales: "Ba", nombre: "Bario", valor: 0.0)
-//                    ElementoView(iniciales: "Ca", nombre: "Calcio", valor: 0.0)
-//                    ElementoView(iniciales: "Mg", nombre: "Magnesio", valor: 0.0)
-//                    ElementoView(iniciales: "K", nombre: "Potasio", valor: 0.0)
-//                    ElementoView(iniciales: "RI", nombre: "Índice de Refracción", valor: 0.0)
-                
-                
                 boton(texto: "Clasificar cristal", vista: AnyView(VistaResultadoClasificacion()));
-            }
+            
         }
+    }
     }
 }
 //
