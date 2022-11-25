@@ -37,6 +37,7 @@ struct preguntasView: View{
     }
 }
 
+
 struct respuestasView: View{
     @EnvironmentObject var vm: ViewModel
     var ayuda: AyudaEntity
