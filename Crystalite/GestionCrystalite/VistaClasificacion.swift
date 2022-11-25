@@ -21,6 +21,7 @@ struct VistaClasificacion: View {
                             .resizable()
                             .foregroundColor(.black)
                             .frame(width: 50, height: 50)
+                            .padding(.horizontal,20)
                     }
                 }
 
@@ -29,7 +30,8 @@ struct VistaClasificacion: View {
                     Spacer().frame(height: 1)
                     Text("Ensayo").font(.title2)
                     
-                    TextField("Introducir nombre del ensayo", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 272, height: 34).background(.white).cornerRadius(10)
+                    TextField("Introducir nombre del ensayo", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 300, height: 34).background(.white).cornerRadius(10)
+                        .padding(.horizontal,20)
                 }
                 
                 ElementoView(iniciales: "RI", nombre: "Índice de Refracción");

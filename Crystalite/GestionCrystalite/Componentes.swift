@@ -33,9 +33,10 @@ struct ElementoView: View{
     var body:some View{
         HStack (){
             Image(systemName: "gear")
-            VStack {
-                Text(iniciales).multilineTextAlignment(.leading)
-                Text(nombre).multilineTextAlignment(.leading)
+            VStack(alignment: .leading) {
+                Text(iniciales)
+                Text(nombre)
+                
             }.frame(width: 170, alignment: .leading)
             TextField(value, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 30)
             Image(systemName: "plus.circle")
