@@ -16,7 +16,6 @@ struct boton: View{
     var body:some View{
         
         Button() {
-            
         } label: {
             Text(texto)
                 .frame(width: 245, height: 59).background(Color("Azul")).tint(.black).clipShape(RoundedRectangle (cornerRadius: 19)).padding(.all, 15)

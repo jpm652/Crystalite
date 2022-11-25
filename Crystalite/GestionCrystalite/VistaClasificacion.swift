@@ -30,8 +30,11 @@ struct VistaClasificacion: View {
                     Spacer().frame(height: 1)
                     Text("Ensayo").font(.title2)
                     
-                    TextField("Introducir nombre del ensayo", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 300, height: 34).background(.white).cornerRadius(10)
-                        .padding(.horizontal,20)
+                    TextField("Introducir nombre del ensayo", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                        .padding(.leading,20)
+                        .frame(width: 300, height: 34)
+                        .background(.white)
+                        .cornerRadius(10)
                 }
                 
                 ElementoView(iniciales: "RI", nombre: "Índice de Refracción");
