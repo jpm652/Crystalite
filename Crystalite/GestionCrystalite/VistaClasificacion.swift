@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct VistaClasificacion: View {
+    @EnvironmentObject var vm: ViewModel
+    
     var body: some View {
+        
         ZStack{
             Color("Gris").ignoresSafeArea()
             
@@ -24,7 +27,7 @@ struct VistaClasificacion: View {
                             .padding(.horizontal,20)
                     }
                 }
-
+                
                 VStack(alignment: .leading, spacing: 5) {
                     Text("Introducir ensayo").font(.title)
                     Spacer().frame(height: 1)
@@ -37,23 +40,18 @@ struct VistaClasificacion: View {
                         .cornerRadius(10)
                 }
                 Spacer().frame(height: 25)
-
+                NavigationView{
+                    List(){
+                        ForEach(vm.elementoArray){elemento in
+                            ElementoView(iniciales: elemento.iniciales ?? "", nombre: elemento.nombre ?? "")
+                        }
+                    }
+                    
+                    boton(texto: "Clasificar cristal", vista: AnyView(VistaResultadoClasificacion()));
+                    
+                }
                 
-                ElementoView(iniciales: "RI", nombre: "Índice de Refracción");
-                ElementoView(iniciales: "Mg", nombre: "Magnesio");
-                ElementoView(iniciales: "Al", nombre: "Aluminio");
-                ElementoView(iniciales: "K", nombre: "Potasio");
-                ElementoView(iniciales: "Ca", nombre: "Calcio");
-                ElementoView(iniciales: "Ba", nombre: "Bario");
-                
-                //boton(texto: "Clasificar cristal", vista: "");
-                
-                Spacer()
             }
-            
-            
-            
-            
         }
     }
 }
