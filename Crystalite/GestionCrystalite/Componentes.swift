@@ -37,6 +37,7 @@ struct ElementoView: View{
     @State var altura: CGFloat = 60
     @State var mostrarSlider : Bool = false
     @State var valorFinal : String = ""
+    @State var valorSlider: Double = 0.0
     
     var body:some View{
         VStack(){
@@ -48,11 +49,11 @@ struct ElementoView: View{
                     .clipShape(RoundedRectangle (cornerRadius: 10))
                 
                 VStack(alignment: .leading) {
-                    Text(iniciales)
+                    Text(iniciales).font(.title3)
                     Text(nombre)
                     
-                }.frame(width: 160, alignment: .leading)
-                TextField(String(valor), text: $valorFinal).frame(width: 30)
+                }.frame(width: 150, alignment: .leading)
+                TextField(String(valor), text: $valorFinal).frame(width: 50)
                 
                 Button{
                     mostrarSlider.toggle()
@@ -68,29 +69,17 @@ struct ElementoView: View{
             }
             
             if mostrarSlider {
-                vistaSlider(mostrarSlider: $mostrarSlider, valorSlider: 0.0)
-            }
+                VStack{
+                    Slider(value: $valorSlider, in: 0.0...20.0,
+                           onEditingChanged:{ editing in
+                        valorFinal = String(format: "%.2f", valorSlider)
+                        
+                    }).frame(width: 280)
+                }            }
         }
         .frame(width: 300, height: altura)
         .background(.white)
         .cornerRadius(15)
-    }
-}
-
-struct vistaSlider: View{
-    
-    @Binding var mostrarSlider : Bool
-    @State var valorSlider: Double
-    // @Binding var valorFinal : Double
-    
-    var body: some View{
-        VStack{
-            Slider(value: $valorSlider, in:0...20,
-                   onEditingChanged:{ editing in
-                valorSlider = valorSlider
-                
-            }).frame(width: 280)
-        }
     }
 }
 
