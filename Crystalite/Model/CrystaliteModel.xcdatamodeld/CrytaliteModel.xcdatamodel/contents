@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AyudaEntity" representedClassName="AyudaEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="pregunta" optional="YES" attributeType="String"/>
+        <attribute name="respuesta" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="CristalEntity" representedClassName="CristalEntity" syncable="YES" codeGenerationType="class">
         <attribute name="descripcion" optional="YES" attributeType="String"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
@@ -30,5 +34,6 @@
         <element name="ElementoEntity" positionX="-18" positionY="63" width="128" height="89"/>
         <element name="EnsayoEntity" positionX="-54" positionY="-9" width="128" height="119"/>
         <element name="PersonaEntity" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="AyudaEntity" positionX="-45" positionY="54" width="128" height="59"/>
     </elements>
 </model>

@@ -19,6 +19,8 @@ class ViewModel: ObservableObject{
     @Published var ensayoArray: [EnsayoEntity] = []
     
     init(){
+        
+        addElemento(iniciales: "Al", nombre: "Aluminio", descripcion: "", valor: 0.0)
         cargarDatos()
     }
     

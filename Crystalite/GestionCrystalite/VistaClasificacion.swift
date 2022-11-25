@@ -17,7 +17,7 @@ struct VistaClasificacion: View {
         ZStack{
             Color("Gris").ignoresSafeArea()
             
-            VStack (){
+            VStack(){
                 HStack {
                     Spacer().frame(height: 1)
                     
@@ -41,31 +41,28 @@ struct VistaClasificacion: View {
                         .background(.white)
                         .cornerRadius(10)
                 }
-                Spacer().frame(height: 25)
-
-                ScrollView{
-                    
-                    Section(header: ElementoView(iniciales: "Al", nombre: "Aluminio", valor: String(valorFinal))){
-                        
-//                        Slider(value: $valorElemento, in: 0...50,
-//                               onEditingChanged: { editing in
-//                            valorFinal = valorElemento
-//                        })
-                    }
                 
+                Spacer().frame(height: 25)
+                
+                VStack{
+                    List(){
+                        ForEach(vm.elementoArray){ elemento in
+                            Section(header: ElementoView(iniciales: elemento.iniciales ?? "", nombre: "Aluminio", valor: 0.0).environmentObject(vm)){
+                                Slider(value: $valorElemento, in: 0...10)
+                            }
+                        }
+                        
+                    }
                 }
-//                    ElementoView(iniciales: "Al", nombre: "Aluminio", )
-//                    ElementoView(iniciales: "Ba", nombre: "Bario")
-//                    ElementoView(iniciales: "Ca", nombre: "Calcio")
-//                    ElementoView(iniciales: "Mg", nombre: "Magnesio")
-//                    ElementoView(iniciales: "K", nombre: "Potasio")
-//                    ElementoView(iniciales: "RI", nombre: "Índice de Refracción")
-//                }
+                
+//                    ElementoView(iniciales: "Ba", nombre: "Bario", valor: 0.0)
+//                    ElementoView(iniciales: "Ca", nombre: "Calcio", valor: 0.0)
+//                    ElementoView(iniciales: "Mg", nombre: "Magnesio", valor: 0.0)
+//                    ElementoView(iniciales: "K", nombre: "Potasio", valor: 0.0)
+//                    ElementoView(iniciales: "RI", nombre: "Índice de Refracción", valor: 0.0)
+                
                 
                 boton(texto: "Clasificar cristal", vista: AnyView(VistaResultadoClasificacion()));
-                
-                
-                
             }
         }
     }
