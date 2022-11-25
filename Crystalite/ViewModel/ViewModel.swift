@@ -19,7 +19,20 @@ class ViewModel: ObservableObject{
     @Published var ensayoArray: [EnsayoEntity] = []
     
     init(){
+        elementoArray.removeAll()
+        cristalArray.removeAll()
+        personaArray.removeAll()
+        ensayoArray.removeAll()
+        
+        addElemento(iniciales: "RI", nombre: "Índice de Refracción", descripcion: "Descripcion Índice de Refracción", valor: 0.0)
+        addElemento(iniciales: "Al", nombre: "Aluminio", descripcion: "Descripcion Aluminio", valor: 0.0)
+        addElemento(iniciales: "Ba", nombre: "Bario", descripcion: "Descripcion Bario", valor: 0.0)
+        addElemento(iniciales: "Ca", nombre: "Calcio", descripcion: "Descripcion Calcio", valor: 0.0)
+        addElemento(iniciales: "Mg", nombre: "Magnesio", descripcion: "Descripcion Magnesio", valor: 0.0)
+        addElemento(iniciales: "K", nombre: "Potasio", descripcion: "Descripcion Potasio", valor: 0.0)
+        
         cargarDatos()
+        
     }
     
     func cargarDatos(){
@@ -77,6 +90,36 @@ class ViewModel: ObservableObject{
     
     func deleteEnsayo(ensayo: EnsayoEntity){
         gestorCoreData.contexto.delete(ensayo)
+        guardarDatos()
+    }
+    
+    func addElemento(iniciales: String, nombre : String, descripcion : String, valor : Double){
+        
+        let newElemento = ElementoEntity(context: gestorCoreData.contexto)
+        newElemento.iniciales = iniciales
+        newElemento.nombre = nombre
+        newElemento.descripcion = descripcion
+        newElemento.valor = valor
+        
+        guardarDatos()
+    }
+    
+    func deleteElemento(elemento: ElementoEntity){
+        gestorCoreData.contexto.delete(elemento)
+        guardarDatos()
+    }
+    
+    func addCristal(nombre : String, descripcion : String){
+        
+        let newCristal = ElementoEntity(context: gestorCoreData.contexto)
+        newCristal.nombre = nombre
+        newCristal.descripcion = descripcion
+        
+        guardarDatos()
+    }
+    
+    func deleteCristal(cristal: ElementoEntity){
+        gestorCoreData.contexto.delete(cristal)
         guardarDatos()
     }
     

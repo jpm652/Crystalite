@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CrystaliteApp: App {
+    @StateObject private var vm: ViewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            VistaLogin()
+            VistaLogin().environmentObject(vm)
         }
     }
 }
