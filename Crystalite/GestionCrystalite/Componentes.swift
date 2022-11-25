@@ -18,45 +18,79 @@ struct boton: View{
         
         NavigationLink(destination: vista){
             Label(texto, systemImage: "app.badge")
-                    .frame(width: 245, height: 59)
-                    .background(Color("Azul"))
-                    .tint(.black)
-                    .clipShape(RoundedRectangle (cornerRadius: 19))
-                    .padding(.all, 15)
-                    .labelStyle(TitleOnlyLabelStyle())
-
-            }
+                .frame(width: 245, height: 59)
+                .background(Color("Azul"))
+                .tint(.black)
+                .clipShape(RoundedRectangle (cornerRadius: 19))
+                .padding(.all, 15)
+                .labelStyle(TitleOnlyLabelStyle())
+            
+        }
     }
 }
 
 struct ElementoView: View{
     
-    var iniciales : String;
-    var nombre : String;
-    var valor : Double;
+    var iniciales : String
+    var nombre : String
+    var valor : Double
+    @State var altura: CGFloat = 60
+    @State var mostrarSlider : Bool = false
+    @State var valorFinal : String = ""
     
     var body:some View{
-        HStack (){
-            Image(iniciales)
-                .resizable()
-                .frame(width: 35, height: 35)
-                .clipShape(RoundedRectangle (cornerRadius: 10))
-
-            VStack(alignment: .leading) {
-                Text(iniciales)
-                Text(nombre)
+        VStack(){
+            
+            HStack (){
+                Image(iniciales)
+                    .resizable()
+                    .frame(width: 35, height: 35)
+                    .clipShape(RoundedRectangle (cornerRadius: 10))
                 
-            }.frame(width: 170, alignment: .leading)
-            TextField(String(valor), text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 30)
-            Button{
+                VStack(alignment: .leading) {
+                    Text(iniciales)
+                    Text(nombre)
+                    
+                }.frame(width: 160, alignment: .leading)
+                TextField(String(valor), text: $valorFinal).frame(width: 30)
                 
-            }label: {
-                Image(systemName: "plus.circle")
+                Button{
+                    mostrarSlider.toggle()
+                    if mostrarSlider{
+                        altura=100
+                    }else{
+                        altura=60
+                    }
+                }label: {
+                    Image(systemName: "plus.circle")
+                }
+                
+            }
+            
+            if mostrarSlider {
+                vistaSlider(mostrarSlider: $mostrarSlider, valorSlider: 0.0)
             }
         }
-        .frame(width: 300, height: 60)
+        .frame(width: 300, height: altura)
         .background(.white)
         .cornerRadius(15)
+    }
+}
+
+struct vistaSlider: View{
+    
+    @Binding var mostrarSlider : Bool
+    @State var valorSlider: Double
+    // @Binding var valorFinal : Double
+    
+    var body: some View{
+        VStack{
+            Slider(value: $valorSlider, in:0...20,
+                   onEditingChanged:{ editing in
+                valorSlider = valorSlider
+                
+            }).frame(width: 280)
+        }
     }
 }
 
@@ -65,7 +99,7 @@ struct estudioHistorial: View{
     var tipoCristal: String;
     var numeroEnsayo: Int;
     var fecha: Date;
-
+    
     var body:some View{
         ZStack{
             Color("Gris").ignoresSafeArea()

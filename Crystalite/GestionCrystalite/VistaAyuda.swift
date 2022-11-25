@@ -23,7 +23,7 @@ struct VistaAyuda: View {
                         }
                     }
                 }
-            }
+            }.navigationTitle("Preguntas frecuentes")
         }
     }
 }
