@@ -44,7 +44,7 @@ struct VistaClasificacion: View {
                 ElementoView(iniciales: "Ca", nombre: "Calcio");
                 ElementoView(iniciales: "Ba", nombre: "Bario");
                 
-                boton(texto: "Clasificar cristal", vista: "");
+                //boton(texto: "Clasificar cristal", vista: "");
                 
                 Spacer()
             }

@@ -11,15 +11,21 @@ import SwiftUI
 struct boton: View{
     
     var texto : String;
-    var vista : String;
+    var vista : AnyView;
     
     var body:some View{
         
-        Button() {
-        } label: {
-            Text(texto)
-                .frame(width: 245, height: 59).background(Color("Azul")).tint(.black).clipShape(RoundedRectangle (cornerRadius: 19)).padding(.all, 15)
-        }
+        
+        NavigationLink(destination: vista){
+            Label(texto, systemImage: "app.badge")
+                    .frame(width: 245, height: 59)
+                    .background(Color("Azul"))
+                    .tint(.black)
+                    .clipShape(RoundedRectangle (cornerRadius: 19))
+                    .padding(.all, 15)
+                    .labelStyle(TitleOnlyLabelStyle())
+
+            }
     }
 }
 
