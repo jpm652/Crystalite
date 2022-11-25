@@ -19,20 +19,7 @@ class ViewModel: ObservableObject{
     @Published var ensayoArray: [EnsayoEntity] = []
     
     init(){
-        elementoArray.removeAll()
-        cristalArray.removeAll()
-        personaArray.removeAll()
-        ensayoArray.removeAll()
-        
-        addElemento(iniciales: "RI", nombre: "Índice de Refracción", descripcion: "Descripcion Índice de Refracción", valor: 0.0)
-        addElemento(iniciales: "Al", nombre: "Aluminio", descripcion: "Descripcion Aluminio", valor: 0.0)
-        addElemento(iniciales: "Ba", nombre: "Bario", descripcion: "Descripcion Bario", valor: 0.0)
-        addElemento(iniciales: "Ca", nombre: "Calcio", descripcion: "Descripcion Calcio", valor: 0.0)
-        addElemento(iniciales: "Mg", nombre: "Magnesio", descripcion: "Descripcion Magnesio", valor: 0.0)
-        addElemento(iniciales: "K", nombre: "Potasio", descripcion: "Descripcion Potasio", valor: 0.0)
-        
         cargarDatos()
-        
     }
     
     func cargarDatos(){

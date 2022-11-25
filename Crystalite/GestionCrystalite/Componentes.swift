@@ -33,7 +33,7 @@ struct ElementoView: View{
     
     var iniciales : String;
     var nombre : String;
-    var value = "0,0";
+    var valor : String;
     
     var body:some View{
         HStack (){
@@ -47,8 +47,12 @@ struct ElementoView: View{
                 Text(nombre)
                 
             }.frame(width: 170, alignment: .leading)
-            TextField(value, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 30)
-            Image(systemName: "plus.circle")
+            TextField(valor, text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).frame(width: 30)
+            Button{
+                
+            }label: {
+                Image(systemName: "plus.circle")
+            }
         }
         .frame(width: 300, height: 60)
         .background(.white)

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct VistaClasificacion: View {
     @EnvironmentObject var vm: ViewModel
+    @State var valorElemento : Float = 0.0;
+    @State var valorFinal : Float = 0.0;
     
     var body: some View {
         
@@ -40,13 +42,26 @@ struct VistaClasificacion: View {
                         .cornerRadius(10)
                 }
                 Spacer().frame(height: 25)
-                NavigationView{
-                    List(){
-                        ForEach(vm.elementoArray){elemento in
-                            ElementoView(iniciales: elemento.iniciales ?? "", nombre: elemento.nombre ?? "")
-                        }
+
+                ScrollView{
+                    
+                    Section(header: ElementoView(iniciales: "Al", nombre: "Aluminio", valor: String(valorFinal))){
+                        
+//                        Slider(value: $valorElemento, in: 0...50,
+//                               onEditingChanged: { editing in
+//                            valorFinal = valorElemento
+//                        })
                     }
-                }.ignoresSafeArea()
+                
+                }
+//                    ElementoView(iniciales: "Al", nombre: "Aluminio", )
+//                    ElementoView(iniciales: "Ba", nombre: "Bario")
+//                    ElementoView(iniciales: "Ca", nombre: "Calcio")
+//                    ElementoView(iniciales: "Mg", nombre: "Magnesio")
+//                    ElementoView(iniciales: "K", nombre: "Potasio")
+//                    ElementoView(iniciales: "RI", nombre: "Índice de Refracción")
+//                }
+                
                 boton(texto: "Clasificar cristal", vista: AnyView(VistaResultadoClasificacion()));
                 
                 
@@ -55,6 +70,14 @@ struct VistaClasificacion: View {
         }
     }
 }
+//
+//NavigationView{
+//    List(){
+//        ForEach(vm.elementoArray){elemento in
+//            ElementoView(iniciales: elemento.iniciales ?? "", nombre: elemento.nombre ?? "")
+//        }
+//    }
+//}
 
 //struct VistaClasificacion_Previews: PreviewProvider {
 //    static var previews: some View {

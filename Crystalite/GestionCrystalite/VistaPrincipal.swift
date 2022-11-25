@@ -30,6 +30,8 @@ struct VistaPrincipal: View {
                     Text("Ayuda")
                 }.tag(2)
         }
+        .background(Color("Gris"))
+        .accentColor(Color("Morado"))
     }
 }
 

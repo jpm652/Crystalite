@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct VistaResultadoClasificacion: View {
+    
     var body: some View {
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
@@ -24,7 +25,7 @@ struct VistaResultadoClasificacion: View {
                     Spacer().frame(width: 110);
                     
                     Button(){
-                        
+
                     }label: {
                         Image(systemName: "seal.fill")
                     }
