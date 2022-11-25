@@ -7,32 +7,36 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		292388FA2930BB1B0084987B /* Componentes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388F92930BB1B0084987B /* Componentes.swift */; };
+		292388FC2930BFAA0084987B /* VistaAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FB2930BFAA0084987B /* VistaAyuda.swift */; };
 		296BB8692927D32300FAE131 /* CrystaliteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8682927D32300FAE131 /* CrystaliteApp.swift */; };
-		296BB86B2927D32300FAE131 /* Principal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB86A2927D32300FAE131 /* Principal.swift */; };
+		296BB86B2927D32300FAE131 /* VistaPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB86A2927D32300FAE131 /* VistaPrincipal.swift */; };
 		296BB86D2927D32600FAE131 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 296BB86C2927D32600FAE131 /* Assets.xcassets */; };
 		296BB8702927D32600FAE131 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 296BB86F2927D32600FAE131 /* Preview Assets.xcassets */; };
 		296BB87B2927D43400FAE131 /* CrytaliteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8792927D43400FAE131 /* CrytaliteModel.xcdatamodeld */; };
-		296BB87D2927DFD000FAE131 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB87C2927DFD000FAE131 /* Login.swift */; };
+		296BB87D2927DFD000FAE131 /* VistaLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB87C2927DFD000FAE131 /* VistaLogin.swift */; };
 		296BB87F2927E07800FAE131 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB87E2927E07800FAE131 /* CoreDataManager.swift */; };
 		296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8802927E36B00FAE131 /* ViewModel.swift */; };
-		296BB8832927EED100FAE131 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8822927EED100FAE131 /* Registro.swift */; };
-		296BB8852927F08300FAE131 /* HistorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8842927F08300FAE131 /* HistorialView.swift */; };
-		756B4F592909656900DC66FC /* Clasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F582909656900DC66FC /* Clasificacion.swift */; };
+		296BB8832927EED100FAE131 /* VistaRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8822927EED100FAE131 /* VistaRegistro.swift */; };
+		296BB8852927F08300FAE131 /* VistaHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8842927F08300FAE131 /* VistaHistorial.swift */; };
+		756B4F592909656900DC66FC /* VistaClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F582909656900DC66FC /* VistaClasificacion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		292388F92930BB1B0084987B /* Componentes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Componentes.swift; sourceTree = "<group>"; };
+		292388FB2930BFAA0084987B /* VistaAyuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaAyuda.swift; sourceTree = "<group>"; };
 		296BB8652927D32300FAE131 /* Crystalite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crystalite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		296BB8682927D32300FAE131 /* CrystaliteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrystaliteApp.swift; sourceTree = "<group>"; };
-		296BB86A2927D32300FAE131 /* Principal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Principal.swift; sourceTree = "<group>"; };
+		296BB86A2927D32300FAE131 /* VistaPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaPrincipal.swift; sourceTree = "<group>"; };
 		296BB86C2927D32600FAE131 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		296BB86F2927D32600FAE131 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		296BB87A2927D43400FAE131 /* CrytaliteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CrytaliteModel.xcdatamodel; sourceTree = "<group>"; };
-		296BB87C2927DFD000FAE131 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Crystalite/GestionCrystalite/Login.swift; sourceTree = SOURCE_ROOT; };
+		296BB87C2927DFD000FAE131 /* VistaLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VistaLogin.swift; path = Crystalite/GestionCrystalite/VistaLogin.swift; sourceTree = SOURCE_ROOT; };
 		296BB87E2927E07800FAE131 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		296BB8802927E36B00FAE131 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		296BB8822927EED100FAE131 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
-		296BB8842927F08300FAE131 /* HistorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialView.swift; sourceTree = "<group>"; };
-		756B4F582909656900DC66FC /* Clasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clasificacion.swift; sourceTree = "<group>"; };
+		296BB8822927EED100FAE131 /* VistaRegistro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaRegistro.swift; sourceTree = "<group>"; };
+		296BB8842927F08300FAE131 /* VistaHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaHistorial.swift; sourceTree = "<group>"; };
+		756B4F582909656900DC66FC /* VistaClasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaClasificacion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +106,14 @@
 		296BB8782927D3E100FAE131 /* GestionCrystalite */ = {
 			isa = PBXGroup;
 			children = (
-				296BB87C2927DFD000FAE131 /* Login.swift */,
 				296BB8682927D32300FAE131 /* CrystaliteApp.swift */,
-				296BB86A2927D32300FAE131 /* Principal.swift */,
-				296BB8822927EED100FAE131 /* Registro.swift */,
-				296BB8842927F08300FAE131 /* HistorialView.swift */,
-				756B4F582909656900DC66FC /* Clasificacion.swift */,
+				296BB87C2927DFD000FAE131 /* VistaLogin.swift */,
+				296BB86A2927D32300FAE131 /* VistaPrincipal.swift */,
+				296BB8822927EED100FAE131 /* VistaRegistro.swift */,
+				296BB8842927F08300FAE131 /* VistaHistorial.swift */,
+				756B4F582909656900DC66FC /* VistaClasificacion.swift */,
+				292388F92930BB1B0084987B /* Componentes.swift */,
+				292388FB2930BFAA0084987B /* VistaAyuda.swift */,
 			);
 			path = GestionCrystalite;
 			sourceTree = "<group>";
@@ -182,15 +188,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				296BB8852927F08300FAE131 /* HistorialView.swift in Sources */,
-				296BB86B2927D32300FAE131 /* Principal.swift in Sources */,
+				292388FC2930BFAA0084987B /* VistaAyuda.swift in Sources */,
+				296BB8852927F08300FAE131 /* VistaHistorial.swift in Sources */,
+				296BB86B2927D32300FAE131 /* VistaPrincipal.swift in Sources */,
 				296BB87B2927D43400FAE131 /* CrytaliteModel.xcdatamodeld in Sources */,
+				292388FA2930BB1B0084987B /* Componentes.swift in Sources */,
 				296BB8692927D32300FAE131 /* CrystaliteApp.swift in Sources */,
 				296BB87F2927E07800FAE131 /* CoreDataManager.swift in Sources */,
-				756B4F592909656900DC66FC /* Clasificacion.swift in Sources */,
-				296BB8832927EED100FAE131 /* Registro.swift in Sources */,
+				756B4F592909656900DC66FC /* VistaClasificacion.swift in Sources */,
+				296BB8832927EED100FAE131 /* VistaRegistro.swift in Sources */,
 				296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */,
-				296BB87D2927DFD000FAE131 /* Login.swift in Sources */,
+				296BB87D2927DFD000FAE131 /* VistaLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,20 +1,20 @@
 //
-//  HistorialView.swift
+//  VistaAyuda.swift
 //  Crystalite
 //
-//  Created by Aula11 on 18/11/22.
+//  Created by Aula11 on 25/11/22.
 //
 
 import SwiftUI
 
-struct HistorialView: View {
+struct VistaAyuda: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct HistorialView_Previews: PreviewProvider {
+struct VistaAyuda_Previews: PreviewProvider {
     static var previews: some View {
-        HistorialView()
+        VistaAyuda()
     }
 }

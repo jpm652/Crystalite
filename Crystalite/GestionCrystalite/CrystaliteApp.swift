@@ -11,7 +11,7 @@ import SwiftUI
 struct CrystaliteApp: App {
     var body: some Scene {
         WindowGroup {
-            Principal()
+            VistaPrincipal()
         }
     }
 }
