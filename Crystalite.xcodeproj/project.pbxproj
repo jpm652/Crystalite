@@ -10,6 +10,7 @@
 		292388FA2930BB1B0084987B /* Componentes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388F92930BB1B0084987B /* Componentes.swift */; };
 		292388FC2930BFAA0084987B /* VistaAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FB2930BFAA0084987B /* VistaAyuda.swift */; };
 		292388FE2930CA710084987B /* VistaResultadoClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */; };
+		292BF54029312CD8009A0B1E /* VistaInfoCuenta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292BF53F29312CD8009A0B1E /* VistaInfoCuenta.swift */; };
 		296BB8692927D32300FAE131 /* CrystaliteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8682927D32300FAE131 /* CrystaliteApp.swift */; };
 		296BB86B2927D32300FAE131 /* VistaPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB86A2927D32300FAE131 /* VistaPrincipal.swift */; };
 		296BB86D2927D32600FAE131 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 296BB86C2927D32600FAE131 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		292388F92930BB1B0084987B /* Componentes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Componentes.swift; sourceTree = "<group>"; };
 		292388FB2930BFAA0084987B /* VistaAyuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaAyuda.swift; sourceTree = "<group>"; };
 		292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaResultadoClasificacion.swift; sourceTree = "<group>"; };
+		292BF53F29312CD8009A0B1E /* VistaInfoCuenta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaInfoCuenta.swift; sourceTree = "<group>"; };
 		296BB8652927D32300FAE131 /* Crystalite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crystalite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		296BB8682927D32300FAE131 /* CrystaliteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrystaliteApp.swift; sourceTree = "<group>"; };
 		296BB86A2927D32300FAE131 /* VistaPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaPrincipal.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				292388F92930BB1B0084987B /* Componentes.swift */,
 				292388FB2930BFAA0084987B /* VistaAyuda.swift */,
 				292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */,
+				292BF53F29312CD8009A0B1E /* VistaInfoCuenta.swift */,
 			);
 			path = GestionCrystalite;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				296BB8832927EED100FAE131 /* VistaRegistro.swift in Sources */,
 				296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */,
 				296BB87D2927DFD000FAE131 /* VistaLogin.swift in Sources */,
+				292BF54029312CD8009A0B1E /* VistaInfoCuenta.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
