@@ -20,19 +20,19 @@ struct VistaClasificacion: View {
             VStack(){
                 HStack {
                     Spacer().frame(height: 1)
-                    
+    
                     Button(action: { }) {
                         Image(systemName: "person.crop.circle")
                             .resizable()
                             .foregroundColor(.black)
-                            .frame(width: 50, height: 50)
+                            .frame(width: 40, height: 40)
                             .padding(.horizontal,20)
                     }
                 }
                 
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("Introducir ensayo").font(.title)
-                    Spacer().frame(height: 1)
+                VStack(alignment: .leading) {
+                    Text("Introducir ensayo").font(.title).bold()
+                    Spacer().frame(height: 20)
                     Text("Ensayo").font(.title2)
                     
                     TextField("Introducir nombre del ensayo", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
@@ -69,7 +69,7 @@ struct VistaClasificacion: View {
                     
                 }
                 
-            }.padding(.top, -70)
+            }.padding(.top, -80)
         }
     }
 }
