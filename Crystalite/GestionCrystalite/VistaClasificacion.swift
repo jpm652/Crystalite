@@ -36,6 +36,8 @@ struct VistaClasificacion: View {
                         .background(.white)
                         .cornerRadius(10)
                 }
+                Spacer().frame(height: 25)
+
                 
                 ElementoView(iniciales: "RI", nombre: "Índice de Refracción");
                 ElementoView(iniciales: "Mg", nombre: "Magnesio");

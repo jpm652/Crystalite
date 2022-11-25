@@ -37,7 +37,11 @@ struct ElementoView: View{
     
     var body:some View{
         HStack (){
-            Image(systemName: "gear")
+            Image(iniciales)
+                .resizable()
+                .frame(width: 35, height: 35)
+                .clipShape(RoundedRectangle (cornerRadius: 10))
+
             VStack(alignment: .leading) {
                 Text(iniciales)
                 Text(nombre)
