@@ -17,6 +17,7 @@ class ViewModel: ObservableObject{
     @Published var cristalArray: [CristalEntity] = []
     @Published var personaArray: [PersonaEntity] = []
     @Published var ensayoArray: [EnsayoEntity] = []
+    @Published var ayudaArray: [AyudaEntity] = []
     
     init(){
         
@@ -30,17 +31,20 @@ class ViewModel: ObservableObject{
         cristalArray.removeAll()
         personaArray.removeAll()
         ensayoArray.removeAll()
+        ayudaArray.removeAll()
         
         let fetchElementos = NSFetchRequest<ElementoEntity>(entityName: "ElementoEntity")
         let fetchCristales = NSFetchRequest<CristalEntity>(entityName: "CristalEntity")
         let fetchPersonas = NSFetchRequest<PersonaEntity>(entityName: "PersonaEntity")
         let fetchEnsayos = NSFetchRequest<EnsayoEntity>(entityName: "EnsayoEntity")
+        let fetchAyuda = NSFetchRequest<AyudaEntity>(entityName: "AyudaEntity")
         
         do{
             self.elementoArray = try gestorCoreData.contexto.fetch(fetchElementos).sorted(){$0.nombre! < $1.nombre!}
             self.cristalArray = try gestorCoreData.contexto.fetch(fetchCristales).sorted(){$0.nombre! < $1.nombre!}
             self.personaArray = try gestorCoreData.contexto.fetch(fetchPersonas).sorted(){$0.nombre! < $1.nombre!}
             self.ensayoArray = try gestorCoreData.contexto.fetch(fetchEnsayos).sorted(){$0.nombre! < $1.nombre!}
+            self.ayudaArray = try gestorCoreData.contexto.fetch(fetchAyuda).sorted(){$0.pregunta! < $1.pregunta!}
         }catch let error{
             print("Error al cargar los datos: \(error)")
         }
@@ -109,6 +113,20 @@ class ViewModel: ObservableObject{
     
     func deleteCristal(cristal: ElementoEntity){
         gestorCoreData.contexto.delete(cristal)
+        guardarDatos()
+    }
+    
+    func addAyuda(pregunta : String, respuesta : String){
+        
+        let newAyuda = AyudaEntity(context: gestorCoreData.contexto)
+        newAyuda.pregunta = pregunta
+        newAyuda.respuesta = respuesta
+        
+        guardarDatos()
+    }
+    
+    func deleteAyuda(ayuda: AyudaEntity){
+        gestorCoreData.contexto.delete(ayuda)
         guardarDatos()
     }
     
