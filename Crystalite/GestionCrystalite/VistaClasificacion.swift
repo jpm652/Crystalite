@@ -9,8 +9,8 @@ import SwiftUI
 
 struct VistaClasificacion: View {
     @EnvironmentObject var vm: ViewModel
-    @State var valorElemento : Float = 0.0;
-    @State var valorFinal : Float = 0.0;
+    @State var valorElemento : Double = 0.0;
+    @State var valorFinal : Double = 0.0;
     
     var body: some View {
         
@@ -43,7 +43,7 @@ struct VistaClasificacion: View {
                 }
                 
                 Spacer().frame(height: 25)
-
+                
                 ScrollView{
                     ElementoView(iniciales: "Al", nombre: "Aluminio", valor: 0.0)
                     ElementoView(iniciales: "Ba", nombre: "Bario", valor: 0.0)
@@ -53,20 +53,27 @@ struct VistaClasificacion: View {
                     ElementoView(iniciales: "RI", nombre: "Índice de Refracción", valor: 0.0)
                 }
                 
-                boton(texto: "Clasificar cristal", vista: AnyView(VistaResultadoClasificacion()));
-            
+                NavigationLink(destination: VistaResultadoClasificacion()){
+                    Label("Clasificar cristal", systemImage: "app.badge")
+                        .frame(width: 245, height: 59)
+                        .background(Color("Azul"))
+                        .tint(.black)
+                        .clipShape(RoundedRectangle (cornerRadius: 19))
+                        .padding(.all, 15)
+                        .labelStyle(TitleOnlyLabelStyle())
+                        .onTapGesture {
+                            
+                        }
+                    
+                    
+                    
+                }
+                
+            }.padding(.top, -70)
         }
     }
-    }
 }
-//
-//NavigationView{
-//    List(){
-//        ForEach(vm.elementoArray){elemento in
-//            ElementoView(iniciales: elemento.iniciales ?? "", nombre: elemento.nombre ?? "")
-//        }
-//    }
-//}
+
 
 //struct VistaClasificacion_Previews: PreviewProvider {
 //    static var previews: some View {

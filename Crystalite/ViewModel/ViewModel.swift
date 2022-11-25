@@ -20,9 +20,7 @@ class ViewModel: ObservableObject{
     @Published var ayudaArray: [AyudaEntity] = []
     
     init(){
-        
-        addElemento(iniciales: "Al", nombre: "Aluminio", descripcion: "", valor: 0.0)
-        
+       
         cargarDatos()
     }
     
