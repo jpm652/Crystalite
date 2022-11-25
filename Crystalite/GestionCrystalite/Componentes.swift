@@ -96,9 +96,49 @@ struct estudioHistorial: View{
 
 struct elementoCristal: View{
     
+    var tipo : String;
+    var nombre : String;
+    var fecha : String;
+    
     var body: some View{
-        Text("");
+        HStack{
+            VStack(alignment: .leading){
+                Text(tipo).font(.title2);
+                Text(nombre).font(.title3);
+                Text(fecha);
+            }.frame(width: 180, height: 100, alignment: .leading)
+            Image("Cristal vidrio botella")
+                .resizable()
+                .frame(width: 125, height: 100, alignment: .trailing)
+                .cornerRadius(15);
+        }
+        .frame(width: 300, height: 100)
+        .background(Color.white)
+        .cornerRadius(15)
     }
+}
+
+struct elementoResultadoFila: View{
+    
+    var iniciales : String;
+    var nombre : String;
+    var value = "0,0";
+    
+    var body: some View{
+        HStack (){
+            Image(systemName: "gear")
+            VStack(alignment: .leading) {
+                Text(iniciales)
+                Text(nombre)
+                
+            }.frame(width: 170, alignment: .leading)
+            Text(value).frame(width: 30)
+        }
+        .frame(width: 300, height: 60)
+        .background(.white)
+        .cornerRadius(15)
+    }
+    
 }
 
 

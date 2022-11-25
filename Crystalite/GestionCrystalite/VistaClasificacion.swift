@@ -46,18 +46,19 @@ struct VistaClasificacion: View {
                             ElementoView(iniciales: elemento.iniciales ?? "", nombre: elemento.nombre ?? "")
                         }
                     }
-                    
-                    boton(texto: "Clasificar cristal", vista: AnyView(VistaResultadoClasificacion()));
-                    
-                }
+                }.ignoresSafeArea()
+                boton(texto: "Clasificar cristal", vista: AnyView(VistaResultadoClasificacion()));
+                
+                
                 
             }
         }
     }
 }
 
-struct VistaClasificacion_Previews: PreviewProvider {
-    static var previews: some View {
-        VistaClasificacion()
-    }
-}
+//struct VistaClasificacion_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        VistaClasificacion().environmentObject()
+//    }
+//}

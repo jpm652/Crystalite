@@ -16,7 +16,7 @@ struct VistaResultadoClasificacion: View {
                 Text("Resultado Clasifiaccion").font(.title);
                 
                 Spacer().frame(height: 30)
-                elementoCristal2(tipo: "Cristal Ventana", nombre: "Ensayo N", fecha: "Fecha");
+                elementoCristal(tipo: "Cristal Ventana", nombre: "Ensayo N", fecha: "Fecha");
             
                 Spacer().frame(height: 50)
                 HStack{
@@ -41,51 +41,4 @@ struct VistaResultadoClasificacion_Previews: PreviewProvider {
     static var previews: some View {
         VistaResultadoClasificacion()
     }
-}
-
-struct elementoCristal2: View{
-    
-    var tipo : String;
-    var nombre : String;
-    var fecha : String;
-    
-    var body: some View{
-        HStack{
-            VStack(alignment: .leading){
-                Text(tipo).font(.title2);
-                Text(nombre).font(.title3);
-                Text(fecha);
-            }.frame(width: 180, height: 100, alignment: .leading)
-            Image("Cristal vidrio botella")
-                .resizable()
-                .frame(width: 125, height: 100, alignment: .trailing)
-                .cornerRadius(15);
-        }
-        .frame(width: 300, height: 100)
-        .background(Color.white)
-        .cornerRadius(15)
-    }
-}
-
-struct elementoResultadoFila: View{
-    
-    var iniciales : String;
-    var nombre : String;
-    var value = "0,0";
-    
-    var body: some View{
-        HStack (){
-            Image(systemName: "gear")
-            VStack(alignment: .leading) {
-                Text(iniciales)
-                Text(nombre)
-                
-            }.frame(width: 170, alignment: .leading)
-            Text(value).frame(width: 30)
-        }
-        .frame(width: 300, height: 60)
-        .background(.white)
-        .cornerRadius(15)
-    }
-    
 }
