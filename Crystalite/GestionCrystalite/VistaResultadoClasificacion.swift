@@ -56,9 +56,9 @@ struct elementoCristal2: View{
                 Text(nombre).font(.title3);
                 Text(fecha);
             }.frame(width: 180, height: 100, alignment: .leading)
-            Image("Logo")
+            Image("Cristal vidrio botella")
                 .resizable()
-                .frame(width: 100, height: 100, alignment: .trailing)
+                .frame(width: 125, height: 100, alignment: .trailing)
                 .cornerRadius(15);
         }
         .frame(width: 300, height: 100)

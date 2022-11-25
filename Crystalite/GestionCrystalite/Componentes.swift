@@ -56,6 +56,44 @@ struct ElementoView: View{
     }
 }
 
+struct estudioHistorial: View{
+    
+    var tipoCristal: String;
+    var numeroEnsayo: Int;
+    var fecha: Date;
+
+    var body:some View{
+        ZStack{
+            Color("Gris").ignoresSafeArea()
+            VStack(alignment: .leading){
+                HStack{
+                    Label("Fecha", systemImage: "circle.inset.filled")
+                    HStack (){
+                        
+                        VStack(alignment: .leading) {
+                            Text(tipoCristal).font(.title3)
+                            Text("Ensayo Nº \(numeroEnsayo)").font(.caption)
+                            
+                        }.padding(.leading)
+                            .frame(width: 170, alignment: .leading)
+                        
+                        Image(tipoCristal)
+                            .resizable()
+                            .frame(width: 125, height: 100)
+                            .clipShape(RoundedRectangle (cornerRadius: 10))
+                        
+                    }
+                    .frame(width: 300, height: 100)
+                    .background(.white)
+                    .cornerRadius(15)
+                }
+            }
+            
+            
+        }
+    }
+}
+
 struct elementoCristal: View{
     
     var body: some View{
