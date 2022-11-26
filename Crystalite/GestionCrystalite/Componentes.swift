@@ -145,6 +145,44 @@ struct elementoCristal: View{
     }
 }
 
+struct elementoCristalEdicion: View{
+    
+    var tipoCristal: String;
+    var numeroEnsayo: Int;
+    var fecha: String;
+    
+    var body: some View{
+        HStack{
+            VStack(alignment: .leading){
+                Text(tipoCristal).font(.title3)
+                Spacer().frame(height: 0.1)
+                HStack{
+                    Text("Ensayo Nº \(numeroEnsayo)").font(.caption)
+                    
+                    Button() {
+                        //editarEnsayo = true
+                    } label: {
+                        Image(systemName: "pencil")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding()
+                            .foregroundColor(.gray)
+                    }
+                }
+                Spacer().frame(height: 0.1)
+                Text(fecha).font(.caption);
+            }.frame(width: 160, height: 100, alignment: .leading)
+            Image(tipoCristal)
+                .resizable()
+                .frame(width: 125, height: 100, alignment: .trailing)
+                .cornerRadius(15);
+        }
+        .frame(width: 300, height: 100)
+        .background(Color.white)
+        .cornerRadius(15)
+    }
+}
+
 struct elementoResultadoFila: View{
     
     var iniciales : String;
@@ -164,6 +202,30 @@ struct elementoResultadoFila: View{
         .frame(width: 300, height: 60)
         .background(.white)
         .cornerRadius(15)
+    }
+    
+}
+
+struct preguntas: View{
+    
+    var preguntas: String;
+    
+    var body: some View{
+        HStack() {
+            Text(preguntas).frame(width: 300, height: 50).background(.white).cornerRadius(10).foregroundColor(.black)
+        }
+    }
+    
+}
+
+struct respuestas: View{
+    
+    var respuestas: String;
+    
+    var body: some View{
+        HStack() {
+            Text(respuestas)
+        }
     }
     
 }
