@@ -20,8 +20,10 @@ struct VistaHistorial: View {
     @State var opcionEnsayo : OpcionEnsayo = .todos
     
     var body: some View {
-        
+        NavigationView{
+
         ZStack(alignment: .top){
+
             Color("Gris").ignoresSafeArea()
             
             HStack {
@@ -55,17 +57,12 @@ struct VistaHistorial: View {
                 .padding()
                                
                 
-                NavigationView{
                     List(){
                         ForEach(vm.ensayoArray){ ensayo in
                             if(query.isEmpty){
-                                Text("No hay ensayos.")
-                            }else{
-                                if(ensayo.nombre.contains($query)){
-                                    NavigationLink(destination: VistaHistorialDetalle()){
-                                        estudioHistorial(tipoCristal: ensayo.resultCristal, nombreEnsayo: ensayo.nombre, fecha: ensayo.fecha)
-                                    }
-                                }
+                                NavigationLink(destination: VistaInfoDetallada()){
+                                    estudioHistorial(tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                            }
                             }
                             
                         }
@@ -74,7 +71,7 @@ struct VistaHistorial: View {
                  
                 // estudioHistorial(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 1, fecha: Date());
             }
-        }.padding(.top, -50)
+        }.padding(.top, -300)
     }
 }
 

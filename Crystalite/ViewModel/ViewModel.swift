@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 import SwiftUI
 
 class ViewModel: ObservableObject{

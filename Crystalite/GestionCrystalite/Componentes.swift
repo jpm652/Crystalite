@@ -31,6 +31,8 @@ struct boton: View{
 
 struct ElementoView: View{
     
+    static var cantidadElemento : String = ""
+
     var iniciales : String
     var nombre : String
     var valor : Double

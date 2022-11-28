@@ -11,6 +11,13 @@ struct VistaClasificacion: View {
     @EnvironmentObject var vm: ViewModel
     @State var valorElemento : Double = 0.0;
     @State var valorFinal : Double = 0.0;
+    @State var aparece: Bool = false
+    @State var ri : ElementoView = ElementoView(iniciales: "RI", nombre: "Indice Refracción", valor: 0.0,valorFinal: "")
+    @State var al : ElementoView = ElementoView(iniciales: "Al", nombre: "Aluminio", valor: 0.0,valorFinal: "")
+    @State var ba : ElementoView = ElementoView(iniciales: "Ba", nombre: "Bario", valor: 0.0,valorFinal: "")
+    @State var ca : ElementoView = ElementoView(iniciales: "Ca", nombre: "Calcio", valor: 0.0,valorFinal: "")
+    @State var mg : ElementoView = ElementoView(iniciales: "Mg", nombre: "Magnesio", valor: 0.0,valorFinal: "")
+    @State var k : ElementoView = ElementoView(iniciales: "K", nombre: "Potasio", valor: 0.0,valorFinal: "")
     
     var body: some View {
         
@@ -29,7 +36,7 @@ struct VistaClasificacion: View {
                             .padding(.horizontal,20)
                     }
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("Introducir ensayo").font(.title).bold()
                     Spacer().frame(height: 15)
@@ -45,13 +52,15 @@ struct VistaClasificacion: View {
                 Spacer().frame(height: 20)
                 
                 ScrollView{
-                    ElementoView(iniciales: "Al", nombre: "Aluminio", valor: 0.0)
-                    ElementoView(iniciales: "Ba", nombre: "Bario", valor: 0.0)
-                    ElementoView(iniciales: "Ca", nombre: "Calcio", valor: 0.0)
-                    ElementoView(iniciales: "Mg", nombre: "Magnesio", valor: 0.0)
-                    ElementoView(iniciales: "K", nombre: "Potasio", valor: 0.0)
-                    ElementoView(iniciales: "RI", nombre: "Índice de Refracción", valor: 0.0)
+                    al
+                    ba
+                    ca
+                    mg
+                    k
+                    ri
                 }
+                
+                
                 
                 NavigationLink(destination: VistaResultadoClasificacion()){
                     Label("Clasificar cristal", systemImage: "app.badge")
