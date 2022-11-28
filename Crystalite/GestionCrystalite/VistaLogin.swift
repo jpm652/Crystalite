@@ -23,12 +23,20 @@ struct VistaLogin: View {
                     VStack(alignment: .leading) {
                         
                         Text("Email")
-                        TextField("Introducir email", text: .constant("")).frame(width: 272, height: 34).background(.white).cornerRadius(10)
+                        TextField("Introducir email", text: .constant(""))
+                            .padding(.leading,10)
+                            .frame(width: 272, height: 34)
+                            .background(.white)
+                            .cornerRadius(10)
                         
                         Spacer().frame(height: 20)
                         
                         Text("Contraseña")
-                        TextField("Introducir contraseña", text: .constant("")).frame(width: 272, height: 34).background(.white).cornerRadius(10)
+                        TextField("Introducir contraseña", text: .constant(""))
+                            .padding(.leading,10)
+                            .frame(width: 272, height: 34)
+                            .background(.white)
+                            .cornerRadius(10)
                     }
                     
                     Spacer().frame(height: 40)
