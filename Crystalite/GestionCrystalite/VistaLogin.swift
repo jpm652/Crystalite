@@ -53,7 +53,8 @@ struct VistaLogin: View {
                                     
                                     if(persona.email == email && persona.contrasena == contraseña){
                                         
-                                        NavigationLink(destination: VistaPrincipal(usuarioActual: persona)){}
+                                        //NavigationLink(destination: VistaPrincipal(usuarioActual: persona)){}
+                                        
                                     }else{
                                         // Pop up datos incorrectos
                                     }

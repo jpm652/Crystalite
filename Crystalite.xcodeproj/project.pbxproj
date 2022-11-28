@@ -23,7 +23,6 @@
 		296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8802927E36B00FAE131 /* ViewModel.swift */; };
 		296BB8832927EED100FAE131 /* VistaRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8822927EED100FAE131 /* VistaRegistro.swift */; };
 		296BB8852927F08300FAE131 /* VistaHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8842927F08300FAE131 /* VistaHistorial.swift */; };
-		29BEBF612934AE9500400509 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEBF602934AE9500400509 /* ImagePicker.swift */; };
 		29F7F2CB2934BAF100BE68C2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */; };
 		756B4F592909656900DC66FC /* VistaClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F582909656900DC66FC /* VistaClasificacion.swift */; };
 		756B4F5B29323E6E00DC66FC /* VistaInfoDetallada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F5A29323E6E00DC66FC /* VistaInfoDetallada.swift */; };
@@ -47,7 +46,6 @@
 		296BB8802927E36B00FAE131 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		296BB8822927EED100FAE131 /* VistaRegistro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaRegistro.swift; sourceTree = "<group>"; };
 		296BB8842927F08300FAE131 /* VistaHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaHistorial.swift; sourceTree = "<group>"; };
-		29BEBF602934AE9500400509 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePicker.swift; path = ../../../../Downloads/ImagePicker.swift; sourceTree = "<group>"; };
 		29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePicker.swift; path = ../../../../Downloads/ImagePicker.swift; sourceTree = "<group>"; };
 		756B4F582909656900DC66FC /* VistaClasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaClasificacion.swift; sourceTree = "<group>"; };
 		756B4F5A29323E6E00DC66FC /* VistaInfoDetallada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaInfoDetallada.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */,
-				29BEBF602934AE9500400509 /* ImagePicker.swift */,
 			);
 			path = Extensiones;
 			sourceTree = "<group>";
@@ -232,7 +229,6 @@
 				296BB8832927EED100FAE131 /* VistaRegistro.swift in Sources */,
 				296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */,
 				296BB87D2927DFD000FAE131 /* VistaLogin.swift in Sources */,
-				29BEBF612934AE9500400509 /* ImagePicker.swift in Sources */,
 				292BF54029312CD8009A0B1E /* VistaInfoCuenta.swift in Sources */,
 				29060BE92934A29300362E2C /* BusquedaView.swift in Sources */,
 			);
