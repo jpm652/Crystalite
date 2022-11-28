@@ -83,6 +83,7 @@
 			children = (
 				29BEBF5F2934AE8600400509 /* Extensiones */,
 				296BB8762927D3B500FAE131 /* Model */,
+				296BB8792927D43400FAE131 /* CrystaliteModel.xcdatamodeld */,
 				296BB8772927D3BE00FAE131 /* ViewModel */,
 				296BB8782927D3E100FAE131 /* GestionCrystalite */,
 				296BB86C2927D32600FAE131 /* Assets.xcassets */,
@@ -102,7 +103,6 @@
 		296BB8762927D3B500FAE131 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				296BB8792927D43400FAE131 /* CrystaliteModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";

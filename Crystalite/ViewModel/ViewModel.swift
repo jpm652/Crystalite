@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreData
-import UIKit
 import SwiftUI
 
 class ViewModel: ObservableObject{
@@ -20,8 +19,11 @@ class ViewModel: ObservableObject{
     @Published var ayudaArray: [AyudaEntity] = []
     
     init(){
-       
         cargarDatos()
+        //addEnsayo(persona: personaArray[0], nombre: "primero", fecha: Date(), enProceso: false)
+        //addPersona(nombre: "pepe", foto: (UIImage(systemName: "person.crop.circle.badge.plus") ?? nil)!, email: "hola", contrasena: "hola", admin: false)
+        //addCristal(nombre: "hola", descripcion: "hola")
+        //addElemento(iniciales: "Ho", nombre: "jajajaja", descripcion: "iouhwefia", valor: 5.0)
     }
     
     func cargarDatos(){

@@ -54,7 +54,7 @@ struct VistaHistorial: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                                
-                /*
+                
                 NavigationView{
                     List(){
                         ForEach(vm.ensayoArray){ ensayo in
@@ -67,10 +67,11 @@ struct VistaHistorial: View {
                                     }
                                 }
                             }
+                            
                         }
                     }
                 }
-                 */
+                 
                 // estudioHistorial(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 1, fecha: Date());
             }
         }.padding(.top, -50)

@@ -11,7 +11,7 @@ struct VistaLogin: View {
     @EnvironmentObject var vm: ViewModel
     
     var body: some View {
-        
+
         NavigationView{
             ZStack{
                 Color("Gris").ignoresSafeArea()
