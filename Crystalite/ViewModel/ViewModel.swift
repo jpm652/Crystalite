@@ -21,7 +21,7 @@ class ViewModel: ObservableObject{
     
     init(){
         cargarDatos()
-        //addEnsayo(persona: personaArray[0], nombre: "primero", fecha: Date(), enProceso: false)
+        //addEnsayo(persona: personaArray[0], nombre: "Ensayo 2", fecha: Date(), enProceso: false, resultado: "Cristal faro", al: 5, ba: 6, ca: 5, mg: 6, k: 7, ir: 1)
         //addPersona(nombre: "pepe", foto: (UIImage(systemName: "person.crop.circle.badge.plus") ?? nil)!, email: "hola", contrasena: "hola", admin: false)
         //addCristal(nombre: "hola", descripcion: "hola")
         //addElemento(iniciales: "Ho", nombre: "jajajaja", descripcion: "iouhwefia", valor: 5.0)
@@ -74,12 +74,19 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
-    func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool){
+    func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double, mg:Double, k:Double, ir:Double){
         let newEnsayo = EnsayoEntity(context: gestorCoreData.contexto)
         newEnsayo.nombre = nombre
         newEnsayo.fecha = fecha
         newEnsayo.enProceso = enProceso
-        // newEnsayo.personaRelation = persona
+        newEnsayo.resultCristal = resultado
+        newEnsayo.al = al
+        newEnsayo.ba = ba
+        newEnsayo.ca = ca
+        newEnsayo.mg = mg
+        newEnsayo.k = k
+        newEnsayo.ir = ir
+
         guardarDatos()
     }
     

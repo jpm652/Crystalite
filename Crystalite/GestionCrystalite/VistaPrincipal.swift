@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VistaPrincipal: View {
     @EnvironmentObject var usuario: ViewModel;
-    var usuarioActual: PersonaEntity
+    //var usuarioActual: PersonaEntity
     
     @State var seleccion: Int = 1;
     

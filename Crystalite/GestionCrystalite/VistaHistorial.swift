@@ -20,7 +20,7 @@ struct VistaHistorial: View {
     @State var opcionEnsayo : OpcionEnsayo = .todos
     
     var body: some View {
-        NavigationView{
+     
 
         ZStack(alignment: .top){
 
@@ -56,22 +56,22 @@ struct VistaHistorial: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                                
-                
-                    List(){
+                ScrollView{
                         ForEach(vm.ensayoArray){ ensayo in
                             if(query.isEmpty){
                                 NavigationLink(destination: VistaInfoDetallada()){
                                     estudioHistorial(tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
                             }
-                            }
+                            
                             
                         }
                     }
                 }
+                }
                  
                 // estudioHistorial(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 1, fecha: Date());
-            }
-        }.padding(.top, -300)
+        }.padding(.top,-40)
+     
     }
 }
 

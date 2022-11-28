@@ -45,30 +45,32 @@ struct VistaLogin: View {
                     
                     VStack{
                         
-                        Button(){
-                            if(email.isEmpty || contraseña.isEmpty){
-                                // Pop up rellene campos
-                            }else{
-                                for persona in vm.personaArray {
-                                    
-                                    if(persona.email == email && persona.contrasena == contraseña){
-                                        
-                                        NavigationLink(destination: VistaPrincipal(usuarioActual: persona)){}
-                                    }else{
-                                        // Pop up datos incorrectos
-                                    }
-                                }
-                            }
-                            
-                        } label: {
-                            Text("Iniciar Sesión")
-                                .frame(width: 245, height: 59)
-                                .background(Color("Azul"))
-                                .tint(.black)
-                                .clipShape(RoundedRectangle (cornerRadius: 19))
-                        }
+//                        Button(){
+//                            if(email.isEmpty || contraseña.isEmpty){
+//                                // Pop up rellene campos
+//                            }else{
+//                                for persona in vm.personaArray {
+//
+//                                    if(persona.email == email && persona.contrasena == contraseña){
+//
+//                                        NavigationLink(destination: VistaPrincipal(usuarioActual: persona)){}
+//                                    }else{
+//                                        // Pop up datos incorrectos
+//                                    }
+//                                }
+//                            }
+//
+//                        } label: {
+//                            Text("Iniciar Sesión")
+//                                .frame(width: 245, height: 59)
+//                                .background(Color("Azul"))
+//                                .tint(.black)
+//                                .clipShape(RoundedRectangle (cornerRadius: 19))
+//                        }
                         
                     }
+                    boton(texto: "Iniciar Sesion", vista: AnyView(VistaPrincipal()));
+
                     
                     HStack{
                         //RELLENAR --------o---------

@@ -20,11 +20,11 @@
         <attribute name="ca" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="enProceso" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="fecha" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="ir" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="k" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="mg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
         <attribute name="resultCristal" optional="YES" attributeType="String"/>
-        <attribute name="ri" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="cristalRelation" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="CristalEntity"/>
         <relationship name="elementoRelation" optional="YES" toMany="YES" minCount="6" maxCount="6" deletionRule="Nullify" destinationEntity="ElementoEntity"/>
         <relationship name="personaRelation" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PersonaEntity"/>

@@ -112,7 +112,7 @@ struct estudioHistorial: View{
                             .clipShape(RoundedRectangle (cornerRadius: 10))
                         
                     }
-                    .frame(width: 300, height: 100)
+                    .frame(width: 280, height: 100)
                     .background(.white)
                     .cornerRadius(15)
                 }
