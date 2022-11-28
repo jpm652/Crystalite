@@ -10,8 +10,10 @@ import SwiftUI
 struct VistaLogin: View {
     @EnvironmentObject var vm: ViewModel
     
+    @State var email : String = ""
+    @State var contraseña : String = ""
     var body: some View {
-
+        
         NavigationView{
             ZStack{
                 Color("Gris").ignoresSafeArea()
@@ -19,11 +21,11 @@ struct VistaLogin: View {
                 VStack {
                     Image("Logo").resizable().frame(width: 180, height: 150)
                     Spacer().frame(height: 40)
-
+                    
                     VStack(alignment: .leading) {
                         
                         Text("Email")
-                        TextField("Introducir email", text: .constant(""))
+                        TextField("Introducir email", text: $email)
                             .padding(.leading,10)
                             .frame(width: 272, height: 34)
                             .background(.white)
@@ -32,7 +34,7 @@ struct VistaLogin: View {
                         Spacer().frame(height: 20)
                         
                         Text("Contraseña")
-                        TextField("Introducir contraseña", text: .constant(""))
+                        SecureField("Introducir contraseña", text: $contraseña)
                             .padding(.leading,10)
                             .frame(width: 272, height: 34)
                             .background(.white)
@@ -40,25 +42,49 @@ struct VistaLogin: View {
                     }
                     
                     Spacer().frame(height: 40)
-
+                    
                     VStack{
                         
-                        boton(texto: "Iniciar Sesión", vista: AnyView(VistaPrincipal()))
-                        HStack{
-                        //RELLENAR --------o---------
+                        Button(){
+                            if(email.isEmpty || contraseña.isEmpty){
+                                // Pop up rellene campos
+                            }else{
+                                for persona in vm.personaArray {
+                                    
+                                    if(persona.email == email && persona.contrasena == contraseña){
+                                        
+                                        NavigationLink(destination: VistaPrincipal(usuarioActual: persona)){}
+                                    }else{
+                                        // Pop up datos incorrectos
+                                    }
+                                }
+                            }
+                            
+                        } label: {
+                            Text("Iniciar Sesión")
+                                .frame(width: 245, height: 59)
+                                .background(Color("Azul"))
+                                .tint(.black)
+                                .clipShape(RoundedRectangle (cornerRadius: 19))
                         }
-                        boton(texto: "Registro", vista: AnyView(VistaRegistro()));
                         
                     }
+                    
+                    HStack{
+                        //RELLENAR --------o---------
+                    }
+                    boton(texto: "Registro", vista: AnyView(VistaRegistro()));
+                    
                 }
-                
-                
             }
             
-        }
             
+        }
         
     }
+    
+    
+    
 }
 
 

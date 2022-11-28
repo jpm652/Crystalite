@@ -9,6 +9,8 @@ import SwiftUI
 
 struct VistaPrincipal: View {
     @EnvironmentObject var usuario: ViewModel;
+    var usuarioActual: PersonaEntity
+    
     @State var seleccion: Int = 1;
     
     var body: some View {
@@ -35,8 +37,8 @@ struct VistaPrincipal: View {
     }
 }
 
-struct VistaPrincipal_Previews: PreviewProvider {
-    static var previews: some View {
-        VistaPrincipal()
-    }
-}
+//struct VistaPrincipal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VistaPrincipal().environmentObject(ViewModel)
+//    }
+//}

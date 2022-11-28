@@ -8,71 +8,83 @@
 import SwiftUI
 
 struct VistaRegistro: View {
+    @EnvironmentObject var vm : ViewModel
     @State var imageGeneral : UIImage = (UIImage(systemName: "person.crop.circle.badge.plus") ?? nil)!
     @State var mostrarImagePicker: Bool = false
-
+    
+    // Atributos de una persona
+    @State var nombre : String = ""
+    @State var email : String = ""
+    @State var contraseña : String = ""
+    @State var repeatContraseña : String = ""
 
     var body: some View {
-        ZStack{
-            Color("Gris").ignoresSafeArea()
-            
-            VStack {
+        NavigationView{
+            ZStack{
+                Color("Gris").ignoresSafeArea()
                 
-                
-                Button() {
-                    mostrarImagePicker.toggle()
-
-
-                }label:{
-                    VStack{
-                        Image(uiImage: imageGeneral)
+                VStack {
+                    
+                    Button() {
+                        mostrarImagePicker.toggle()
+                        
+                        
+                    }label:{
+                        VStack{
+                            Image(uiImage: imageGeneral)
                                 .resizable()
                                 .foregroundColor(.black)
                                 .frame(width: 120, height: 100, alignment: .center)
                         }
+                    }
+                    .sheet(isPresented: $mostrarImagePicker){
+                        ImagePicker(sourceType: .photoLibrary){imageSeleccionada in
+                            imageGeneral = imageSeleccionada
+                        }
+                    }
                     
-                }
-                .sheet(isPresented: $mostrarImagePicker){
-                    ImagePicker(sourceType: .photoLibrary){imageSeleccionada in
-                        imageGeneral = imageSeleccionada
+                    Spacer().frame(height: 50)
+                    
+                    VStack(alignment: .leading, spacing: 1) {
                         
+                        Text("Nombre")
+                        TextField("Introducir nombre", text: $nombre).padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
+                    }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
+                    
+                    VStack(alignment: .leading, spacing: 1) {
+                        
+                        Text("Email")
+                        TextField("Introducir email", text: $email).padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
+                    }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
+                    
+                    VStack(alignment: .leading, spacing: 1) {
+                        
+                        Text("Contraseña")
+                        SecureField("Introducir contraseña", text: $contraseña).padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
+                    }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
+                    
+                    VStack(alignment: .leading, spacing: 1) {
+                        
+                        Text("Repetir Contraseña")
+                        SecureField("Repetir contraseña", text: $repeatContraseña).padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
+                    }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
+                    
+                    Spacer().frame(height: 40)
+                    
+                    Button() {
+                        if(nombre == "" || email == "" || contraseña == "" || repeatContraseña == ""){
+                            // Poner pop up
+                        }else{
+                            vm.addPersona(nombre: nombre, foto: imageGeneral, email: email, contrasena: contraseña, admin: false)
+                            //NavigationLink(destination: VistaLogin())
+                        }
+                    } label: {
+                        Text("Registrarse")
+                            .frame(width: 245, height: 59).background(Color("Azul")).tint(.black).clipShape(RoundedRectangle (cornerRadius: 19))
                     }
                 }
-                
-                
-                
-                Spacer().frame(height: 50)
-
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("Nombre")
-                    TextField("Introducir nombre", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)                            .padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
-                }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
-                
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("Email")
-                    TextField("Introducir email", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
-                }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
-                
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("Contraseña")
-                    TextField("Introducir contraseña", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
-                }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
-                
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("Repetir Contraseña")
-                    TextField("Repetir contraseña", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/).padding(.leading,10).frame(width: 272, height: 34).background(.white).cornerRadius(10)
-                }.frame(width: 272, height: 58, alignment: .center).padding(.bottom, 10)
-                
-                Spacer().frame(height: 40)
-                
-                Button() {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                } label: {
-                    Text("Registrarse")
-                        .frame(width: 245, height: 59).background(Color("Azul")).tint(.black).clipShape(RoundedRectangle (cornerRadius: 19))
-                }
             }
-        }
+        }.padding(.top, -300)
     }
 }
 
