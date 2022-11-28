@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29060BE92934A29300362E2C /* BusquedaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29060BE82934A29300362E2C /* BusquedaView.swift */; };
 		292388FA2930BB1B0084987B /* Componentes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388F92930BB1B0084987B /* Componentes.swift */; };
 		292388FC2930BFAA0084987B /* VistaAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FB2930BFAA0084987B /* VistaAyuda.swift */; };
 		292388FE2930CA710084987B /* VistaResultadoClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29060BE82934A29300362E2C /* BusquedaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusquedaView.swift; sourceTree = "<group>"; };
 		292388F92930BB1B0084987B /* Componentes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Componentes.swift; sourceTree = "<group>"; };
 		292388FB2930BFAA0084987B /* VistaAyuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaAyuda.swift; sourceTree = "<group>"; };
 		292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaResultadoClasificacion.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */,
 				292BF53F29312CD8009A0B1E /* VistaInfoCuenta.swift */,
 				756B4F5A29323E6E00DC66FC /* VistaInfoDetallada.swift */,
+				29060BE82934A29300362E2C /* BusquedaView.swift */,
 			);
 			path = GestionCrystalite;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */,
 				296BB87D2927DFD000FAE131 /* VistaLogin.swift in Sources */,
 				292BF54029312CD8009A0B1E /* VistaInfoCuenta.swift in Sources */,
+				29060BE92934A29300362E2C /* BusquedaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

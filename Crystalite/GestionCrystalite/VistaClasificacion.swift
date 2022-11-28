@@ -32,8 +32,8 @@ struct VistaClasificacion: View {
                 
                 VStack(alignment: .leading) {
                     Text("Introducir ensayo").font(.title).bold()
-                    Spacer().frame(height: 20)
-                    Text("Ensayo").font(.title2)
+                    Spacer().frame(height: 15)
+                    Text("Nombre: ").font(.title2)
                     
                     TextField("Introducir nombre del ensayo", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
                         .padding(.leading,20)
@@ -42,7 +42,7 @@ struct VistaClasificacion: View {
                         .cornerRadius(10)
                 }
                 
-                Spacer().frame(height: 25)
+                Spacer().frame(height: 20)
                 
                 ScrollView{
                     ElementoView(iniciales: "Al", nombre: "Aluminio", valor: 0.0)

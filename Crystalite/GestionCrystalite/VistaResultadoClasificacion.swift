@@ -17,7 +17,7 @@ struct VistaResultadoClasificacion: View {
                 Text("Resultado Clasifiaccion").font(.title);
                 
                 Spacer().frame(height: 30)
-                elementoCristal(tipo: "Cristal Ventana", nombre: "Ensayo N", fecha: "Fecha");
+                elementoCristal(tipo: "Cristal Ventana", nombre: "Nombre Ensayo", fecha: "Fecha");
             
                 Spacer().frame(height: 50)
                 HStack{

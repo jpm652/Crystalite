@@ -86,7 +86,7 @@ struct ElementoView: View{
 struct estudioHistorial: View{
     
     var tipoCristal: String;
-    var numeroEnsayo: Int;
+    var nombreEnsayo: String;
     var fecha: Date;
     
     var body:some View{
@@ -99,7 +99,7 @@ struct estudioHistorial: View{
                         
                         VStack(alignment: .leading) {
                             Text(tipoCristal).font(.title3)
-                            Text("Ensayo Nº \(numeroEnsayo)").font(.caption)
+                            Text("Nombre: \(nombreEnsayo)").font(.caption)
                             
                         }.padding(.leading)
                             .frame(width: 170, alignment: .leading)
