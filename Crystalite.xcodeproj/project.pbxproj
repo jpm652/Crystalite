@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		29060BE92934A29300362E2C /* BusquedaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29060BE82934A29300362E2C /* BusquedaView.swift */; };
+		29060BEB2934B18F00362E2C /* VistaHistorialDetalle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29060BEA2934B18F00362E2C /* VistaHistorialDetalle.swift */; };
 		292388FA2930BB1B0084987B /* Componentes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388F92930BB1B0084987B /* Componentes.swift */; };
 		292388FC2930BFAA0084987B /* VistaAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FB2930BFAA0084987B /* VistaAyuda.swift */; };
 		292388FE2930CA710084987B /* VistaResultadoClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		29060BE82934A29300362E2C /* BusquedaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusquedaView.swift; sourceTree = "<group>"; };
+		29060BEA2934B18F00362E2C /* VistaHistorialDetalle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaHistorialDetalle.swift; sourceTree = "<group>"; };
 		292388F92930BB1B0084987B /* Componentes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Componentes.swift; sourceTree = "<group>"; };
 		292388FB2930BFAA0084987B /* VistaAyuda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaAyuda.swift; sourceTree = "<group>"; };
 		292388FD2930CA710084987B /* VistaResultadoClasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaResultadoClasificacion.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				292BF53F29312CD8009A0B1E /* VistaInfoCuenta.swift */,
 				756B4F5A29323E6E00DC66FC /* VistaInfoDetallada.swift */,
 				29060BE82934A29300362E2C /* BusquedaView.swift */,
+				29060BEA2934B18F00362E2C /* VistaHistorialDetalle.swift */,
 			);
 			path = GestionCrystalite;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				296BB87B2927D43400FAE131 /* CrystaliteModel.xcdatamodeld in Sources */,
 				292388FA2930BB1B0084987B /* Componentes.swift in Sources */,
 				296BB8692927D32300FAE131 /* CrystaliteApp.swift in Sources */,
+				29060BEB2934B18F00362E2C /* VistaHistorialDetalle.swift in Sources */,
 				292388FE2930CA710084987B /* VistaResultadoClasificacion.swift in Sources */,
 				296BB87F2927E07800FAE131 /* CoreDataManager.swift in Sources */,
 				756B4F592909656900DC66FC /* VistaClasificacion.swift in Sources */,
