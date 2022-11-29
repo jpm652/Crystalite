@@ -12,6 +12,7 @@ struct VistaLogin: View {
     
     @State var email : String = ""
     @State var contraseña : String = ""
+    
     var body: some View {
         
         NavigationView{
@@ -19,6 +20,7 @@ struct VistaLogin: View {
                 Color("Gris").ignoresSafeArea()
                 
                 VStack {
+ 
                     Image("Logo").resizable().frame(width: 180, height: 150)
                     Spacer().frame(height: 40)
                     
@@ -45,15 +47,16 @@ struct VistaLogin: View {
                     
                     VStack{
                         
-                        Button(){
+                        NavigationLink{
                             if(email.isEmpty || contraseña.isEmpty){
                                 // Pop up rellene campos
+
                             }else{
-                                for persona in vm.personaArray {
+                                ForEach(vm.personaArray) { persona in
                                     
                                     if(persona.email == email && persona.contrasena == contraseña){
                                         
-                                        //NavigationLink(destination: VistaPrincipal(usuarioActual: persona)){}
+                                        VistaPrincipal()
                                         
                                     }else{
                                         // Pop up datos incorrectos
@@ -61,7 +64,7 @@ struct VistaLogin: View {
                                 }
                             }
                             
-                        } label: {
+                        }label: {
                             Text("Iniciar Sesión")
                                 .frame(width: 245, height: 59)
                                 .background(Color("Azul"))
@@ -70,7 +73,6 @@ struct VistaLogin: View {
                         }
                         
                     }
-                    boton(texto: "Iniciar Sesion", vista: AnyView(VistaPrincipal()));
 
                     
                     HStack{

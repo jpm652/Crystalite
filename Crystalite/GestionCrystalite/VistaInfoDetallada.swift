@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct VistaInfoDetallada: View {
+    @EnvironmentObject var vm: ViewModel
     var body: some View {
+        
+        
+
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
             
@@ -31,8 +35,16 @@ struct VistaInfoDetallada: View {
                     
                 }.frame(width: 300, alignment: .leading)
             
-                elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio");
-                
+                ScrollView{
+                    elementoResultadoFila(iniciales: "Al", nombre: "Aluminio", value: vm.ensayoArray[0].al)
+                    elementoResultadoFila(iniciales: "Ba", nombre: "Bario", value: vm.ensayoArray[0].ba)
+                    elementoResultadoFila(iniciales: "Ca", nombre: "Calcio", value: vm.ensayoArray[0].ca)
+                    elementoResultadoFila(iniciales: "IR", nombre: "Indice Refraccion", value: vm.ensayoArray[0].ir)
+                    elementoResultadoFila(iniciales: "K", nombre: "Potasio", value: vm.ensayoArray[0].k)
+                    elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio", value: vm.ensayoArray[0].mg)
+                }
+
+
                 
                 
         }

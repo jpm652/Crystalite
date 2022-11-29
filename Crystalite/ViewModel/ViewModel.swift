@@ -21,10 +21,14 @@ class ViewModel: ObservableObject{
     
     init(){
         cargarDatos()
-        //addEnsayo(persona: personaArray[0], nombre: "Ensayo 2", fecha: Date(), enProceso: false, resultado: "Cristal faro", al: 5, ba: 6, ca: 5, mg: 6, k: 7, ir: 1)
-        //addPersona(nombre: "pepe", foto: (UIImage(systemName: "person.crop.circle.badge.plus") ?? nil)!, email: "hola", contrasena: "hola", admin: false)
-        //addCristal(nombre: "hola", descripcion: "hola")
-        //addElemento(iniciales: "Ho", nombre: "jajajaja", descripcion: "iouhwefia", valor: 5.0)
+
+//        addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio")
+//        addElemento(iniciales: "IR",valor: 0.0, nombre: "Indice de refraccion")
+//        addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario")
+//        addElemento(iniciales: "Ca",valor: 0.0, nombre: "Calcio")
+//        addElemento(iniciales: "K",valor: 0.0, nombre: "Potasio")
+//        addElemento(iniciales: "Mg",valor: 0.0, nombre: "Magnesio")
+
     }
     
     func cargarDatos(){
@@ -74,7 +78,7 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
-    func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double, mg:Double, k:Double, ir:Double){
+    func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double ){
         let newEnsayo = EnsayoEntity(context: gestorCoreData.contexto)
         newEnsayo.nombre = nombre
         newEnsayo.fecha = fecha
@@ -95,13 +99,18 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
-    func addElemento(iniciales: String, nombre : String, descripcion : String, valor : Double){
+    func addElemento(iniciales: String, valor : Double, nombre : String){
         
         let newElemento = ElementoEntity(context: gestorCoreData.contexto)
         newElemento.iniciales = iniciales
-        newElemento.nombre = nombre
-        newElemento.descripcion = descripcion
         newElemento.valor = valor
+        newElemento.nombre = nombre
+        
+        guardarDatos()
+    }
+    func editElemento(elemento : ElementoEntity, valorNuevo : Double){
+        
+        elemento.valor = valorNuevo
         
         guardarDatos()
     }
@@ -113,7 +122,7 @@ class ViewModel: ObservableObject{
     
     func addCristal(nombre : String, descripcion : String){
         
-        let newCristal = ElementoEntity(context: gestorCoreData.contexto)
+        let newCristal = CristalEntity(context: gestorCoreData.contexto)
         newCristal.nombre = nombre
         newCristal.descripcion = descripcion
         

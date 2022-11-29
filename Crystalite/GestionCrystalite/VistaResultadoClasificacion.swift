@@ -32,7 +32,7 @@ struct VistaResultadoClasificacion: View {
                     
                 }.frame(width: 300, alignment: .leading)
             
-                elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio");
+                //elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio");
         }
     }
 }

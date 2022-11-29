@@ -9,16 +9,14 @@ import SwiftUI
 
 struct VistaClasificacion: View {
     @EnvironmentObject var vm: ViewModel
-    @State var valorElemento : Double = 0.0;
-    @State var valorFinal : Double = 0.0;
-    @State var aparece: Bool = false
-    @State var ri : ElementoView = ElementoView(iniciales: "RI", nombre: "Indice Refracción", valor: 0.0,valorFinal: "")
-    @State var al : ElementoView = ElementoView(iniciales: "Al", nombre: "Aluminio", valor: 0.0,valorFinal: "")
-    @State var ba : ElementoView = ElementoView(iniciales: "Ba", nombre: "Bario", valor: 0.0,valorFinal: "")
-    @State var ca : ElementoView = ElementoView(iniciales: "Ca", nombre: "Calcio", valor: 0.0,valorFinal: "")
-    @State var mg : ElementoView = ElementoView(iniciales: "Mg", nombre: "Magnesio", valor: 0.0,valorFinal: "")
-    @State var k : ElementoView = ElementoView(iniciales: "K", nombre: "Potasio", valor: 0.0,valorFinal: "")
     
+    @State var valorAl: Double = 0.0;
+    @State var valorBa: Double = 0.0;
+    @State var valorCa: Double = 0.0;
+    @State var valorIr: Double = 0.0;
+    @State var valorMg: Double = 0.0;
+    @State var valorK: Double = 0.0;
+
     var body: some View {
         
         ZStack(alignment: .top){
@@ -27,7 +25,7 @@ struct VistaClasificacion: View {
             VStack(){
                 HStack {
                     Spacer().frame(height: 1)
-    
+                    
                     Button(action: { }) {
                         Image(systemName: "person.crop.circle")
                             .resizable()
@@ -36,7 +34,7 @@ struct VistaClasificacion: View {
                             .padding(.horizontal,20)
                     }
                 }
-
+                
                 VStack(alignment: .leading) {
                     Text("Introducir ensayo").font(.title).bold()
                     Spacer().frame(height: 15)
@@ -52,31 +50,40 @@ struct VistaClasificacion: View {
                 Spacer().frame(height: 20)
                 
                 ScrollView{
-                    al
-                    ba
-                    ca
-                    mg
-                    k
-                    ri
+                    ForEach(vm.elementoArray){
+                        elementos in
+                        ElementoView(elemento: elementos)
+                    }
                 }
                 
-                
-                
-                NavigationLink(destination: VistaResultadoClasificacion()){
-                    Label("Clasificar cristal", systemImage: "app.badge")
+                Button(){
+
+                    vm.addEnsayo(persona: vm.personaArray[0], nombre: "Primer Ensayo", fecha: Date(), enProceso: false, resultado: "Cristal faro", al: vm.elementoArray[0].valor, ba: vm.elementoArray[1].valor, ca: vm.elementoArray[2].valor, ir: vm.elementoArray[3].valor, k: vm.elementoArray[4].valor, mg: vm.elementoArray[5].valor)
+                    
+                        
+                    
+                }label: {
+                    Text("Clasificar cristal")
                         .frame(width: 245, height: 59)
                         .background(Color("Azul"))
                         .tint(.black)
                         .clipShape(RoundedRectangle (cornerRadius: 19))
                         .padding(.all, 15)
                         .labelStyle(TitleOnlyLabelStyle())
-                        .onTapGesture {
-                            
-                        }
-                    
-                    
-                    
                 }
+                
+                //                NavigationLink{
+                //
+                //
+                //                }label: {
+                //                    Text("Clasificar cristal")
+                //                        .frame(width: 245, height: 59)
+                //                        .background(Color("Azul"))
+                //                        .tint(.black)
+                //                        .clipShape(RoundedRectangle (cornerRadius: 19))
+                //                        .padding(.all, 15)
+                //                        .labelStyle(TitleOnlyLabelStyle())
+                //                }
                 
             }.padding(.top, -80)
         }

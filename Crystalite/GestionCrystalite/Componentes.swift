@@ -31,11 +31,10 @@ struct boton: View{
 
 struct ElementoView: View{
     
-    static var cantidadElemento : String = ""
-
-    var iniciales : String
-    var nombre : String
-    var valor : Double
+    @EnvironmentObject var vm: ViewModel
+    
+    var elemento : ElementoEntity
+    var valor : Double = 0.0
     @State var altura: CGFloat = 60
     @State var mostrarSlider : Bool = false
     @State var valorFinal : String = ""
@@ -43,16 +42,15 @@ struct ElementoView: View{
     
     var body:some View{
         VStack(){
-            
             HStack (){
-                Image(iniciales)
+                Image(elemento.iniciales ?? "")
                     .resizable()
                     .frame(width: 35, height: 35)
                     .clipShape(RoundedRectangle (cornerRadius: 10))
                 
                 VStack(alignment: .leading) {
-                    Text(iniciales).font(.title3)
-                    Text(nombre)
+                    Text(elemento.iniciales ?? "").font(.title3)
+                    Text(elemento.nombre ?? "")
                     
                 }.frame(width: 150, alignment: .leading)
                 TextField(String(valor), text: $valorFinal).frame(width: 50)
@@ -75,14 +73,20 @@ struct ElementoView: View{
                     Slider(value: $valorSlider, in: 0.0...20.0,
                            onEditingChanged:{ editing in
                         valorFinal = String(format: "%.2f", valorSlider)
-                        
-                    }).frame(width: 280)
-                }            }
+                        vm.editElemento(elemento: elemento, valorNuevo: valorSlider)
+                    }
+                    ).frame(width: 280)
+                    
+                }
+
+            }
         }
         .frame(width: 300, height: altura)
         .background(.white)
         .cornerRadius(15)
+        
     }
+    
 }
 
 struct estudioHistorial: View{
@@ -189,17 +193,20 @@ struct elementoResultadoFila: View{
     
     var iniciales : String;
     var nombre : String;
-    var value = "0,0";
+    var value : Double;
     
     var body: some View{
         HStack (){
-            Image(systemName: "gear")
+            Image(iniciales)
+                .resizable()
+                .frame(width: 35, height: 35)
+                .clipShape(RoundedRectangle (cornerRadius: 10))
             VStack(alignment: .leading) {
                 Text(iniciales)
                 Text(nombre)
                 
             }.frame(width: 170, alignment: .leading)
-            Text(value).frame(width: 30)
+            Text(String(format: "%.2f",value)).frame(width: 40)
         }
         .frame(width: 300, height: 60)
         .background(.white)
