@@ -20,10 +20,10 @@ struct VistaHistorial: View {
     @State var opcionEnsayo : OpcionEnsayo = .todos
     
     var body: some View {
-     
-
+        
+        
         ZStack(alignment: .top){
-
+            
             Color("Gris").ignoresSafeArea()
             
             HStack {
@@ -49,29 +49,43 @@ struct VistaHistorial: View {
                 
                 Text("Mostrar: ").frame(alignment: .leading)
                 Picker("", selection: $opcionEnsayo){
+                    
                     ForEach(OpcionEnsayo.allCases, id: \.self){ opcion in
                         Text(opcion.rawValue)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                               
+                
                 ScrollView{
-                        ForEach(vm.ensayoArray){ ensayo in
-                            if(query.isEmpty){
+                    ForEach(vm.ensayoArray){ ensayo in
+                        if(query.isEmpty){
+                            if(opcionEnsayo == .enProceso){
+                                if(ensayo.enProceso){
+                                    NavigationLink(destination: VistaInfoDetallada()){
+                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                    }
+                                }
+                            }else{
                                 NavigationLink(destination: VistaInfoDetallada()){
-                                    estudioHistorial(tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                }
                             }
-                            
-                            
+                        }else{
+                            if((ensayo.nombre ?? "" ).hasPrefix(query)){
+                                NavigationLink(destination: VistaInfoDetallada()){
+                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                }
+                            }
                         }
+
                     }
                 }
-                }
-                 
-                // estudioHistorial(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 1, fecha: Date());
+            }
+            
+            // estudioHistorial(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 1, fecha: Date());
         }.padding(.top,-40)
-     
+        
     }
 }
 

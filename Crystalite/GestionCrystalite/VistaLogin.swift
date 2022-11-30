@@ -7,13 +7,17 @@
 
 import SwiftUI
 
+
+
+
 struct VistaLogin: View {
     @EnvironmentObject var vm: ViewModel
     
     @State var email : String = ""
     @State var contraseña : String = ""
-    
     var body: some View {
+        
+        
         
         NavigationView{
             ZStack{

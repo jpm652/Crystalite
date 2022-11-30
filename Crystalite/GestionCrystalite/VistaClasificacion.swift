@@ -16,7 +16,8 @@ struct VistaClasificacion: View {
     @State var valorIr: Double = 0.0;
     @State var valorMg: Double = 0.0;
     @State var valorK: Double = 0.0;
-
+    @State var nombreEnsayo: String = ""
+    
     var body: some View {
         
         ZStack(alignment: .top){
@@ -40,7 +41,7 @@ struct VistaClasificacion: View {
                     Spacer().frame(height: 15)
                     Text("Nombre: ").font(.title2)
                     
-                    TextField("Introducir nombre del ensayo", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                    TextField("Introducir nombre del ensayo", text: $nombreEnsayo)
                         .padding(.leading,20)
                         .frame(width: 300, height: 34)
                         .background(.white)
@@ -57,10 +58,27 @@ struct VistaClasificacion: View {
                 }
                 
                 Button(){
+                    valorAl = vm.elementoArray[0].valor
+                    valorBa = vm.elementoArray[1].valor
+                    valorCa = vm.elementoArray[2].valor
+                    valorIr = vm.elementoArray[3].valor
+                    valorK = vm.elementoArray[4].valor
+                    valorMg = vm.elementoArray[5].valor
 
-                    vm.addEnsayo(persona: vm.personaArray[0], nombre: "Primer Ensayo", fecha: Date(), enProceso: false, resultado: "Cristal faro", al: vm.elementoArray[0].valor, ba: vm.elementoArray[1].valor, ca: vm.elementoArray[2].valor, ir: vm.elementoArray[3].valor, k: vm.elementoArray[4].valor, mg: vm.elementoArray[5].valor)
-                    
+                    if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
+                        vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                    }else{
+                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         
+                    }
+                    
+                    vm.editElemento(elemento: vm.elementoArray[0], valorNuevo: 0)
+                    vm.editElemento(elemento: vm.elementoArray[1], valorNuevo: 0)
+                    vm.editElemento(elemento: vm.elementoArray[2], valorNuevo: 0)
+                    vm.editElemento(elemento: vm.elementoArray[3], valorNuevo: 0)
+                    vm.editElemento(elemento: vm.elementoArray[4], valorNuevo: 0)
+                    vm.editElemento(elemento: vm.elementoArray[5], valorNuevo: 0)
+
                     
                 }label: {
                     Text("Clasificar cristal")

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VistaInfoDetallada: View {
     @EnvironmentObject var vm: ViewModel
+    @State var disposicion : Bool = false
     var body: some View {
         
         
@@ -28,26 +29,42 @@ struct VistaInfoDetallada: View {
                     Spacer().frame(width: 110);
                     
                     Button(){
-
+                        disposicion.toggle()
                     }label: {
-                        Image(systemName: "seal.fill")
+                        Image(systemName: disposicion ? "list.dash" : "square.grid.3x3.topleft.filled")
+                            .foregroundColor(.black)
                     }
                     
                 }.frame(width: 300, alignment: .leading)
             
-                ScrollView{
-                    elementoResultadoFila(iniciales: "Al", nombre: "Aluminio", value: vm.ensayoArray[0].al)
-                    elementoResultadoFila(iniciales: "Ba", nombre: "Bario", value: vm.ensayoArray[0].ba)
-                    elementoResultadoFila(iniciales: "Ca", nombre: "Calcio", value: vm.ensayoArray[0].ca)
-                    elementoResultadoFila(iniciales: "IR", nombre: "Indice Refraccion", value: vm.ensayoArray[0].ir)
-                    elementoResultadoFila(iniciales: "K", nombre: "Potasio", value: vm.ensayoArray[0].k)
-                    elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio", value: vm.ensayoArray[0].mg)
+                if disposicion == false{
+                    ScrollView{
+                        elementoResultadoFila(iniciales: "Al", nombre: "Aluminio", value: vm.ensayoArray[2].al)
+                        elementoResultadoFila(iniciales: "Ba", nombre: "Bario", value: vm.ensayoArray[2].ba)
+                        elementoResultadoFila(iniciales: "Ca", nombre: "Calcio", value: vm.ensayoArray[2].ca)
+                        elementoResultadoFila(iniciales: "RI", nombre: "Indice Refraccion", value: vm.ensayoArray[2].ir)
+                        elementoResultadoFila(iniciales: "K", nombre: "Potasio", value: vm.ensayoArray[2].k)
+                        elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio", value: vm.ensayoArray[2].mg)
+                    }
+                }else{
+                    HStack{
+                        elementoResultadoCuadrado(iniciales: "Al", value: vm.ensayoArray[2].al)
+                        Spacer().frame(width: 20)
+                        elementoResultadoCuadrado(iniciales: "Ba", value: vm.ensayoArray[2].ba)
+                        Spacer().frame(width: 20)
+                        elementoResultadoCuadrado(iniciales: "Ca",  value: vm.ensayoArray[2].ca)
+                    }
+                    Spacer().frame(height: 30)
+
+                    HStack{
+                        elementoResultadoCuadrado(iniciales: "RI", value: vm.ensayoArray[2].ir)
+                        Spacer().frame(width: 20)
+                        elementoResultadoCuadrado(iniciales: "K", value: vm.ensayoArray[2].k)
+                        Spacer().frame(width: 20)
+                        elementoResultadoCuadrado(iniciales: "Mg",value: vm.ensayoArray[2].mg)
+                    }
                 }
-
-
-                
-                
-        }
+            }.padding(.top,-50)
     }
     }
 }

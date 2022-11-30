@@ -84,13 +84,19 @@ struct ElementoView: View{
         .frame(width: 300, height: altura)
         .background(.white)
         .cornerRadius(15)
+        .onAppear(){
+            valorSlider = 0.0
+            valorFinal = String(valorSlider)
+            mostrarSlider = false
+            altura = 60
+        }
         
     }
     
 }
 
 struct estudioHistorial: View{
-    
+    var proceso: Bool
     var tipoCristal: String;
     var nombreEnsayo: String;
     var fecha: Date;
@@ -106,7 +112,10 @@ struct estudioHistorial: View{
                         VStack(alignment: .leading) {
                             Text(tipoCristal).font(.title3)
                             Text("Nombre: \(nombreEnsayo)").font(.caption)
-                            
+                            if proceso{
+                                Text("En proceso").font(.caption).tint(.red)
+
+                            }
                         }.padding(.leading)
                             .frame(width: 170, alignment: .leading)
                         
@@ -160,7 +169,7 @@ struct elementoCristalEdicion: View{
     var body: some View{
         HStack{
             VStack(alignment: .leading){
-                Text(tipoCristal).font(.title3)
+                Text(tipoCristal).font(.body)
                 Spacer().frame(height: 0.1)
                 HStack{
                     Text("Ensayo Nº \(numeroEnsayo)").font(.caption)
@@ -177,13 +186,15 @@ struct elementoCristalEdicion: View{
                 }
                 Spacer().frame(height: 0.1)
                 Text(fecha).font(.caption);
-            }.frame(width: 160, height: 100, alignment: .leading)
+            }.frame(width: 180, height: 100, alignment: .leading)
+                .padding(.leading, -30)
             Image(tipoCristal)
                 .resizable()
                 .frame(width: 125, height: 100, alignment: .trailing)
-                .cornerRadius(15);
+                .cornerRadius(15)
+                .padding(.trailing,-50)
         }
-        .frame(width: 300, height: 100)
+        .frame(width: 320, height: 100)
         .background(Color.white)
         .cornerRadius(15)
     }
@@ -196,6 +207,7 @@ struct elementoResultadoFila: View{
     var value : Double;
     
     var body: some View{
+        
         HStack (){
             Image(iniciales)
                 .resizable()
@@ -206,9 +218,33 @@ struct elementoResultadoFila: View{
                 Text(nombre)
                 
             }.frame(width: 170, alignment: .leading)
-            Text(String(format: "%.2f",value)).frame(width: 40)
+            Text(String(format: "%.2f",value)).frame(width: 50)
         }
         .frame(width: 300, height: 60)
+        .background(.white)
+        .cornerRadius(15)
+        
+    }
+    
+}
+struct elementoResultadoCuadrado: View{
+    
+    var iniciales : String;
+    var value : Double;
+    
+    var body: some View{
+        VStack (alignment: .center){
+            Image(iniciales)
+                .resizable()
+                .frame(width: 35, height: 35)
+                .clipShape(RoundedRectangle (cornerRadius: 10))
+            VStack() {
+                Text(iniciales).padding(.leading,-30).font(.title2)
+                Text(String(format: "%.2f",value)).padding(.trailing,-20).frame(width: 50)
+
+            }.frame(width: 55)
+        }
+        .frame(width: 85, height: 120)
         .background(.white)
         .cornerRadius(15)
     }
