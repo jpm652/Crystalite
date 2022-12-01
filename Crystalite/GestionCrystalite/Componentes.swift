@@ -162,9 +162,12 @@ struct elementoCristal: View{
 
 struct elementoCristalEdicion: View{
     
+    @EnvironmentObject var vm: ViewModel
     var tipoCristal: String;
-    var numeroEnsayo: Int;
+    @State var numeroEnsayo: Int;
     var fecha: String;
+    @State var cambiarNombre : Bool = false
+    @State var currentNumEnsayo = ""
     
     var body: some View{
         HStack{
@@ -175,15 +178,28 @@ struct elementoCristalEdicion: View{
                     Text("Ensayo Nº \(numeroEnsayo)").font(.caption)
                     
                     Button() {
-                        //editarEnsayo = true
+                        cambiarNombre.toggle()
+                        if !cambiarNombre {
+                            if(currentNumEnsayo.isEmpty){
+                                numeroEnsayo = numeroEnsayo
+                            }else {
+                                numeroEnsayo = Int(currentNumEnsayo) ?? numeroEnsayo
+                            }
+                        }
                     } label: {
-                        Image(systemName: "pencil")
+                        Image(systemName: (cambiarNombre ? "pencil" : "cancel"))
                             .resizable()
                             .frame(width: 20, height: 20)
                             .padding()
                             .foregroundColor(.gray)
                     }
                 }
+                if cambiarNombre {
+                    TextField("\(numeroEnsayo)", text:$currentNumEnsayo)
+                        .padding()
+                        .multilineTextAlignment(.center)
+                }
+                
                 Spacer().frame(height: 0.1)
                 Text(fecha).font(.caption);
             }.frame(width: 180, height: 100, alignment: .leading)

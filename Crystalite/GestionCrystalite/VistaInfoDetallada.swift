@@ -10,6 +10,8 @@ import SwiftUI
 struct VistaInfoDetallada: View {
     @EnvironmentObject var vm: ViewModel
     @State var disposicion : Bool = false
+    @State var cambiarNumEnsayo : Bool = false
+    @State var currentNumEnsayo : String = ""
     var body: some View {
         
         
@@ -22,7 +24,7 @@ struct VistaInfoDetallada: View {
                 
                 Spacer().frame(height: 30)
                 elementoCristalEdicion(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 3, fecha: "11/02/23")
-            
+                
                 Spacer().frame(height: 50)
                 HStack{
                     Text("Variables usadas (6)");
@@ -69,8 +71,8 @@ struct VistaInfoDetallada: View {
     }
 }
 
-struct VistaInfoDetallada_Previews: PreviewProvider {
+/*struct VistaInfoDetallada_Previews: PreviewProvider {
     static var previews: some View {
         VistaInfoDetallada()
     }
-}
+}*/
