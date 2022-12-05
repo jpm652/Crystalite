@@ -11,7 +11,9 @@ struct VistaRegistro: View {
     @EnvironmentObject var vm : ViewModel
     @State var imageGeneral : UIImage = (UIImage(systemName: "person.crop.circle.badge.plus") ?? nil)!
     @State var mostrarImagePicker: Bool = false
-    
+    @Binding var registro : Bool
+    @Binding var iniciarSesion : Bool
+    @State var activarAlerta : Bool = false
     // Atributos de una persona
     @State var nombre : String = ""
     @State var email : String = ""
@@ -19,7 +21,6 @@ struct VistaRegistro: View {
     @State var repeatContraseña : String = ""
 
     var body: some View {
-        NavigationView{
             ZStack{
                 Color("Gris").ignoresSafeArea()
                 
@@ -74,22 +75,27 @@ struct VistaRegistro: View {
                     Button() {
                         if(nombre == "" || email == "" || contraseña == "" || repeatContraseña == ""){
                             // Poner pop up
+                            activarAlerta.toggle()
                         }else{
                             vm.addPersona(nombre: nombre, foto: imageGeneral, email: email, contrasena: contraseña, admin: false)
-                            //NavigationLink(destination: VistaLogin())
+                            registro.toggle()
                         }
                     } label: {
                         Text("Registrarse")
                             .frame(width: 245, height: 59).background(Color("Azul")).tint(.black).clipShape(RoundedRectangle (cornerRadius: 19))
+                    }.alert("Rellene todos los campos", isPresented: $activarAlerta) {
+                        Button("OK", role: .cancel) { }
+                    }
+                    if (registro == false) {
+                        VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro)
                     }
                 }
             }
-        }.padding(.top, -300)
     }
 }
 
 struct VistaRegistro_Previews: PreviewProvider {
     static var previews: some View {
-        VistaRegistro()
+        VistaRegistro(registro: .constant(true), iniciarSesion: .constant(false))
     }
 }

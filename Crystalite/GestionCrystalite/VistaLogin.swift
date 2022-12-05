@@ -8,97 +8,113 @@
 import SwiftUI
 
 
-
+enum valorAlerta {
+    case first, second
+}
 
 struct VistaLogin: View {
     @EnvironmentObject var vm: ViewModel
-    
+    @Binding var iniciarSesion : Bool
+    @Binding var registro : Bool
+    @State var mostrarAlerta : Bool = false
+    @State var valorAlerta : valorAlerta = .first
     @State var email : String = ""
     @State var contraseña : String = ""
     var body: some View {
         
         
         
-        NavigationView{
-            ZStack{
-                Color("Gris").ignoresSafeArea()
+        ZStack{
+            Color("Gris").ignoresSafeArea()
+            
+            VStack {
                 
-                VStack {
- 
-                    Image("Logo").resizable().frame(width: 180, height: 150)
-                    Spacer().frame(height: 40)
+                Image("Logo").resizable().frame(width: 180, height: 150)
+                Spacer().frame(height: 40)
+                
+                VStack(alignment: .leading) {
                     
-                    VStack(alignment: .leading) {
-                        
-                        Text("Email")
-                        TextField("Introducir email", text: $email)
-                            .padding(.leading,10)
-                            .frame(width: 272, height: 34)
-                            .background(.white)
-                            .cornerRadius(10)
-                        
-                        Spacer().frame(height: 20)
-                        
-                        Text("Contraseña")
-                        SecureField("Introducir contraseña", text: $contraseña)
-                            .padding(.leading,10)
-                            .frame(width: 272, height: 34)
-                            .background(.white)
-                            .cornerRadius(10)
-                    }
+                    Text("Email")
+                    TextField("Introducir email", text: $email)
+                        .padding(.leading,10)
+                        .frame(width: 272, height: 34)
+                        .background(.white)
+                        .cornerRadius(10)
                     
-                    Spacer().frame(height: 40)
+                    Spacer().frame(height: 20)
                     
-                    VStack{
-                        
-                        NavigationLink{
-                            if(email.isEmpty || contraseña.isEmpty){
-                                // Pop up rellene campos
-
+                    Text("Contraseña")
+                    SecureField("Introducir contraseña", text: $contraseña)
+                        .padding(.leading,10)
+                        .frame(width: 272, height: 34)
+                        .background(.white)
+                        .cornerRadius(10)
+                }
+                
+                Spacer().frame(height: 40)
+                
+                VStack{
+                    
+                        Button {
+                            if(email == "" || contraseña == ""){
+                                // Poner pop up
+                                self.valorAlerta = .first
+                                self.mostrarAlerta = true
                             }else{
-                                ForEach(vm.personaArray) { persona in
-                                    
-                                    if(persona.email == email && persona.contrasena == contraseña){
-                                        
-                                        VistaPrincipal()
-                                        
-                                    }else{
-                                        // Pop up datos incorrectos
-                                    }
+                                if(email == "a" && contraseña == "1"){
+                                    iniciarSesion.toggle()
+                                }else {
+                                    self.valorAlerta = .second
+                                    self.mostrarAlerta = true
                                 }
                             }
-                            
-                        }label: {
+                        } label: {
                             Text("Iniciar Sesión")
+                                .frame(width: 245, height: 59)
+                                .background(Color("Azul"))
+                                .tint(.black)
+                                .clipShape(RoundedRectangle (cornerRadius: 19))
+                        }.alert(isPresented: $mostrarAlerta) {
+                            switch valorAlerta {
+                            case .first:
+                                return Alert(title: Text("Faltan campos por rellenar"), message: Text("Rellene todos los campos"), dismissButton: .default(Text("Vale")))
+                            case .second:
+                                return Alert(title: Text("Credenciales incorrectas"), message: Text("Vuelve a intentarlo"), dismissButton: .default(Text("Vale")))
+                            }
+                        }
+                        HStack{
+                            //RELLENAR --------o---------
+                            Text("-----------------o-----------------")
+                        }
+                        Button {
+                            registro.toggle()
+                        } label: {
+                            Text("Registro")
                                 .frame(width: 245, height: 59)
                                 .background(Color("Azul"))
                                 .tint(.black)
                                 .clipShape(RoundedRectangle (cornerRadius: 19))
                         }
                         
+                        if (iniciarSesion == true){
+                            VistaPrincipal()
+                        }
+                        if (registro == true) {
+                            VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion)
+                        }
+                        
                     }
-
-                    
-                    HStack{
-                        //RELLENAR --------o---------
-                    }
-                    boton(texto: "Registro", vista: AnyView(VistaRegistro()));
-                    
                 }
             }
             
             
         }
         
-    }
-    
-    
     
 }
 
-
-struct VistaLogin_Previews: PreviewProvider {
+/*struct VistaLogin_Previews: PreviewProvider {
     static var previews: some View {
-        VistaLogin()
+        VistaLogin(iniciarSesion: .constant(false), registro: .constant(false))
     }
-}
+}*/

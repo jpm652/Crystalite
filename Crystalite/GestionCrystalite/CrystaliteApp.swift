@@ -10,10 +10,19 @@ import SwiftUI
 @main
 struct CrystaliteApp: App {
     @StateObject private var vm: ViewModel = ViewModel()
-    
+    @State var iniciarSesion : Bool = false
+    @State var registro : Bool = false
     var body: some Scene {
         WindowGroup {
-            VistaLogin().environmentObject(vm)
+            if(iniciarSesion == false && registro == false){
+                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
+            }
+            if (iniciarSesion == true){
+                VistaPrincipal().environmentObject(vm)
+            }
+            if (registro == true && iniciarSesion == false){
+                VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion).environmentObject(vm)
+            }
         }
     }
 }
