@@ -20,20 +20,15 @@ class ViewModel: ObservableObject{
     @Published var ayudaArray: [AyudaEntity] = []
     
     init(){
-        
-        
-        
         cargarDatos()
-
-//        addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio")
-//        addElemento(iniciales: "RI",valor: 0.0, nombre: "Indice de refraccion")
-//        addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario")
-//        addElemento(iniciales: "Ca",valor: 0.0, nombre: "Calcio")
-//        addElemento(iniciales: "K",valor: 0.0, nombre: "Potasio")
-//        addElemento(iniciales: "Mg",valor: 0.0, nombre: "Magnesio")
         
+         addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio")
+         addElemento(iniciales: "RI",valor: 0.0, nombre: "Indice de refraccion")
+         addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario")
+         addElemento(iniciales: "Ca",valor: 0.0, nombre: "Calcio")
+         addElemento(iniciales: "K",valor: 0.0, nombre: "Potasio")
+         addElemento(iniciales: "Mg",valor: 0.0, nombre: "Magnesio")
         
-
     }
     
     func cargarDatos(){

@@ -20,6 +20,8 @@ struct VistaLogin: View {
     @State var valorAlerta : valorAlerta = .first
     @State var email : String = ""
     @State var contraseña : String = ""
+    // @State var persona: PersonaEntity = new PersonaEntity
+    
     var body: some View {
         
         
@@ -55,24 +57,27 @@ struct VistaLogin: View {
                 
                 VStack{
                     
-                        Button {
-                            if(email == "" || contraseña == ""){
-                                // Poner pop up
-                                self.valorAlerta = .first
-                                self.mostrarAlerta = true
-                            }else{
-                                if(email == "a" && contraseña == "1"){
+                    Button {
+                        if(email == "" || contraseña == ""){
+                            // Poner pop up
+                            self.valorAlerta = .first
+                            self.mostrarAlerta = true
+                        }else{
+                            for persona in vm.personaArray{
+                                if(email == persona.email && contraseña == persona.contrasena){
                                     iniciarSesion.toggle()
+                                    // self.persona = persona
                                 }else {
                                     self.valorAlerta = .second
                                     self.mostrarAlerta = true
                                 }
                             }
-                        } label: {
-                            Text("Iniciar Sesión")
-                                .frame(width: 245, height: 59)
-                                .background(Color("Azul"))
-                                .tint(.black)
+                        }
+                    } label: {
+                        Text("Iniciar Sesión")
+                            .frame(width: 245, height: 59)
+                            .background(Color("Azul"))
+                            .tint(.black)
                                 .clipShape(RoundedRectangle (cornerRadius: 19))
                         }.alert(isPresented: $mostrarAlerta) {
                             switch valorAlerta {
@@ -97,7 +102,7 @@ struct VistaLogin: View {
                         }
                         
                         if (iniciarSesion == true){
-                            VistaPrincipal()
+                            VistaPrincipal()  // usuarioActual: persona)
                         }
                         if (registro == true) {
                             VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion)

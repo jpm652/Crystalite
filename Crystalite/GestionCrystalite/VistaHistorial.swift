@@ -11,6 +11,7 @@ import CoreData
 struct VistaHistorial: View {
     
     @EnvironmentObject var vm : ViewModel
+    // @State var usuarioActual: PersonaEntity
     @State var query: String = "";
     
     enum OpcionEnsayo : String, CaseIterable{
@@ -30,10 +31,12 @@ struct VistaHistorial: View {
                 Spacer().frame(height: 1)
                 
                 Button(action: { }) {
-                    Image(systemName: "person.crop.circle")
+                    Image(systemName: "person.crop.circle")//uiImage: UIImage(data: usuarioActual.foto!)!)// systemName: "person.crop.circle")
                         .resizable()
                         .foregroundColor(.black)
                         .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.black, lineWidth: 2))
                         .padding(.horizontal,20)
                 }
             }.padding(.top, -30)
@@ -89,8 +92,10 @@ struct VistaHistorial: View {
     }
 }
 
+/*
 struct VistaHistorial_Previews: PreviewProvider {
     static var previews: some View {
         VistaHistorial()
     }
 }
+ */

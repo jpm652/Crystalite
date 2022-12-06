@@ -9,19 +9,19 @@ import SwiftUI
 
 struct VistaPrincipal: View {
     @EnvironmentObject var usuario: ViewModel;
-    //var usuarioActual: PersonaEntity
+    // @State var usuarioActual: PersonaEntity
     
     @State var seleccion: Int = 1;
     
     var body: some View {
-        
+
         TabView(selection: $seleccion) {
             VistaClasificacion()
                 .tabItem{
                     Image(systemName: "doc.badge.plus")
                     Text("Clasificación")
                 }.tag(0)
-            VistaHistorial()
+            VistaHistorial() //usuarioActual)
                 .tabItem{
                     Image(systemName: "clock.arrow.circlepath")
                     Text("Historial")
@@ -35,6 +35,7 @@ struct VistaPrincipal: View {
         .background(Color("Gris"))
         .accentColor(Color("Morado"))
     }
+    
 }
 
 //struct VistaPrincipal_Previews: PreviewProvider {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct VistaAyuda: View {
     @EnvironmentObject var vm: ViewModel
+    
     var body: some View {
         NavigationView{
             ZStack{
@@ -19,11 +20,9 @@ struct VistaAyuda: View {
                             respuestas(respuestas: "Solucion a la pregunta")
                         }
                     }.background(.blue)
-                    
-                }.background(.blue)
-   }
+                }
+            }
         }
-        
     }
 }
 
