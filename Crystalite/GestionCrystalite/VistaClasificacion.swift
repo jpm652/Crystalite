@@ -17,6 +17,7 @@ struct VistaClasificacion: View {
     @State var valorMg: Double = 0.0;
     @State var valorK: Double = 0.0;
     @State var nombreEnsayo: String = ""
+    @State var ensayo: EnsayoEntity
     
     var body: some View {
         
@@ -58,19 +59,38 @@ struct VistaClasificacion: View {
                 }
                 
                 Button(){
-                    valorAl = vm.elementoArray[0].valor
-                    valorBa = vm.elementoArray[1].valor
-                    valorCa = vm.elementoArray[2].valor
-                    valorIr = vm.elementoArray[3].valor
-                    valorK = vm.elementoArray[4].valor
-                    valorMg = vm.elementoArray[5].valor
-
-                    if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                        vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                    if(ensayo.enProceso==false){
+                        valorAl = vm.elementoArray[0].valor
+                        valorBa = vm.elementoArray[1].valor
+                        valorCa = vm.elementoArray[2].valor
+                        valorIr = vm.elementoArray[3].valor
+                        valorK = vm.elementoArray[4].valor
+                        valorMg = vm.elementoArray[5].valor
                     }else{
-                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                        
+                        valorAl = ensayo.al
+                        valorBa = ensayo.ba
+                        valorCa = ensayo.ca
+                        valorIr = ensayo.ir
+                        valorK = ensayo.k
+                        valorMg = ensayo.mg
                     }
+
+                    if(ensayo.enProceso == true){
+                        ensayo.al = valorAl
+                        ensayo.ba = valorBa
+                        ensayo.ca = valorCa
+                        ensayo.ir = valorIr
+                        ensayo.k = valorK
+                        ensayo.mg = valorMg
+                    }else{
+                        if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
+                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        }else{
+                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        }
+                    }
+                    
+                    
                     
                     vm.editElemento(elemento: vm.elementoArray[0], valorNuevo: 0)
                     vm.editElemento(elemento: vm.elementoArray[1], valorNuevo: 0)

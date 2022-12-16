@@ -10,13 +10,13 @@ import SwiftUI
 struct VistaPrincipal: View {
     @EnvironmentObject var usuario: ViewModel;
     // @State var usuarioActual: PersonaEntity
-    
+    @State var ensayo : EnsayoEntity = EnsayoEntity()
     @State var seleccion: Int = 1;
     
     var body: some View {
 
         TabView(selection: $seleccion) {
-            VistaClasificacion()
+            VistaClasificacion(ensayo: ensayo)
                 .tabItem{
                     Image(systemName: "doc.badge.plus")
                     Text("Clasificación")

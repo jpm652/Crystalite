@@ -68,7 +68,7 @@ struct VistaHistorial: View {
                             if(query.isEmpty){
                                 if(opcionEnsayo == .enProceso){
                                     if(ensayo.enProceso){
-                                        NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                        NavigationLink(destination: VistaClasificacion(ensayo: ensayo)){
                                             estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
                                         }
                                     }
