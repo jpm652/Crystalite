@@ -37,9 +37,9 @@ struct BusquedaView: View {
         .shadow(color: .gray, radius: 5)
     }
 }
-
-struct BusquedaView_Previews: PreviewProvider {
-    static var previews: some View {
-        VistaHistorial().environmentObject(ViewModel())
-    }
-}
+//
+//struct BusquedaView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VistaHistorial().environmentObject(ViewModel())
+//    }
+//}

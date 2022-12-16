@@ -10,8 +10,10 @@ import SwiftUI
 struct VistaInfoDetallada: View {
     @EnvironmentObject var vm: ViewModel
     @State var disposicion : Bool = false
-    @State var cambiarNumEnsayo : Bool = false
-    @State var currentNumEnsayo : String = ""
+    @State var cambiarNomEnsayo : Bool = false
+    @State var currentNomEnsayo : String = ""
+    //@State var idEnsayo : Int
+    @State var ensayo : EnsayoEntity
     var body: some View {
         
         
@@ -23,7 +25,7 @@ struct VistaInfoDetallada: View {
                 Text("Informacion detallada").font(.title);
                 
                 Spacer().frame(height: 30)
-                elementoCristalEdicion(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 3, fecha: "11/02/23")
+                elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "nombre", fecha: "11/02/23", ensayo: ensayo)
                 
                 Spacer().frame(height: 50)
                 HStack{
@@ -41,29 +43,29 @@ struct VistaInfoDetallada: View {
             
                 if disposicion == false{
                     ScrollView{
-                        elementoResultadoFila(iniciales: "Al", nombre: "Aluminio", value: vm.ensayoArray[2].al)
-                        elementoResultadoFila(iniciales: "Ba", nombre: "Bario", value: vm.ensayoArray[2].ba)
-                        elementoResultadoFila(iniciales: "Ca", nombre: "Calcio", value: vm.ensayoArray[2].ca)
-                        elementoResultadoFila(iniciales: "RI", nombre: "Indice Refraccion", value: vm.ensayoArray[2].ir)
-                        elementoResultadoFila(iniciales: "K", nombre: "Potasio", value: vm.ensayoArray[2].k)
-                        elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio", value: vm.ensayoArray[2].mg)
+                        elementoResultadoFila(iniciales: "Al", nombre: "Aluminio", value: ensayo.al)
+                        elementoResultadoFila(iniciales: "Ba", nombre: "Bario", value: ensayo.ba)
+                        elementoResultadoFila(iniciales: "Ca", nombre: "Calcio", value: ensayo.ca)
+                        elementoResultadoFila(iniciales: "RI", nombre: "Indice Refraccion", value: ensayo.ir)
+                        elementoResultadoFila(iniciales: "K", nombre: "Potasio", value: ensayo.k)
+                        elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio", value: ensayo.mg)
                     }
                 }else{
                     HStack{
-                        elementoResultadoCuadrado(iniciales: "Al", value: vm.ensayoArray[2].al)
+                        elementoResultadoCuadrado(iniciales: "Al", value: ensayo.al)
                         Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "Ba", value: vm.ensayoArray[2].ba)
+                        elementoResultadoCuadrado(iniciales: "Ba", value: ensayo.ba)
                         Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "Ca",  value: vm.ensayoArray[2].ca)
+                        elementoResultadoCuadrado(iniciales: "Ca",  value: ensayo.ca)
                     }
                     Spacer().frame(height: 30)
 
                     HStack{
-                        elementoResultadoCuadrado(iniciales: "RI", value: vm.ensayoArray[2].ir)
+                        elementoResultadoCuadrado(iniciales: "RI", value: ensayo.ir)
                         Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "K", value: vm.ensayoArray[2].k)
+                        elementoResultadoCuadrado(iniciales: "K", value: ensayo.k)
                         Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "Mg",value: vm.ensayoArray[2].mg)
+                        elementoResultadoCuadrado(iniciales: "Mg",value: ensayo.mg)
                     }
                 }
             }.padding(.top,-50)

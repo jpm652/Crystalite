@@ -164,40 +164,48 @@ struct elementoCristalEdicion: View{
     
     @EnvironmentObject var vm: ViewModel
     var tipoCristal: String;
-    @State var numeroEnsayo: Int;
+    @State var nombreEnsayo: String;
     var fecha: String;
     @State var cambiarNombre : Bool = false
-    @State var currentNumEnsayo = ""
-    
+    @State var currentNomEnsayo = ""
+    @State var ensayo : EnsayoEntity
     var body: some View{
         HStack{
             VStack(alignment: .leading){
                 Text(tipoCristal).font(.body)
                 Spacer().frame(height: 0.1)
                 HStack{
-                    Text("Ensayo Nº \(numeroEnsayo)").font(.caption)
+                    
+                    Text("Nombre: \(nombreEnsayo)").font(.caption)
                     
                     Button() {
                         cambiarNombre.toggle()
                         if !cambiarNombre {
-                            if(currentNumEnsayo.isEmpty){
-                                numeroEnsayo = numeroEnsayo
+                            if(currentNomEnsayo.isEmpty){
+                                nombreEnsayo = nombreEnsayo
+                                vm.editNombreEnsayo(ensayo: ensayo, nombrenuevo: nombreEnsayo)
                             }else {
-                                numeroEnsayo = Int(currentNumEnsayo) ?? numeroEnsayo
+                                nombreEnsayo = currentNomEnsayo
+                                vm.editNombreEnsayo(ensayo: ensayo, nombrenuevo: currentNomEnsayo)
+
                             }
                         }
                     } label: {
-                        Image(systemName: (cambiarNombre ? "pencil" : "cancel"))
+                        Image(systemName: (cambiarNombre ? "pencil.slash":"pencil" ))
                             .resizable()
-                            .frame(width: 20, height: 20)
+                            .frame(width: 10, height: 10)
                             .padding()
                             .foregroundColor(.gray)
                     }
                 }
                 if cambiarNombre {
-                    TextField("\(numeroEnsayo)", text:$currentNumEnsayo)
-                        .padding()
-                        .multilineTextAlignment(.center)
+                    TextField("Nuevo nombre...", text:$currentNomEnsayo)
+                        .font(.caption2)
+                        .padding(.horizontal,15)
+                        .background(Color(red: 0.95, green: 0.95, blue: 0.95))
+                        .cornerRadius(5)
+                        .frame(width: 150, height: 40, alignment: .leading)
+                        .padding(.top,-30)
                 }
                 
                 Spacer().frame(height: 0.1)

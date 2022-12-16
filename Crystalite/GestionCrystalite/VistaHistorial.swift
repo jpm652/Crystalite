@@ -44,8 +44,7 @@ struct VistaHistorial: View {
             
             
             VStack{
-                
-                    
+            
                     Text("Historial")
                         .frame(alignment: .center)
                         .font(.title);
@@ -69,18 +68,18 @@ struct VistaHistorial: View {
                             if(query.isEmpty){
                                 if(opcionEnsayo == .enProceso){
                                     if(ensayo.enProceso){
-                                        NavigationLink(destination: VistaInfoDetallada()){
+                                        NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
                                             estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
                                         }
                                     }
                                 }else{
-                                    NavigationLink(destination: VistaInfoDetallada()){
+                                    NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
                                         estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
                                     }
                                 }
                             }else{
                                 if((ensayo.nombre ?? "" ).hasPrefix(query)){
-                                    NavigationLink(destination: VistaInfoDetallada()){
+                                    NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
                                         estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
                                     }
                                 }
