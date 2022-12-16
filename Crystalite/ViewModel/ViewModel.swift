@@ -20,8 +20,15 @@ class ViewModel: ObservableObject{
     @Published var ayudaArray: [AyudaEntity] = []
     
     init(){
+        
+
+        
         cargarDatos()
         
+        for i in 0...(elementoArray.count - 1){
+            gestorCoreData.contexto.delete(elementoArray[i])
+        }
+
          addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio")
          addElemento(iniciales: "RI",valor: 0.0, nombre: "Indice de refraccion")
          addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario")

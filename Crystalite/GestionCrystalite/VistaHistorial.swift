@@ -22,7 +22,8 @@ struct VistaHistorial: View {
     
     var body: some View {
         
-        
+        NavigationView{
+
         ZStack(alignment: .top){
             
             Color("Gris").ignoresSafeArea()
@@ -39,63 +40,67 @@ struct VistaHistorial: View {
                         .overlay(Circle().stroke(Color.black, lineWidth: 2))
                         .padding(.horizontal,20)
                 }
-            }.padding(.top, -30)
+            }.padding(.top,-50)
+            
             
             VStack{
-                Text("Historial")
-                    .frame(alignment: .center)
-                    .font(.title);
                 
-                BusquedaView(text: $query)
-                
-                Spacer().frame(height: 10)
-                
-                Text("Mostrar: ").frame(alignment: .leading)
-                Picker("", selection: $opcionEnsayo){
                     
-                    ForEach(OpcionEnsayo.allCases, id: \.self){ opcion in
-                        Text(opcion.rawValue)
+                    Text("Historial")
+                        .frame(alignment: .center)
+                        .font(.title);
+                    
+                    BusquedaView(text: $query)
+                    
+                    Spacer().frame(height: 10)
+                    
+                    Text("Mostrar: ").frame(alignment: .leading)
+                    Picker("", selection: $opcionEnsayo){
+                        
+                        ForEach(OpcionEnsayo.allCases, id: \.self){ opcion in
+                            Text(opcion.rawValue)
+                        }
                     }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                
-                ScrollView{
-                    ForEach(vm.ensayoArray){ ensayo in
-                        if(query.isEmpty){
-                            if(opcionEnsayo == .enProceso){
-                                if(ensayo.enProceso){
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding()
+                    
+                    ScrollView{
+                        ForEach(vm.ensayoArray){ ensayo in
+                            if(query.isEmpty){
+                                if(opcionEnsayo == .enProceso){
+                                    if(ensayo.enProceso){
+                                        NavigationLink(destination: VistaInfoDetallada()){
+                                            estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                        }
+                                    }
+                                }else{
                                     NavigationLink(destination: VistaInfoDetallada()){
                                         estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
                                     }
                                 }
                             }else{
-                                NavigationLink(destination: VistaInfoDetallada()){
-                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                if((ensayo.nombre ?? "" ).hasPrefix(query)){
+                                    NavigationLink(destination: VistaInfoDetallada()){
+                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                    }
                                 }
                             }
-                        }else{
-                            if((ensayo.nombre ?? "" ).hasPrefix(query)){
-                                NavigationLink(destination: VistaInfoDetallada()){
-                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
-                                }
-                            }
+                            
                         }
-
                     }
                 }
-            }
+        }.padding(.top,-40)
             
             // estudioHistorial(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 1, fecha: Date());
-        }.padding(.top,-40)
+        }
         
     }
 }
 
 /*
-struct VistaHistorial_Previews: PreviewProvider {
-    static var previews: some View {
-        VistaHistorial()
-    }
-}
+ struct VistaHistorial_Previews: PreviewProvider {
+ static var previews: some View {
+ VistaHistorial()
+ }
+ }
  */

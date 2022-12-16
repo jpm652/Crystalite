@@ -103,7 +103,7 @@ struct VistaClasificacion: View {
                 //                        .labelStyle(TitleOnlyLabelStyle())
                 //                }
                 
-            }.padding(.top, -80)
+            }
         }
     }
 }

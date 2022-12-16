@@ -25,6 +25,7 @@ struct BusquedaView: View {
                     Image(systemName: "x.circle")
                         .foregroundColor(.gray)
                         .opacity(text.isEmpty ? 0.0 : 1)
+                        .padding(.trailing,10)
                 }
             }
             .foregroundColor(.white)
