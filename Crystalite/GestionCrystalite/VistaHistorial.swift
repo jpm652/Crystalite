@@ -11,7 +11,7 @@ import CoreData
 struct VistaHistorial: View {
     
     @EnvironmentObject var vm : ViewModel
-    // @State var usuarioActual: PersonaEntity
+    //@State var usuarioActual: PersonaEntity
     @State var query: String = "";
     
     enum OpcionEnsayo : String, CaseIterable{
@@ -23,28 +23,29 @@ struct VistaHistorial: View {
     var body: some View {
         
         NavigationView{
-
-        ZStack(alignment: .top){
             
-            Color("Gris").ignoresSafeArea()
-            
-            HStack {
-                Spacer().frame(height: 1)
+            ZStack(alignment: .top){
                 
-                Button(action: { }) {
-                    Image(systemName: "person.crop.circle")//uiImage: UIImage(data: usuarioActual.foto!)!)// systemName: "person.crop.circle")
-                        .resizable()
-                        .foregroundColor(.black)
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.black, lineWidth: 2))
-                        .padding(.horizontal,20)
-                }
-            }.padding(.top,-50)
-            
-            
-            VStack{
-            
+                Color("Gris").ignoresSafeArea()
+                
+                HStack {
+                    Spacer().frame(height: 1)
+                    
+                    Button(action: { }) {
+                        //Text(usuarioActual.nombre ?? "")
+                        Image(systemName: "person.crop.circle")//uiImage: UIImage(data: usuarioActual.foto!)!)// systemName: "person.crop.circle")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.black, lineWidth: 2))
+                            .padding(.horizontal,20)
+                    }
+                }.padding(.top,-50)
+                
+                
+                VStack{
+                    
                     Text("Historial")
                         .frame(alignment: .center)
                         .font(.title);
@@ -68,19 +69,42 @@ struct VistaHistorial: View {
                             if(query.isEmpty){
                                 if(opcionEnsayo == .enProceso){
                                     if(ensayo.enProceso){
-                                        NavigationLink(destination: VistaClasificacion(ensayo: ensayo)){
+                                        NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
                                             estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
                                         }
                                     }
-                                }else{
-                                    NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
-                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                }
+                                else{
+                                    
+                                    if(ensayo.enProceso){
+                                        NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
+                                            estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                        }
+                                    }else{
+                                        NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                            estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                        }
                                     }
                                 }
+                                
                             }else{
                                 if((ensayo.nombre ?? "" ).hasPrefix(query)){
-                                    NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
-                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                    if(opcionEnsayo == .enProceso){
+                                        if(ensayo.enProceso){
+                                            NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
+                                                estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                            }
+                                        }
+                                    }else{
+                                        if(ensayo.enProceso){
+                                            NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
+                                                estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                            }
+                                        }else{
+                                            NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                                estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -88,7 +112,7 @@ struct VistaHistorial: View {
                         }
                     }
                 }
-        }.padding(.top,-40)
+            }.padding(.top,-40)
             
             // estudioHistorial(tipoCristal: "Cristal ventana vehiculo", numeroEnsayo: 1, fecha: Date());
         }
@@ -103,3 +127,4 @@ struct VistaHistorial: View {
  }
  }
  */
+

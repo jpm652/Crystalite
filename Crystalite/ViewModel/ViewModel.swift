@@ -108,7 +108,21 @@ class ViewModel: ObservableObject{
         
         guardarDatos()
     }
-    
+
+    func editEnsayoEnProceso(ensayo:EnsayoEntity, nombrenuevo: String, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double ){
+        
+        ensayo.nombre = nombrenuevo
+        ensayo.enProceso = enProceso
+        ensayo.resultCristal = resultado
+        ensayo.al = al
+        ensayo.ba = ba
+        ensayo.ca = ca
+        ensayo.ir = ir
+        ensayo.k = k
+        ensayo.mg = mg
+        
+        guardarDatos()
+    }
     
     func deleteEnsayo(ensayo: EnsayoEntity){
         gestorCoreData.contexto.delete(ensayo)

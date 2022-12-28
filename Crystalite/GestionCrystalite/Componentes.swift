@@ -34,7 +34,7 @@ struct ElementoView: View{
     @EnvironmentObject var vm: ViewModel
     
     var elemento : ElementoEntity
-    var valor : Double = 0.0
+    @State var valor : Double = 0.0
     @State var altura: CGFloat = 60
     @State var mostrarSlider : Bool = false
     @State var valorFinal : String = ""
@@ -73,7 +73,7 @@ struct ElementoView: View{
                     Slider(value: $valorSlider, in: 0.0...20.0,
                            onEditingChanged:{ editing in
                         valorFinal = String(format: "%.2f", valorSlider)
-                        vm.editElemento(elemento: elemento, valorNuevo: valorSlider)
+                        vm.editElemento(elemento: elemento, valorNuevo: Double(valorFinal) ?? 1)
                     }
                     ).frame(width: 280)
                     
@@ -85,8 +85,7 @@ struct ElementoView: View{
         .background(.white)
         .cornerRadius(15)
         .onAppear(){
-            valorSlider = 0.0
-            valorFinal = String(valorSlider)
+            valorFinal = String(format: "%.2f", elemento.valor)
             mostrarSlider = false
             altura = 60
         }

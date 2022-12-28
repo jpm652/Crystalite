@@ -1,13 +1,13 @@
 //
-//  Clasificacion.swift
+//  VistaEditarEnProceso.swift
 //  Crystalite
 //
-//  Created by David Silvente on 26/10/22.
+//  Created by Aula11 on 28/12/22.
 //
 
 import SwiftUI
 
-struct VistaClasificacion: View {
+struct VistaEditarEnProceso: View {
     @EnvironmentObject var vm: ViewModel
     
     @State var valorAl: Double = 0.0;
@@ -17,10 +17,9 @@ struct VistaClasificacion: View {
     @State var valorMg: Double = 0.0;
     @State var valorK: Double = 0.0;
     @State var nombreEnsayo: String = ""
-    //@State var ensayo: EnsayoEntity
+    @State var ensayo: EnsayoEntity
     
     var body: some View {
-        
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
             
@@ -38,7 +37,8 @@ struct VistaClasificacion: View {
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("Introducir ensayo").font(.title).bold()
+
+                    Text("Ensayo en Proceso").font(.title).bold()
                     Spacer().frame(height: 15)
                     Text("Nombre: ").font(.title2)
                     
@@ -54,22 +54,25 @@ struct VistaClasificacion: View {
                 ScrollView{
                     ForEach(vm.elementoArray){
                         elementos in
-                        ElementoView(elemento: elementos,valorSlider: 0.0)
+                        ElementoView(elemento: elementos)
                     }
                 }
                 
                 Button(){
-                        valorAl = vm.elementoArray[0].valor
-                        valorBa = vm.elementoArray[1].valor
-                        valorCa = vm.elementoArray[2].valor
-                        valorIr = vm.elementoArray[3].valor
-                        valorK = vm.elementoArray[4].valor
-                        valorMg = vm.elementoArray[5].valor
+                    
+                    valorAl = vm.elementoArray[0].valor
+                    valorBa = vm.elementoArray[1].valor
+                    valorCa = vm.elementoArray[2].valor
+                    valorIr = vm.elementoArray[3].valor
+                    valorK = vm.elementoArray[4].valor
+                    valorMg = vm.elementoArray[5].valor
 
+           
+                    
                         if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                            vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }else{
-                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                            vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }
                     
                 }label: {
@@ -84,29 +87,24 @@ struct VistaClasificacion: View {
                 
             }
         }.onAppear(){
-            vm.elementoArray[0].valor = 0
-            vm.elementoArray[1].valor = 0
-            vm.elementoArray[2].valor = 0
-            vm.elementoArray[3].valor = 0
-            vm.elementoArray[4].valor = 0
-            vm.elementoArray[5].valor = 0
-        }
-        .onDisappear(){
-            nombreEnsayo = ""
-            vm.elementoArray[0].valor = 0
-            vm.elementoArray[1].valor = 0
-            vm.elementoArray[2].valor = 0
-            vm.elementoArray[3].valor = 0
-            vm.elementoArray[4].valor = 0
-            vm.elementoArray[5].valor = 0
-        }
+            nombreEnsayo = ensayo.nombre ?? ""
+            vm.elementoArray[0].valor = ensayo.al
+            vm.elementoArray[1].valor = ensayo.ba
+            vm.elementoArray[2].valor = ensayo.ca
+            vm.elementoArray[3].valor = ensayo.ir
+            vm.elementoArray[4].valor = ensayo.k
+            vm.elementoArray[5].valor = ensayo.mg
+        }.padding(.top,-95)
+            .onDisappear(){
+                vm.elementoArray[0].valor = 0
+                vm.elementoArray[1].valor = 0
+                vm.elementoArray[2].valor = 0
+                vm.elementoArray[3].valor = 0
+                vm.elementoArray[4].valor = 0
+                vm.elementoArray[5].valor = 0
+            }
+        
     }
+    
 }
 
-
-//struct VistaClasificacion_Previews: PreviewProvider {
-//    static var previews: some View {
-//        
-//        VistaClasificacion().environmentObject()
-//    }
-//}

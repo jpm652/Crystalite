@@ -20,7 +20,7 @@ struct VistaLogin: View {
     @State var valorAlerta : valorAlerta = .first
     @State var email : String = ""
     @State var contraseña : String = ""
-    // @State var persona: PersonaEntity = new PersonaEntity
+    //@State var personaLogin: PersonaEntity = PersonaEntity()
     
     var body: some View {
         
@@ -66,6 +66,8 @@ struct VistaLogin: View {
                             for persona in vm.personaArray{
                                 if(email == persona.email && contraseña == persona.contrasena){
                                     iniciarSesion.toggle()
+                                    //personaLogin = persona
+                                    
                                     // self.persona = persona
                                 }else {
                                     self.valorAlerta = .second
@@ -102,7 +104,7 @@ struct VistaLogin: View {
                         }
                         
                         if (iniciarSesion == true){
-                            VistaPrincipal()  // usuarioActual: persona)
+                            VistaPrincipal()
                         }
                         if (registro == true) {
                             VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion)
