@@ -14,6 +14,11 @@ struct VistaInfoDetallada: View {
     @State var currentNomEnsayo : String = ""
     //@State var idEnsayo : Int
     @State var ensayo : EnsayoEntity
+    @State private var showmodal = false
+    @State var elemento : ElementoEntity = ElementoEntity()
+
+    
+    
     var body: some View {
         
         
@@ -43,12 +48,18 @@ struct VistaInfoDetallada: View {
             
                 if disposicion == false{
                     ScrollView{
-                        elementoResultadoFila(iniciales: "Al", nombre: "Aluminio", value: ensayo.al)
-                        elementoResultadoFila(iniciales: "Ba", nombre: "Bario", value: ensayo.ba)
-                        elementoResultadoFila(iniciales: "Ca", nombre: "Calcio", value: ensayo.ca)
-                        elementoResultadoFila(iniciales: "RI", nombre: "Indice Refraccion", value: ensayo.ir)
-                        elementoResultadoFila(iniciales: "K", nombre: "Potasio", value: ensayo.k)
-                        elementoResultadoFila(iniciales: "Mg", nombre: "Magnesio", value: ensayo.mg)
+                        
+                        ForEach(vm.elementoArray){ ele in
+                            
+                            Button(){
+                                showmodal = true
+                                elemento = ele
+                                
+                            }label: {
+                                elementoResultadoFila(iniciales: ele.iniciales ?? "", nombre: ele.nombre ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo) )
+                            }
+                        }
+
                     }
                 }else{
                     HStack{
@@ -69,12 +80,18 @@ struct VistaInfoDetallada: View {
                     }
                 }
             }.padding(.top,-50)
-    }
+            ViewDescripcionElemento(mostrar: $showmodal, elemento: $elemento)
+        }
     }
 }
+func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
 
-/*struct VistaInfoDetallada_Previews: PreviewProvider {
-    static var previews: some View {
-        VistaInfoDetallada()
-    }
-}*/
+    if(elemento.iniciales == "Al") {return ensayo.al}
+    else if(elemento.iniciales == "Ba"){return ensayo.ba}
+    else if(elemento.iniciales == "Ca"){return ensayo.ca}
+    else if(elemento.iniciales == "RI"){return ensayo.ir}
+    else if(elemento.iniciales == "Mg"){return ensayo.mg}
+    else{return ensayo.k}
+    
+    
+}

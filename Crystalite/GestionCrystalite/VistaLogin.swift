@@ -112,10 +112,10 @@ struct VistaLogin: View {
                         
                     }
                 }
-            }
-            
-            
         }
+            
+            
+    }
         
     
 }

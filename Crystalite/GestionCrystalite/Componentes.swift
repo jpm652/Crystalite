@@ -4,9 +4,9 @@
 //
 //  Created by Aula11 on 25/11/22.
 //
-
 import Foundation
 import SwiftUI
+
 
 struct boton: View{
     
@@ -105,12 +105,12 @@ struct estudioHistorial: View{
             Color("Gris").ignoresSafeArea()
             VStack(alignment: .leading){
                 HStack{
-                    Label("Fecha", systemImage: "circle.inset.filled")
+                    Label("Fecha", systemImage: "circle.inset.filled").tint(.black)
                     HStack (){
                         
                         VStack(alignment: .leading) {
-                            Text(tipoCristal).font(.title3)
-                            Text("Nombre: \(nombreEnsayo)").font(.caption)
+                            Text(tipoCristal).font(.title3).tint(.black)
+                            Text("Nombre: \(nombreEnsayo)").font(.caption).tint(.black)
                             if proceso{
                                 Text("En proceso").font(.caption).tint(.red)
 
@@ -237,11 +237,11 @@ struct elementoResultadoFila: View{
                 .frame(width: 35, height: 35)
                 .clipShape(RoundedRectangle (cornerRadius: 10))
             VStack(alignment: .leading) {
-                Text(iniciales)
-                Text(nombre)
+                Text(iniciales).tint(.black)
+                Text(nombre).tint(.black)
                 
             }.frame(width: 170, alignment: .leading)
-            Text(String(format: "%.2f",value)).frame(width: 50)
+            Text(String(format: "%.2f",value)).frame(width: 50).tint(.black)
         }
         .frame(width: 300, height: 60)
         .background(.white)
@@ -262,8 +262,8 @@ struct elementoResultadoCuadrado: View{
                 .frame(width: 35, height: 35)
                 .clipShape(RoundedRectangle (cornerRadius: 10))
             VStack() {
-                Text(iniciales).padding(.leading,-30).font(.title2)
-                Text(String(format: "%.2f",value)).padding(.trailing,-20).frame(width: 50)
+                Text(iniciales).padding(.leading,-30).font(.title2).tint(.black)
+                Text(String(format: "%.2f",value)).padding(.trailing,-20).frame(width: 50).tint(.black)
 
             }.frame(width: 55)
         }
@@ -298,5 +298,31 @@ struct respuestas: View{
     
 }
 
+struct ViewDescripcionElemento: View{
+    
+    @Binding var mostrar: Bool
+    @Binding var elemento : ElementoEntity
+    
+    var body: some View{
+        ZStack(alignment: .bottom){
+            if(mostrar){
+            Color.black
+                .opacity(0.3)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    mostrar = false
+                }
+            VStack{
+                Text(elemento.nombre ?? "")
+            }.frame(height: 400)
+                .frame(maxWidth: .infinity)
+                .background(.white)
+                .transition(.move(edge: .bottom))
+            }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea()
+            .animation(.easeInOut, value: 5)
+        
+    }
 
-
+}
