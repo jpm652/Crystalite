@@ -250,6 +250,42 @@ func LM_3(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
 
 }
 
+func LM_4(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
+    
+    var resultados : [Double] = []
+    let construccionfloat : Double = 728.29 + (ir * -459.52) + (mg * -5.69) + (al * 4.94) + (k * 5.37) + (ca * -1.98) + (ba * 2.64)
+    let construccionNonfloat : Double = -1617.23 + (ir * 1054.98) + (mg * 5.41) + (al * -6.64) + (k * -11.03) + (ca * 1.43) + (ba * -22.61)
+    let vehiculofloat : Double = 1245.5 + (ir * -827.3) + (mg * 0.61) + (al * -4.27) + (k * -11.8) + (ca * 0.83) + (ba * 13.29)
+    let vehiculoNonfloat : Double = -61.93 + (mg * 0.01)
+    let contenedores : Double = 7.24 + (ir * -38.05) + (mg * -1.25) + (al * 3.98) + (k * 0.49) + (ca * 0.46) + (ba * 2.46)
+    let vajilla : Double = 144.61 + (ir * -118.9) + (mg * -0.21) + (al * 3.9) + (k * -112.96) + (ca * -0.54) + (ba * -3.04)
+    let faro : Double = -9775.23 + (ir * 6415.58) + (mg * -14.54) + (al * 0.36) + (k * 132.96) + (ca * -1.31) + (ba * 1.62)
+    
+    resultados.append(construccionfloat)
+    resultados.append(construccionNonfloat)
+    resultados.append(vehiculofloat)
+    resultados.append(vehiculoNonfloat)
+    resultados.append(contenedores)
+    resultados.append(vajilla)
+    resultados.append(faro)
+    
+    if(resultados.max() == construccionfloat){
+        return "Vidrio construccion flotado"
+    }else if(resultados.max() == construccionNonfloat){
+        return "Vidrio construccion no flotado"
+    }else if(resultados.max() == vehiculofloat){
+        return "Vidrio vehiculo flotado"
+    }else if(resultados.max() == vehiculoNonfloat){
+        return "Vidrio vehiculo no flotado"
+    }else if(resultados.max() == contenedores){
+        return "Vidrio contenedor"
+    }else if(resultados.max() == vajilla){
+        return "Vidrio vajilla"
+    }else{
+        return "Vidrio faro"
+    }
+
+}
 
 //struct VistaClasificacion_Previews: PreviewProvider {
 //    static var previews: some View {
