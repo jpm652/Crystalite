@@ -120,21 +120,21 @@ func calcularResultado(al:Double, ba:Double, ca: Double, ir: Double, k: Double, 
                     return LM_2(al: al, ba: ba, ca: ca, ir: ir, k: k, mg: mg)
                 }else{
                     if(k <= 0.23){
-                        
+                        return LM_3(al: al, ba: ba, ca: ca, ir: ir, k: k, mg: mg)
                     }else{
-                        
+                        return LM_4(al: al, ba: ba, ca: ca, ir: ir, k: k, mg: mg)
                     }
                 }
             }else{
                 if(mg <= 3.45){
-                    
+                    return LM_5(al: al, ba: ba, ca: ca, ir: ir, k: k, mg: mg)
                 }else{
-                    
+                    return LM_6(al: al, ba: ba, ca: ca, ir: ir, k: k, mg: mg)
                 }
             }
         }
     }else{
-        
+        return LM_7(al: al, ba: ba, ca: ca, ir: ir, k: k, mg: mg)
     }
     return "hola"
 }
