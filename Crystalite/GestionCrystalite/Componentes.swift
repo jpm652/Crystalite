@@ -53,7 +53,11 @@ struct ElementoView: View{
                     Text(elemento.nombre ?? "")
                     
                 }.frame(width: 150, alignment: .leading)
-                TextField(String(valor), text: $valorFinal).frame(width: 50)
+                TextField(String(valor), text: $valorFinal, onEditingChanged: {editing  in
+                    vm.editElemento(elemento: elemento, valorNuevo: Double(valorFinal) ?? 1)
+                })
+                    .frame(width: 50)
+                
                 
                 Button{
                     mostrarSlider.toggle()
@@ -65,7 +69,7 @@ struct ElementoView: View{
                 }label: {
                     Image(systemName: "plus.circle")
                 }
-                
+
             }
             
             if mostrarSlider {
@@ -73,12 +77,10 @@ struct ElementoView: View{
                     Slider(value: $valorSlider, in: 0.0...20.0,
                            onEditingChanged:{ editing in
                         valorFinal = String(format: "%.2f", valorSlider)
-                        vm.editElemento(elemento: elemento, valorNuevo: Double(valorFinal) ?? 1)
+                        vm.editElemento(elemento: elemento, valorNuevo: valorSlider)
                     }
                     ).frame(width: 280)
-                    
                 }
-
             }
         }
         .frame(width: 300, height: altura)
@@ -92,6 +94,11 @@ struct ElementoView: View{
         
     }
     
+}
+func comprobarValorElemento(elemento: ElementoEntity, valor: String){
+    @EnvironmentObject var vm: ViewModel
+
+    vm.editElemento(elemento: elemento, valorNuevo: Double(valor) ?? 1)
 }
 
 struct estudioHistorial: View{

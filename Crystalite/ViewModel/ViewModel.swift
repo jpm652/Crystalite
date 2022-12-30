@@ -21,22 +21,8 @@ class ViewModel: ObservableObject{
     
     init(){
         
-
-        
         cargarDatos()
-        if(!elementoArray.isEmpty){
-            for i in 0...(elementoArray.count - 1){
-                gestorCoreData.contexto.delete(elementoArray[i])
-            }
-        }
-
-
-         addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio")
-         addElemento(iniciales: "RI",valor: 0.0, nombre: "Indice de refraccion")
-         addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario")
-         addElemento(iniciales: "Ca",valor: 0.0, nombre: "Calcio")
-         addElemento(iniciales: "K",valor: 0.0, nombre: "Potasio")
-         addElemento(iniciales: "Mg",valor: 0.0, nombre: "Magnesio")
+        cargarElementos()
         
     }
     
@@ -99,7 +85,7 @@ class ViewModel: ObservableObject{
         newEnsayo.mg = mg
         newEnsayo.k = k
         newEnsayo.ir = ir
-
+        
         guardarDatos()
     }
     func editNombreEnsayo(ensayo : EnsayoEntity, nombrenuevo : String){
@@ -108,7 +94,7 @@ class ViewModel: ObservableObject{
         
         guardarDatos()
     }
-
+    
     func editEnsayoEnProceso(ensayo:EnsayoEntity, nombrenuevo: String, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double ){
         
         ensayo.nombre = nombrenuevo
@@ -178,4 +164,19 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
+
+func cargarElementos(){
+    
+    if(!elementoArray.isEmpty){
+        for i in 0...(elementoArray.count - 1){
+            gestorCoreData.contexto.delete(elementoArray[i])
+        }
+    }
+    addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio")
+    addElemento(iniciales: "RI",valor: 0.0, nombre: "Indice de refraccion")
+    addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario")
+    addElemento(iniciales: "Ca",valor: 0.0, nombre: "Calcio")
+    addElemento(iniciales: "K",valor: 0.0, nombre: "Potasio")
+    addElemento(iniciales: "Mg",valor: 0.0, nombre: "Magnesio")
+}
 }
