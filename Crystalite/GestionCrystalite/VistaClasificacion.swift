@@ -213,7 +213,42 @@ func LM_2(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
 
 }
 
+func LM_3(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
+    
+    var resultados : [Double] = []
+    let construccionfloat : Double = 124.97 + (ir * -78.58) + (mg * 1.28) + (al * -3.05) + (k * -4.5) + (ca * -0.28) + (ba * -23.86)
+    let construccionNonfloat : Double = -815.23 + (ir * 619.01) + (mg * -36.66) + (al * -3.17) + (k * 7.46) + (ca * -0.02) + (ba * -7.98)
+    let vehiculofloat : Double = 1151 + (ir * -753.53) + (mg * 1.77) + (al * -4.44) + (k * -3.4) + (ca * -0.46) + (ba * 19.21)
+    let vehiculoNonfloat : Double = -61.93 + (mg * 0.01)
+    let contenedores : Double = 7.24 + (ir * -38.05) + (mg * -1.25) + (al * 3.98) + (k * 0.49) + (ca * 0.46) + (ba * 2.46)
+    let vajilla : Double = 144.61 + (ir * -118.9) + (mg * -0.21) + (al * 3.9) + (k * -112.96) + (ca * -0.54) + (ba * -3.04)
+    let faro : Double = -5209.15 + (ir * 3431.78) + (mg * -10.39) + (al * 0.36) + (k * 45.07) + (ca * -1.31) + (ba * 1.62)
+    
+    resultados.append(construccionfloat)
+    resultados.append(construccionNonfloat)
+    resultados.append(vehiculofloat)
+    resultados.append(vehiculoNonfloat)
+    resultados.append(contenedores)
+    resultados.append(vajilla)
+    resultados.append(faro)
+    
+    if(resultados.max() == construccionfloat){
+        return "Vidrio construccion flotado"
+    }else if(resultados.max() == construccionNonfloat){
+        return "Vidrio construccion no flotado"
+    }else if(resultados.max() == vehiculofloat){
+        return "Vidrio vehiculo flotado"
+    }else if(resultados.max() == vehiculoNonfloat){
+        return "Vidrio vehiculo no flotado"
+    }else if(resultados.max() == contenedores){
+        return "Vidrio contenedor"
+    }else if(resultados.max() == vajilla){
+        return "Vidrio vajilla"
+    }else{
+        return "Vidrio faro"
+    }
 
+}
 
 
 //struct VistaClasificacion_Previews: PreviewProvider {
