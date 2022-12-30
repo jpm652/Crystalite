@@ -16,13 +16,12 @@ struct VistaInfoDetallada: View {
     @State var ensayo : EnsayoEntity
     @State private var showmodal = false
     @State var elemento : ElementoEntity = ElementoEntity()
-
-    
     
     var body: some View {
         
         
-
+        
+        
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
             
@@ -30,7 +29,7 @@ struct VistaInfoDetallada: View {
                 Text("Informacion detallada").font(.title);
                 
                 Spacer().frame(height: 30)
-                elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "nombre", fecha: "11/02/23", ensayo: ensayo)
+                elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
                 
                 Spacer().frame(height: 50)
                 HStack{
@@ -94,4 +93,18 @@ func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
     else{return ensayo.k}
     
     
+}
+
+func ponerFecha(fecha : Date) -> String{
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM/YY"
+    return dateFormatter.string(from: fecha)
+}
+
+func ponerFechaPeq(fecha : Date) -> String{
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM"
+    return dateFormatter.string(from: fecha)
 }

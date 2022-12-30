@@ -23,6 +23,7 @@
 		296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8802927E36B00FAE131 /* ViewModel.swift */; };
 		296BB8832927EED100FAE131 /* VistaRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8822927EED100FAE131 /* VistaRegistro.swift */; };
 		296BB8852927F08300FAE131 /* VistaHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8842927F08300FAE131 /* VistaHistorial.swift */; };
+		29903DE5295F67EC005AF4BC /* ViewDescripcionElemento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29903DE4295F67EC005AF4BC /* ViewDescripcionElemento.swift */; };
 		29A2BE49295C4BC100FDA810 /* VistaEditarEnProceso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2BE48295C4BC100FDA810 /* VistaEditarEnProceso.swift */; };
 		29F7F2CB2934BAF100BE68C2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */; };
 		756B4F592909656900DC66FC /* VistaClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F582909656900DC66FC /* VistaClasificacion.swift */; };
@@ -47,6 +48,7 @@
 		296BB8802927E36B00FAE131 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		296BB8822927EED100FAE131 /* VistaRegistro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaRegistro.swift; sourceTree = "<group>"; };
 		296BB8842927F08300FAE131 /* VistaHistorial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaHistorial.swift; sourceTree = "<group>"; };
+		29903DE4295F67EC005AF4BC /* ViewDescripcionElemento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDescripcionElemento.swift; sourceTree = "<group>"; };
 		29A2BE48295C4BC100FDA810 /* VistaEditarEnProceso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaEditarEnProceso.swift; sourceTree = "<group>"; };
 		29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		756B4F582909656900DC66FC /* VistaClasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaClasificacion.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				29060BE82934A29300362E2C /* BusquedaView.swift */,
 				29060BEA2934B18F00362E2C /* VistaHistorialDetalle.swift */,
 				29A2BE48295C4BC100FDA810 /* VistaEditarEnProceso.swift */,
+				29903DE4295F67EC005AF4BC /* ViewDescripcionElemento.swift */,
 			);
 			path = GestionCrystalite;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				29060BEB2934B18F00362E2C /* VistaHistorialDetalle.swift in Sources */,
 				292388FE2930CA710084987B /* VistaResultadoClasificacion.swift in Sources */,
 				296BB87F2927E07800FAE131 /* CoreDataManager.swift in Sources */,
+				29903DE5295F67EC005AF4BC /* ViewDescripcionElemento.swift in Sources */,
 				756B4F592909656900DC66FC /* VistaClasificacion.swift in Sources */,
 				296BB8832927EED100FAE131 /* VistaRegistro.swift in Sources */,
 				296BB8812927E36B00FAE131 /* ViewModel.swift in Sources */,

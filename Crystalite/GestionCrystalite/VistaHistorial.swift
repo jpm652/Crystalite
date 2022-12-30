@@ -64,6 +64,11 @@ struct VistaHistorial: View {
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
                     
+                    HStack{
+                        Text("Fecha") //.frame(alignment: .leading)
+                        Text("Ensayos")
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    
                     ScrollView{
                         ForEach(vm.ensayoArray){ ensayo in
                             if(query.isEmpty){

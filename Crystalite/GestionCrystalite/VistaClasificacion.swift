@@ -364,7 +364,7 @@ func LM_6(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
 func LM_7(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
     
     var resultados : [Double] = []
-    let construccionfloat : Double = -103.78 + (ir * 90,07) + (mg * 3.08) + (al * -19.31) + (k * 0,3) + (ba * -11.22)
+    let construccionfloat : Double = -103.78 + (ir * 90.07) + (mg * 3.08) + (al * -19.31) + (k * 0.3) + (ba * -11.22)
     let construccionNonfloat : Double = -276.97 + (ir * 158.76) + (mg * 0.28) + (al * -0.38) + (k * 0.47) + (ca * 2.43) + (ba * 4.83)
     let vehiculofloat : Double = 195.39 + (ir * -137.22) + (mg * 1.1) + (al * -2.5) + (k * -1.77) + (ca * 0.34)
     let vehiculoNonfloat : Double = -20.79 + (mg * 0.01)
