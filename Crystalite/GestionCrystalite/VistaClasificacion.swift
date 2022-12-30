@@ -287,6 +287,42 @@ func LM_4(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
 
 }
 
+func LM_5(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
+    
+    var resultados : [Double] = []
+    let construccionfloat : Double = 727.54 + (ir * -493.91) + (mg * 3.48) + (al * -4.86) + (k * -0.36) + (ca * 0.82) + (ba * -22.55)
+    let construccionNonfloat : Double = 70.65 + (ir * 41.45) + (mg * -12.14) + (al * -19.31) + (k * -4.32) + (ca * -6.88) + (ba * 8.25)
+    let vehiculofloat : Double = -275.01 + (ir * 58.48) + (mg * 16.96) + (al * 21.12) + (k * 1.37) + (ca * 11.22) + (ba * 1.81)
+    let vehiculoNonfloat : Double = -51.65 + (mg * 0.01)
+    let contenedores : Double = 17.53 + (ir * -38.05) + (mg * -1.25) + (al * 3.98) + (k * 0.49) + (ca * 0.46) + (ba * 2.46)
+    let vajilla : Double = 154.89 + (ir * -118.9) + (mg * -0.21) + (al * 3.9) + (k * -112.96) + (ca * -0.54) + (ba * -3.04)
+    let faro : Double = -2820.83 + (ir * 1845.88) + (mg * -1.05) + (al * 0.36) + (k * 13.17) + (ca * -1.31) + (ba * 1.62)
+    
+    resultados.append(construccionfloat)
+    resultados.append(construccionNonfloat)
+    resultados.append(vehiculofloat)
+    resultados.append(vehiculoNonfloat)
+    resultados.append(contenedores)
+    resultados.append(vajilla)
+    resultados.append(faro)
+    
+    if(resultados.max() == construccionfloat){
+        return "Vidrio construccion flotado"
+    }else if(resultados.max() == construccionNonfloat){
+        return "Vidrio construccion no flotado"
+    }else if(resultados.max() == vehiculofloat){
+        return "Vidrio vehiculo flotado"
+    }else if(resultados.max() == vehiculoNonfloat){
+        return "Vidrio vehiculo no flotado"
+    }else if(resultados.max() == contenedores){
+        return "Vidrio contenedor"
+    }else if(resultados.max() == vajilla){
+        return "Vidrio vajilla"
+    }else{
+        return "Vidrio faro"
+    }
+
+}
 //struct VistaClasificacion_Previews: PreviewProvider {
 //    static var previews: some View {
 //        
