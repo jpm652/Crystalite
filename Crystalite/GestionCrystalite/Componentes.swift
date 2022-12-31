@@ -7,7 +7,6 @@
 import Foundation
 import SwiftUI
 
-
 struct boton: View{
     
     var texto : String;
@@ -117,7 +116,7 @@ struct estudioHistorial: View{
                     HStack (){
                         
                         VStack(alignment: .leading) {
-                            Text(tipoCristal).font(.title3).tint(.black)
+                            Text(tipoCristal).multilineTextAlignment(.leading).font(.system(size: 15)).tint(.black)
                             Text("Nombre: \(nombreEnsayo)").font(.caption).tint(.black)
                             if proceso{
                                 Text("En proceso").font(.caption).tint(.red)

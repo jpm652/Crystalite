@@ -22,6 +22,9 @@ struct VistaLogin: View {
     @State var contraseña : String = ""
     //@State var personaLogin: PersonaEntity = PersonaEntity()
     
+
+
+    
     var body: some View {
         
         
@@ -102,7 +105,7 @@ struct VistaLogin: View {
                                 .tint(.black)
                                 .clipShape(RoundedRectangle (cornerRadius: 19))
                         }
-                        
+                 
                         if (iniciarSesion == true){
                             VistaPrincipal()
                         }

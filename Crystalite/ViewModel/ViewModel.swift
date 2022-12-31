@@ -115,12 +115,13 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
-    func addElemento(iniciales: String, valor : Double, nombre : String){
+    func addElemento(iniciales: String, valor : Double, nombre : String, descripcion: String){
         
         let newElemento = ElementoEntity(context: gestorCoreData.contexto)
         newElemento.iniciales = iniciales
         newElemento.valor = valor
         newElemento.nombre = nombre
+        newElemento.descripcion = descripcion
         
         guardarDatos()
     }
@@ -172,11 +173,11 @@ func cargarElementos(){
             gestorCoreData.contexto.delete(elementoArray[i])
         }
     }
-    addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio")
-    addElemento(iniciales: "RI",valor: 0.0, nombre: "Indice de refraccion")
-    addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario")
-    addElemento(iniciales: "Ca",valor: 0.0, nombre: "Calcio")
-    addElemento(iniciales: "K",valor: 0.0, nombre: "Potasio")
-    addElemento(iniciales: "Mg",valor: 0.0, nombre: "Magnesio")
+    addElemento(iniciales: "Al",valor: 0.0, nombre: "Aluminio",descripcion: "El aluminio es un elemento químico, de símbolo Al y número atómico 13. Se trata de un metal no ferromagnético. Es el tercer elemento más común encontrado en la corteza terrestre. \nLos compuestos de aluminio forman el 8 % de la corteza de la tierra y se encuentran presentes en la mayoría de las rocas, de la vegetación y de los animales.")
+    addElemento(iniciales: "RI",valor: 0.0, nombre: "Indice de refraccion",descripcion: "Se denomina índice de refracción al cociente de la velocidad de la luz en el vacío y la velocidad de la luz en el medio cuyo índice se calcula.\n Se simboliza con la letra n y se trata de un valor adimensional. El índice de refracción de un medio es una medida para saber cuánto se reduce la velocidad de la luz (o de otras ondas tales como ondas acústicas) dentro del medio.")
+    addElemento(iniciales: "Ba",valor: 0.0, nombre: "Bario",descripcion: "El bario es un elemento químico de la tabla periódica cuyo símbolo es Ba y su número atómico es 56. Metal alcalinotérreo, el bario es el 18.º elemento más común, ocupando una parte de 2000 de la corteza terrestre.")
+    addElemento(iniciales: "Ca",valor: 0.0, nombre: "Calcio",descripcion: "El calcio es un elemento químico, de símbolo Ca y de número atómico 20. Su masa atómica es 40,078 u. El calcio es un metal blando, grisáceo, y es el quinto más abundante en masa de la corteza terrestre. También es el ion más abundante disuelto en el agua de mar, tanto como por su molaridad y como por su masa, después del sodio, cloruros, magnesio y sulfatos.")
+    addElemento(iniciales: "K",valor: 0.0, nombre: "Potasio",descripcion: "El potasio es un elemento químico de la tabla periódica cuyo símbolo químico es K, cuyo número atómico es 19.\n Es un metal alcalino de color blanco-plateado, que abunda en la naturaleza en los elementos relacionados con el agua salada y otros minerales. Se oxida rápidamente en el aire, es muy reactivo, especialmente en agua, y se parece químicamente al sodio.")
+    addElemento(iniciales: "Mg",valor: 0.0, nombre: "Magnesio",descripcion: "El magnesio es el elemento químico de símbolo Mg y número atómico 12. Su masa atómica es de 24,305 u.\n Es el octavo elemento en abundancia en el orden del  % de la corteza terrestre y el tercero más abundante disuelto en el agua de mar.")
 }
 }

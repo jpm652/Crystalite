@@ -68,12 +68,13 @@ struct VistaClasificacion: View {
                         valorMg = vm.elementoArray[4].valor
                         valorK = vm.elementoArray[5].valor
                     
-                        resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
 
 
                         if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
                             vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }else{
+                            resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+
                             vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }
                     
@@ -136,7 +137,6 @@ func calcularResultado(al:Double, ba:Double, ca: Double, ir: Double, k: Double, 
     }else{
         return LM_7(al: al, ba: ba, ca: ca, ir: ir, k: k, mg: mg)
     }
-    return "hola"
 }
 
 func LM_1(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{

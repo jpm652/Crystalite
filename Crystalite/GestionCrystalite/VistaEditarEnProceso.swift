@@ -18,7 +18,8 @@ struct VistaEditarEnProceso: View {
     @State var valorK: Double = 0.0;
     @State var nombreEnsayo: String = ""
     @State var ensayo: EnsayoEntity
-    
+    @State var resultado: String = ""
+
     var body: some View {
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
@@ -67,12 +68,13 @@ struct VistaEditarEnProceso: View {
                     valorK = vm.elementoArray[4].valor
                     valorMg = vm.elementoArray[5].valor
 
-           
+                    
                     
                         if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
                             vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }else{
-                            vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: "Cristal faro", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                            resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                            vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }
                     
                 }label: {

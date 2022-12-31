@@ -12,15 +12,11 @@ struct VistaInfoDetallada: View {
     @State var disposicion : Bool = false
     @State var cambiarNomEnsayo : Bool = false
     @State var currentNomEnsayo : String = ""
-    //@State var idEnsayo : Int
     @State var ensayo : EnsayoEntity
     @State private var showmodal = false
     @State var elemento : ElementoEntity = ElementoEntity()
-    
+    @State var count : Int = 0
     var body: some View {
-        
-        
-        
         
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
@@ -36,6 +32,7 @@ struct VistaInfoDetallada: View {
                     Text("Variables usadas (6)");
                     Spacer().frame(width: 110);
                     
+                    
                     Button(){
                         disposicion.toggle()
                     }label: {
@@ -49,19 +46,62 @@ struct VistaInfoDetallada: View {
                     ScrollView{
                         
                         ForEach(vm.elementoArray){ ele in
-                            
                             Button(){
-                                showmodal = true
+                                showmodal.toggle()
                                 elemento = ele
-                                
                             }label: {
                                 elementoResultadoFila(iniciales: ele.iniciales ?? "", nombre: ele.nombre ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo) )
-                            }
+                            }.sheet(isPresented: $showmodal, content: {
+                                ViewDescripcionElemento(elemento: $elemento)
+                            })
                         }
 
                     }
                 }else{
                     HStack{
+                    ForEach(vm.elementoArray){ ele in
+                        
+                        if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 3){
+                            Button(){
+                                showmodal.toggle()
+                                elemento = ele
+                            }label: {
+                                elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
+                            }.sheet(isPresented: $showmodal, content: {
+                                ViewDescripcionElemento(elemento: $elemento)
+                            })
+                            if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 2){
+                                Spacer().frame(width: 20)
+                            }
+                            
+                        }
+                        
+                    }
+                    }
+                    
+                    HStack{
+                    ForEach(vm.elementoArray){ ele in
+                        
+                        if(vm.elementoArray.firstIndex(of: ele) ?? 3 >= 3){
+                            Button(){
+                                showmodal.toggle()
+                                elemento = ele
+                            }label: {
+                                elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
+                            }.sheet(isPresented: $showmodal, content: {
+                                ViewDescripcionElemento(elemento: $elemento)
+                            })
+                            if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 5){
+                                Spacer().frame(width: 20)
+                            }
+                        }
+                        
+                    }
+                    }
+                        }
+                        
+                    
+                    /*HStack{
                         elementoResultadoCuadrado(iniciales: "Al", value: ensayo.al)
                         Spacer().frame(width: 20)
                         elementoResultadoCuadrado(iniciales: "Ba", value: ensayo.ba)
@@ -76,11 +116,11 @@ struct VistaInfoDetallada: View {
                         elementoResultadoCuadrado(iniciales: "K", value: ensayo.k)
                         Spacer().frame(width: 20)
                         elementoResultadoCuadrado(iniciales: "Mg",value: ensayo.mg)
-                    }
-                }
+                    }*/
+                
             }.padding(.top,-50)
-            ViewDescripcionElemento(mostrar: $showmodal, elemento: $elemento)
         }
+        
     }
 }
 func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
@@ -94,7 +134,33 @@ func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
     
     
 }
+/*
+func cambioDisposicion(){
+    @EnvironmentObject var vm: ViewModel
+    @State var count : Int = 0
+    @State var showmodal = false
+    @State var elemento : ElementoEntity = ElementoEntity()
+    @State var ensayo : EnsayoEntity
 
+    ForEach(vm.elementoArray){ ele in
+        HStack{
+            if(count < 3){
+                Button(){
+                    showmodal.toggle()
+                    elemento = ele
+                }label: {
+                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
+                }.sheet(isPresented: $showmodal, content: {
+                    ViewDescripcionElemento(elemento: $elemento)
+                })
+                count+=1
+            }
+            
+        }
+        
+    }
+}
+*/
 func ponerFecha(fecha : Date) -> String{
     
     let dateFormatter = DateFormatter()
