@@ -9,8 +9,6 @@ import SwiftUI
 
 struct VistaPrincipal: View {
     @EnvironmentObject var vm: ViewModel;
-    //@State var usuarioActual: PersonaEntity
-    //@State var ensayo : EnsayoEntity = EnsayoEntity()
     @State var seleccion: Int = 1;
     
     var body: some View {
@@ -21,7 +19,7 @@ struct VistaPrincipal: View {
                     Image(systemName: "doc.badge.plus")
                     Text("Clasificación")
                 }.tag(0)
-            VistaHistorial() //usuarioActual)
+            VistaHistorial()
                 .tabItem{
                     Image(systemName: "clock.arrow.circlepath")
                     Text("Historial")

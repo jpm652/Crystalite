@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-
-enum valorAlerta {
-    case first, second
-}
-
 struct VistaLogin: View {
+    
+    // Atributos
+    
     @EnvironmentObject var vm: ViewModel
     @Binding var iniciarSesion : Bool
     @Binding var registro : Bool
@@ -20,14 +18,10 @@ struct VistaLogin: View {
     @State var valorAlerta : valorAlerta = .first
     @State var email : String = ""
     @State var contraseña : String = ""
-    //@State var personaLogin: PersonaEntity = PersonaEntity()
     
-
-
+    // View
     
     var body: some View {
-        
-        
         
         ZStack{
             Color("Gris").ignoresSafeArea()
@@ -84,48 +78,54 @@ struct VistaLogin: View {
                             .frame(width: 245, height: 59)
                             .background(Color("Azul"))
                             .tint(.black)
-                                .clipShape(RoundedRectangle (cornerRadius: 19))
-                        }.alert(isPresented: $mostrarAlerta) {
-                            switch valorAlerta {
-                            case .first:
-                                return Alert(title: Text("Faltan campos por rellenar"), message: Text("Rellene todos los campos"), dismissButton: .default(Text("Vale")))
-                            case .second:
-                                return Alert(title: Text("Credenciales incorrectas"), message: Text("Vuelve a intentarlo"), dismissButton: .default(Text("Vale")))
-                            }
+                            .clipShape(RoundedRectangle (cornerRadius: 19))
+                    }.alert(isPresented: $mostrarAlerta) {
+                        switch valorAlerta {
+                        case .first:
+                            return Alert(title: Text("Faltan campos por rellenar"), message: Text("Rellene todos los campos"), dismissButton: .default(Text("Vale")))
+                        case .second:
+                            return Alert(title: Text("Credenciales incorrectas"), message: Text("Vuelve a intentarlo"), dismissButton: .default(Text("Vale")))
                         }
-                        HStack{
-                            //RELLENAR --------o---------
-                            Text("-----------------o-----------------")
+                    }
+                    HStack{
+                        
+                        VStack{
+                            Divider()
+                                .frame(width: 100)
+                                .background(Color.black)
                         }
-                        Button {
-                            registro.toggle()
-                        } label: {
-                            Text("Registro")
-                                .frame(width: 245, height: 59)
-                                .background(Color("Azul"))
-                                .tint(.black)
-                                .clipShape(RoundedRectangle (cornerRadius: 19))
-                        }
-                 
-                        if (iniciarSesion == true){
-                            VistaPrincipal()
-                        }
-                        if (registro == true) {
-                            VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion)
+                        Text(" o ")
+                        
+                        VStack{
+                            Divider()
+                                .frame(width: 100)
+                                .background(Color.black)
                         }
                         
                     }
+                    Button {
+                        registro.toggle()
+                    } label: {
+                        Text("Registro")
+                            .frame(width: 245, height: 59)
+                            .background(Color("Azul"))
+                            .tint(.black)
+                            .clipShape(RoundedRectangle (cornerRadius: 19))
+                    }
+                    
+                    if (iniciarSesion == true){
+                        VistaPrincipal()
+                    }
+                    if (registro == true) {
+                        VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion)
+                    }
+                    
                 }
+            }
         }
-            
-            
     }
-        
-    
 }
 
-/*struct VistaLogin_Previews: PreviewProvider {
-    static var previews: some View {
-        VistaLogin(iniciarSesion: .constant(false), registro: .constant(false))
-    }
-}*/
+enum valorAlerta {
+    case first, second
+}
