@@ -9,16 +9,19 @@ import SwiftUI
 
 struct BusquedaView: View {
     @Binding var text : String
-    
+    @EnvironmentObject var vm : ViewModel
+
     var body: some View {
         ZStack{
-            Rectangle().background(.white)
+            Rectangle()
+                .fill(vm.modoOscuro ? Color("Busqueda_Oscuro"): .white)
             HStack{
                 Image(systemName: "magnifyingglass")
-                    .foregroundColor(text.isEmpty ? Color(.gray).opacity(0.5) : Color(UIColor.gray).opacity(1))
+                    .foregroundColor(text.isEmpty ? (vm.modoOscuro ? .white.opacity(0.5) : Color(.gray).opacity(0.5)) :  (vm.modoOscuro ? .white.opacity(1) : Color(UIColor.gray).opacity(1)))
                 TextField("Buscar ensayo ...", text:  $text)
+                    .tint(.red)
+                    .foregroundColor(vm.modoOscuro ? .white :.gray)
                     .disableAutocorrection(true)
-                    .foregroundColor(.gray)
                 Button(){
                     text = ""
                 }label: {

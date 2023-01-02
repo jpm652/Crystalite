@@ -24,25 +24,20 @@ struct VistaClasificacion: View {
     var body: some View {
         
         ZStack(alignment: .top){
-            Color("Gris").ignoresSafeArea()
-            
+            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+
             VStack(){
-                HStack {
-                    Spacer().frame(height: 1)
-                    
-                    Button(action: { }) {
-                        Image(systemName: "person.crop.circle")
-                            .resizable()
-                            .foregroundColor(.black)
-                            .frame(width: 40, height: 40)
-                            .padding(.horizontal,20)
-                    }
-                }
-                
                 VStack(alignment: .leading) {
-                    Text("Introducir ensayo").font(.title).bold()
+                    Text("Introducir ensayo")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
+
                     Spacer().frame(height: 15)
-                    Text("Nombre: ").font(.title2)
+                    Text("Nombre: ")
+                        .font(.title2)
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
+
                     
                     TextField("Introducir nombre del ensayo", text: $nombreEnsayo)
                         .padding(.leading,20)
@@ -75,20 +70,20 @@ struct VistaClasificacion: View {
                         }else{
                             resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
 
-                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                            vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }
                     
                 }label: {
                     Text("Clasificar cristal")
                         .frame(width: 245, height: 59)
-                        .background(Color("Azul"))
-                        .tint(.black)
+                        .background(vm.modoOscuro ? .black :Color("Azul"))
+                        .tint(vm.modoOscuro ? .white : .black)
                         .clipShape(RoundedRectangle (cornerRadius: 19))
                         .padding(.all, 15)
                         .labelStyle(TitleOnlyLabelStyle())
                 }
                 
-            }
+            }.padding(.top,50)
         }.onAppear(){
             vm.elementoArray[0].valor = 0
             vm.elementoArray[1].valor = 0

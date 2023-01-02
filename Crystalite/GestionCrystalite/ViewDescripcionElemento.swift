@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct ViewDescripcionElemento: View {
+    @EnvironmentObject var vm: ViewModel
     @Binding var elemento : ElementoEntity
     
     var body: some View{
         
         ZStack(){
+            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+
                 Circle()
                 .fill(Color("Azul"))
                 .frame(width: 500, height: 500)
@@ -26,10 +29,16 @@ struct ViewDescripcionElemento: View {
                     
                 Text(elemento.nombre ?? "").font(.title2)
                     .padding(.top, 100)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
                 Divider()
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
                 Text(elemento.descripcion ?? "")
                     .padding(.horizontal, 100)
                     .multilineTextAlignment(.center)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
                 
             }
             }

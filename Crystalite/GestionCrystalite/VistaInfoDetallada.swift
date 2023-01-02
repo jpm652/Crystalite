@@ -19,17 +19,22 @@ struct VistaInfoDetallada: View {
     var body: some View {
         
         ZStack(alignment: .top){
-            Color("Gris").ignoresSafeArea()
+            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
             
             VStack{
-                Text("Informacion detallada").font(.title);
+                Text("Informacion detallada")
+                    .font(.title)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
                 
                 Spacer().frame(height: 30)
                 elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
                 
                 Spacer().frame(height: 50)
                 HStack{
-                    Text("Variables usadas (6)");
+                    Text("Variables usadas (6)")
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
+
                     Spacer().frame(width: 110);
                     
                     
@@ -37,7 +42,7 @@ struct VistaInfoDetallada: View {
                         disposicion.toggle()
                     }label: {
                         Image(systemName: disposicion ? "list.dash" : "square.grid.3x3.topleft.filled")
-                            .foregroundColor(.black)
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
                     }
                     
                 }.frame(width: 300, alignment: .leading)
@@ -134,33 +139,7 @@ func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
     
     
 }
-/*
-func cambioDisposicion(){
-    @EnvironmentObject var vm: ViewModel
-    @State var count : Int = 0
-    @State var showmodal = false
-    @State var elemento : ElementoEntity = ElementoEntity()
-    @State var ensayo : EnsayoEntity
 
-    ForEach(vm.elementoArray){ ele in
-        HStack{
-            if(count < 3){
-                Button(){
-                    showmodal.toggle()
-                    elemento = ele
-                }label: {
-                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
-                }.sheet(isPresented: $showmodal, content: {
-                    ViewDescripcionElemento(elemento: $elemento)
-                })
-                count+=1
-            }
-            
-        }
-        
-    }
-}
-*/
 func ponerFecha(fecha : Date) -> String{
     
     let dateFormatter = DateFormatter()

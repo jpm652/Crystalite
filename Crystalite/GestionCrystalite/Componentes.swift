@@ -48,14 +48,20 @@ struct ElementoView: View{
                     .clipShape(RoundedRectangle (cornerRadius: 10))
                 
                 VStack(alignment: .leading) {
-                    Text(elemento.iniciales ?? "").font(.title3)
+                    Text(elemento.iniciales ?? "")
+                        .font(.title3)
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
+
                     Text(elemento.nombre ?? "")
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
                     
                 }.frame(width: 150, alignment: .leading)
+                
                 TextField(String(valor), text: $valorFinal, onEditingChanged: {editing  in
                     vm.editElemento(elemento: elemento, valorNuevo: Double(valorFinal) ?? 1)
                 })
-                    .frame(width: 50)
+                .foregroundColor(vm.modoOscuro ? .white : .black)
+                .frame(width: 50)
                 
                 
                 Button{
@@ -70,6 +76,7 @@ struct ElementoView: View{
                 }
 
             }
+
             
             if mostrarSlider {
                 VStack{
@@ -83,7 +90,7 @@ struct ElementoView: View{
             }
         }
         .frame(width: 300, height: altura)
-        .background(.white)
+        .background(vm.modoOscuro ? .black : .white)
         .cornerRadius(15)
         .onAppear(){
             valorFinal = String(format: "%.2f", elemento.valor)
@@ -101,6 +108,8 @@ func comprobarValorElemento(elemento: ElementoEntity, valor: String){
 }
 
 struct estudioHistorial: View{
+    @EnvironmentObject var vm: ViewModel
+
     var proceso: Bool
     var tipoCristal: String;
     var nombreEnsayo: String;
@@ -108,16 +117,21 @@ struct estudioHistorial: View{
     
     var body:some View{
         ZStack{
-            Color("Gris").ignoresSafeArea()
+            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
             VStack(alignment: .leading){
                 HStack{
-                    Text(ponerFechaPeq(fecha: fecha)).tint(.black).font(.system(size: 13))
+                    Text(ponerFechaPeq(fecha: fecha)).font(.system(size: 13))
+                        .tint(vm.modoOscuro ? .white : .black)
                     Label("", systemImage: "circle.inset.filled")
+                        .tint(vm.modoOscuro ? .white : .black)
                     HStack (){
                         
                         VStack(alignment: .leading) {
-                            Text(tipoCristal).multilineTextAlignment(.leading).font(.system(size: 15)).tint(.black)
-                            Text("Nombre: \(nombreEnsayo)").font(.caption).tint(.black)
+                            Text(tipoCristal)
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 15))
+                                .tint(vm.modoOscuro ? .white : .black)
+                            Text("Nombre: \(nombreEnsayo)").font(.caption).tint(vm.modoOscuro ? .white : .black)
                             if proceso{
                                 Text("En proceso").font(.caption).tint(.red)
 
@@ -132,7 +146,7 @@ struct estudioHistorial: View{
                         
                     }
                     .frame(width: 280, height: 100)
-                    .background(.white)
+                    .background(vm.modoOscuro ? .black : .white)
                     .cornerRadius(15)
                 }
             }
@@ -142,29 +156,7 @@ struct estudioHistorial: View{
     }
 }
 
-struct elementoCristal: View{
-    
-    var tipo : String;
-    var nombre : String;
-    var fecha : String;
-    
-    var body: some View{
-        HStack{
-            VStack(alignment: .leading){
-                Text(tipo).font(.title2);
-                Text(nombre).font(.title3);
-                Text(fecha);
-            }.frame(width: 180, height: 100, alignment: .leading)
-            Image("Cristal vidrio botella")
-                .resizable()
-                .frame(width: 125, height: 100, alignment: .trailing)
-                .cornerRadius(15);
-        }
-        .frame(width: 300, height: 100)
-        .background(Color.white)
-        .cornerRadius(15)
-    }
-}
+
 
 struct elementoCristalEdicion: View{
     
@@ -178,11 +170,16 @@ struct elementoCristalEdicion: View{
     var body: some View{
         HStack{
             VStack(alignment: .leading){
-                Text(tipoCristal).font(.body)
+                Text(tipoCristal)
+                    .font(.body)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+                
                 Spacer().frame(height: 0.1)
                 HStack{
                     
                     Text("Nombre: \(nombreEnsayo)").font(.caption)
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
+
                     
                     Button() {
                         cambiarNombre.toggle()
@@ -215,7 +212,10 @@ struct elementoCristalEdicion: View{
                 }
                 
                 Spacer().frame(height: 0.1)
-                Text(fecha).font(.caption);
+                Text(fecha)
+                    .font(.caption)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
             }.frame(width: 180, height: 100, alignment: .leading)
                 .padding(.leading, -30)
             Image(tipoCristal)
@@ -225,13 +225,15 @@ struct elementoCristalEdicion: View{
                 .padding(.trailing,-50)
         }
         .frame(width: 320, height: 100)
-        .background(Color.white)
+        .background(vm.modoOscuro ? .black : .white)
         .cornerRadius(15)
     }
 }
 
 struct elementoResultadoFila: View{
     
+    @EnvironmentObject var vm: ViewModel
+
     var iniciales : String;
     var nombre : String;
     var value : Double;
@@ -245,20 +247,26 @@ struct elementoResultadoFila: View{
                 .clipShape(RoundedRectangle (cornerRadius: 10))
             VStack(alignment: .leading) {
                 Text(iniciales).tint(.black)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
                 Text(nombre).tint(.black)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
                 
             }.frame(width: 170, alignment: .leading)
-            Text(String(format: "%.2f",value)).frame(width: 50).tint(.black)
+            Text(String(format: "%.2f",value)).frame(width: 50)
+                .foregroundColor(vm.modoOscuro ? .white : .black)
+
         }
         .frame(width: 300, height: 60)
-        .background(.white)
+        .background(vm.modoOscuro ? .black : .white)
         .cornerRadius(15)
         
     }
     
 }
 struct elementoResultadoCuadrado: View{
-    
+    @EnvironmentObject var vm: ViewModel
+
     var iniciales : String;
     var value : Double;
     
@@ -269,13 +277,20 @@ struct elementoResultadoCuadrado: View{
                 .frame(width: 35, height: 35)
                 .clipShape(RoundedRectangle (cornerRadius: 10))
             VStack() {
-                Text(iniciales).padding(.leading,-30).font(.title2).tint(.black)
-                Text(String(format: "%.2f",value)).padding(.trailing,-20).frame(width: 50).tint(.black)
+                Text(iniciales).padding(.leading,-30)
+                    .font(.title2)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
+                Text(String(format: "%.2f",value))
+                    .padding(.trailing,-20)
+                    .frame(width: 50)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+
 
             }.frame(width: 55)
         }
         .frame(width: 85, height: 120)
-        .background(.white)
+        .background(vm.modoOscuro ? .black : .white)
         .cornerRadius(15)
     }
     
@@ -283,11 +298,15 @@ struct elementoResultadoCuadrado: View{
 
 struct preguntas: View{
     
+    @EnvironmentObject var vm: ViewModel
     var preguntas: String;
     
     var body: some View{
         HStack() {
-            Text(preguntas).frame(width: 300, height: 50).background(.white).cornerRadius(10).foregroundColor(.black)
+            Text(preguntas).frame(width: 300, height: 50)
+                .background(vm.modoOscuro ? .black : .white)
+                .cornerRadius(10)
+                .foregroundColor(vm.modoOscuro ? .white : .black)
         }
     }
     
@@ -295,12 +314,14 @@ struct preguntas: View{
 
 struct respuestas: View{
     
+    @EnvironmentObject var vm: ViewModel
     var respuestas: String;
     
     var body: some View{
         HStack() {
             Text(respuestas)
-        }
+        }.background(vm.modoOscuro ? .black : .white)
+            .foregroundColor(vm.modoOscuro ? .white : .black)
     }
     
 }

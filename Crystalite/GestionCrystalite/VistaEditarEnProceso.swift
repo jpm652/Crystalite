@@ -22,26 +22,19 @@ struct VistaEditarEnProceso: View {
 
     var body: some View {
         ZStack(alignment: .top){
-            Color("Gris").ignoresSafeArea()
-            
+            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+
             VStack(){
-                HStack {
-                    Spacer().frame(height: 1)
-                    
-                    Button(action: { }) {
-                        Image(systemName: "person.crop.circle")
-                            .resizable()
-                            .foregroundColor(.black)
-                            .frame(width: 40, height: 40)
-                            .padding(.horizontal,20)
-                    }
-                }
                 
                 VStack(alignment: .leading) {
 
-                    Text("Ensayo en Proceso").font(.title).bold()
+                    Text("Ensayo en Proceso")
+                        .font(.title).bold()
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
                     Spacer().frame(height: 15)
-                    Text("Nombre: ").font(.title2)
+                    Text("Nombre: ")
+                        .font(.title2)
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
                     
                     TextField("Introducir nombre del ensayo", text: $nombreEnsayo)
                         .padding(.leading,20)
@@ -80,14 +73,14 @@ struct VistaEditarEnProceso: View {
                 }label: {
                     Text("Clasificar cristal")
                         .frame(width: 245, height: 59)
-                        .background(Color("Azul"))
-                        .tint(.black)
+                        .background(vm.modoOscuro ? .black :Color("Azul"))
+                        .tint(vm.modoOscuro ? .white : .black)
                         .clipShape(RoundedRectangle (cornerRadius: 19))
                         .padding(.all, 15)
                         .labelStyle(TitleOnlyLabelStyle())
                 }
                 
-            }
+            }.padding(.top,50)
         }.onAppear(){
             nombreEnsayo = ensayo.nombre ?? ""
             vm.elementoArray[0].valor = ensayo.al

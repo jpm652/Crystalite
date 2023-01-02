@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VistaPrincipal: View {
-    @EnvironmentObject var usuario: ViewModel;
+    @EnvironmentObject var vm: ViewModel;
     //@State var usuarioActual: PersonaEntity
     //@State var ensayo : EnsayoEntity = EnsayoEntity()
     @State var seleccion: Int = 1;
@@ -31,9 +31,13 @@ struct VistaPrincipal: View {
                     Image(systemName: "lifepreserver")
                     Text("Ayuda")
                 }.tag(2)
+            VistaInfoCuenta()
+                .tabItem{
+                    Image(systemName: "person.crop.circle")
+                    Text("Perfil")
+                }.tag(3)
         }
-        .background(Color("Gris"))
-        .accentColor(Color("Morado"))
+        .accentColor(vm.modoOscuro ? .white : Color("Morado"))
     }
     
 }

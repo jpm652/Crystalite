@@ -11,7 +11,6 @@ import CoreData
 struct VistaHistorial: View {
     
     @EnvironmentObject var vm : ViewModel
-    //@State var usuarioActual: PersonaEntity
     @State var query: String = "";
     
     enum OpcionEnsayo : String, CaseIterable{
@@ -26,35 +25,22 @@ struct VistaHistorial: View {
             
             ZStack(alignment: .top){
                 
-                Color("Gris").ignoresSafeArea()
-                
-                HStack {
-                    Spacer().frame(height: 1)
-                    
-                    Button(action: { }) {
-                        //Text(usuarioActual.nombre ?? "")
-                        Image(systemName: "person.crop.circle")//uiImage: UIImage(data: usuarioActual.foto!)!)// systemName: "person.crop.circle")
-                            .resizable()
-                            .foregroundColor(.black)
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.black, lineWidth: 2))
-                            .padding(.horizontal,20)
-                    }
-                }.padding(.top,-50)
-                
-                
+                Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
                 VStack{
                     
                     Text("Historial")
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
                         .frame(alignment: .center)
-                        .font(.title);
+                        .font(.title)
                     
                     BusquedaView(text: $query)
                     
                     Spacer().frame(height: 10)
                     
-                    Text("Mostrar: ").frame(alignment: .leading)
+                    Text("Mostrar: ")
+                        .frame(alignment: .leading)
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
+
                     Picker("", selection: $opcionEnsayo){
                         
                         ForEach(OpcionEnsayo.allCases, id: \.self){ opcion in
@@ -63,14 +49,21 @@ struct VistaHistorial: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
+
                     
                     HStack{
-                        Text("Fecha") //.frame(alignment: .leading)
+                        Text("Fecha")
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                            .padding(.leading,20)
                         Text("Ensayos")
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                            .padding(.leading,20)
+
                     }.frame(maxWidth: .infinity, alignment: .leading)
                     
                     ScrollView{
-                        ForEach(vm.ensayoArray){ ensayo in
+                        if let ensayoPersona = vm.personaLogin.ensayoRelation?.allObjects as? [EnsayoEntity]{
+                        ForEach(ensayoPersona){ ensayo in
                             if(query.isEmpty){
                                 if(opcionEnsayo == .enProceso){
                                     if(ensayo.enProceso){
@@ -113,7 +106,7 @@ struct VistaHistorial: View {
                                     }
                                 }
                             }
-                            
+                            }
                         }
                     }
                 }

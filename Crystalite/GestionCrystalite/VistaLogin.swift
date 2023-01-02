@@ -69,6 +69,7 @@ struct VistaLogin: View {
                             for persona in vm.personaArray{
                                 if(email == persona.email && contraseña == persona.contrasena){
                                     iniciarSesion.toggle()
+                                    vm.personaLogin = persona
                                     //personaLogin = persona
                                     
                                     // self.persona = persona

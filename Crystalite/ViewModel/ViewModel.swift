@@ -18,6 +18,8 @@ class ViewModel: ObservableObject{
     @Published var personaArray: [PersonaEntity] = []
     @Published var ensayoArray: [EnsayoEntity] = []
     @Published var ayudaArray: [AyudaEntity] = []
+    @Published var modoOscuro: Bool = false
+    @Published var personaLogin : PersonaEntity = PersonaEntity()
     
     init(){
         
@@ -75,6 +77,7 @@ class ViewModel: ObservableObject{
     
     func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double ){
         let newEnsayo = EnsayoEntity(context: gestorCoreData.contexto)
+        newEnsayo.personaRelation = persona
         newEnsayo.nombre = nombre
         newEnsayo.fecha = fecha
         newEnsayo.enProceso = enProceso
