@@ -10,7 +10,7 @@ import SwiftUI
 struct VistaInfoCuenta: View {
     @EnvironmentObject var vm: ViewModel
     @State private var showGreeting = false
-    @State var iniciarSesion : Bool = true
+    @Binding var iniciarSesion : Bool
     @State var registro : Bool = false
     @State var mostrarEditarContrasena: Bool = false
     @State var mostrarEditarNombre: Bool = false
@@ -36,6 +36,7 @@ struct VistaInfoCuenta: View {
                             
                             Image(uiImage: UIImage(data: vm.personaLogin.foto ?? Data())!)
                                 .resizable()
+                                .scaledToFit()
                                 .frame(width: 150, height: 150, alignment: .center)
                                 .clipShape(Circle())
                                 .overlay(Circle().stroke(Color.white, lineWidth: 2))
@@ -135,8 +136,8 @@ struct VistaInfoCuenta: View {
                             HStack(alignment: .top) {
                                 
                                 Button(){
-                                    iniciarSesion = false
-                                    VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
+                                    iniciarSesion.toggle()
+                                    
                                 }label:{
                                     Text("Cerra Sesión")
                                         .font(.subheadline)
@@ -144,7 +145,8 @@ struct VistaInfoCuenta: View {
                                         .foregroundColor(.red)
                                 }
                             }
-                            
+                            if (iniciarSesion == false){
+                                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)                            }
                         }
                         
                     }
@@ -162,9 +164,9 @@ struct VistaInfoCuenta: View {
 }
 
 
-struct VistaInfoCuenta_Previews: PreviewProvider {
+/*struct VistaInfoCuenta_Previews: PreviewProvider {
     static var previews: some View {
         
         VistaInfoCuenta()
     }
-}
+}*/

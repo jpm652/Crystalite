@@ -11,6 +11,7 @@ struct VistaPrincipal: View {
     @EnvironmentObject var vm: ViewModel;
     @State var selec: Int
     @State var seleccion: Int = 1;
+    @Binding var iniciarSesion: Bool
     
     var body: some View {
         
@@ -30,7 +31,7 @@ struct VistaPrincipal: View {
                     Image(systemName: "lifepreserver")
                     Text("Ayuda")
                 }.tag(2)
-            VistaInfoCuenta()
+            VistaInfoCuenta(iniciarSesion: $iniciarSesion)
                 .tabItem{
                     Image(systemName: "person.crop.circle")
                     Text("Perfil")
