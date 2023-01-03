@@ -33,23 +33,23 @@ struct VistaRegistro: View {
             ZStack{
                 Color("Gris").ignoresSafeArea()
                 
-                VStack(alignment: .leading){
-                    Color("Gris").ignoresSafeArea()
-                    
-                    Button(){
-                        registro.toggle()
-                        VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro)
-                    }label: {
-                        VStack(alignment: .leading){
-                            Image(uiImage: atras)
-                                .resizable()
-                                .frame(width: 20, height: 20)
-                        }
-                    }
-                }
-                
+
+            
                 VStack {
                     
+                    HStack{
+                        Button(){
+                            registro.toggle()
+                            VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro)
+                        }label: {
+                                Image(uiImage: atras)
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                            
+                        }
+                        
+                    }.frame(width: 350, alignment:.leading)
+                        .padding(.top,-50)
                     Button() {
                         mostrarImagePicker.toggle()
                         

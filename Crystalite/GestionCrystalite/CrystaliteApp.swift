@@ -12,7 +12,6 @@ struct CrystaliteApp: App {
     @StateObject private var vm: ViewModel = ViewModel()
     @State var iniciarSesion : Bool = false
     @State var registro : Bool = false
-    @State var personaLogin: PersonaEntity = PersonaEntity()
 
     var body: some Scene {
         WindowGroup {

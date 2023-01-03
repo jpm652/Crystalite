@@ -10,11 +10,10 @@ import SwiftUI
 struct VistaInfoCuenta: View {
     @EnvironmentObject var vm: ViewModel
     @State private var showGreeting = false
-    @State var iniciarSesion : Bool = false
+    @State var iniciarSesion : Bool = true
     @State var registro : Bool = false
     
     var body: some View {
-        NavigationView{
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
             
@@ -81,7 +80,7 @@ struct VistaInfoCuenta: View {
                             HStack(alignment: .top) {
                                 
                                 Button(){
-                                    vm.personaLogin = PersonaEntity()
+                                    iniciarSesion = false
                                     VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
                                 }label:{
                                     Text("Cerra Sesión")
@@ -89,6 +88,9 @@ struct VistaInfoCuenta: View {
                                         .bold()
                                         .foregroundColor(.red)
                                 }
+                            }
+                            if(iniciarSesion == false){
+                                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
                             }
                         }
                         
@@ -103,7 +105,7 @@ struct VistaInfoCuenta: View {
             
         }
         
-        }}
+        }
     
 }
 
