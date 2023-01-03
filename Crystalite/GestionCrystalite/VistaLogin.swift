@@ -114,7 +114,9 @@ struct VistaLogin: View {
                     }
                     
                     if (iniciarSesion == true){
-                        VistaPrincipal()
+                        
+                        VistaPrincipal(selec: 1)
+                        
                     }
                     if (registro == true) {
                         VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion)

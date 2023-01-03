@@ -72,6 +72,21 @@ struct VistaHistorial: View {
                     
                     ScrollView{
                         if let ensayoPersona = vm.personaLogin.ensayoRelation?.allObjects as? [EnsayoEntity]{
+                            
+                            if(ensayoPersona.isEmpty){
+                                
+                                VStack{
+                                    Image(systemName: "exclamationmark.triangle")
+                                        .resizable()
+                                        .frame(width: 120, height: 120)
+                                        .foregroundColor(.red)
+                                    Text("Actualmente no hay ensayos")
+                                }
+                                .padding(.top, 120)
+                                .frame(alignment: .center)
+                                
+                            }else{
+                                
                             ForEach(ensayoPersona){ ensayo in
                                 if(query.isEmpty){
                                     if(opcionEnsayo == .enProceso){
@@ -115,6 +130,7 @@ struct VistaHistorial: View {
                                         }
                                     }
                                 }
+                            }
                             }
                         }
                     }

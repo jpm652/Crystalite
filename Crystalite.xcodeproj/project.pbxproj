@@ -110,8 +110,8 @@
 		296BB8772927D3BE00FAE131 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				296BB87E2927E07800FAE131 /* CoreDataManager.swift */,
 				296BB8802927E36B00FAE131 /* ViewModel.swift */,
+				296BB87E2927E07800FAE131 /* CoreDataManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

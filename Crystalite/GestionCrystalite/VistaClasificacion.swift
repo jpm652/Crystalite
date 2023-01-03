@@ -73,7 +73,7 @@ struct VistaClasificacion: View {
                             vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }
                     
-                    
+                    VistaPrincipal(selec: 1)
                     
                 }label: {
                     Text("Clasificar cristal")

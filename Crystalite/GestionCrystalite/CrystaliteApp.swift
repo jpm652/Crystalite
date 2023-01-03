@@ -20,7 +20,7 @@ struct CrystaliteApp: App {
                 VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
             }
             if (iniciarSesion == true){
-                VistaPrincipal().environmentObject(vm)
+                VistaPrincipal(selec: 1).environmentObject(vm)
             }
             if (registro == true && iniciarSesion == false){
                 VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion).environmentObject(vm)

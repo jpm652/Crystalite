@@ -9,11 +9,12 @@ import SwiftUI
 
 struct VistaPrincipal: View {
     @EnvironmentObject var vm: ViewModel;
+    @State var selec: Int
     @State var seleccion: Int = 1;
     
     var body: some View {
 
-        TabView(selection: $seleccion) {
+        TabView(selection: $selec) {
             VistaClasificacion()
                 .tabItem{
                     Image(systemName: "doc.badge.plus")
@@ -36,6 +37,7 @@ struct VistaPrincipal: View {
                 }.tag(3)
         }
         .accentColor(vm.modoOscuro ? .white : Color("Morado"))
+        .background(vm.modoOscuro ? .black : Color("Gris"))
     }
     
 }
