@@ -25,7 +25,7 @@ struct VistaInfoDetallada: View {
                 Text("Informacion detallada")
                     .font(.title)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                
                 
                 Spacer().frame(height: 30)
                 elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
@@ -34,7 +34,7 @@ struct VistaInfoDetallada: View {
                 HStack{
                     Text("Variables usadas (6)")
                         .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                    
                     Spacer().frame(width: 110);
                     
                     
@@ -46,7 +46,7 @@ struct VistaInfoDetallada: View {
                     }
                     
                 }.frame(width: 300, alignment: .leading)
-            
+                
                 if disposicion == false{
                     ScrollView{
                         
@@ -60,68 +60,51 @@ struct VistaInfoDetallada: View {
                                 ViewDescripcionElemento(elemento: $elemento)
                             })
                         }
-
+                        
                     }
                 }else{
                     HStack{
-                    ForEach(vm.elementoArray){ ele in
-                        
-                        if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 3){
-                            Button(){
-                                showmodal.toggle()
-                                elemento = ele
-                            }label: {
-                                elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
-                            }.sheet(isPresented: $showmodal, content: {
-                                ViewDescripcionElemento(elemento: $elemento)
-                            })
-                            if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 2){
-                                Spacer().frame(width: 20)
+                        ForEach(vm.elementoArray){ ele in
+                            
+                            if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 3){
+                                Button(){
+                                    showmodal.toggle()
+                                    elemento = ele
+                                }label: {
+                                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
+                                }.sheet(isPresented: $showmodal, content: {
+                                    ViewDescripcionElemento(elemento: $elemento)
+                                })
+                                if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 2){
+                                    Spacer().frame(width: 20)
+                                }
+                                
                             }
                             
                         }
-                        
                     }
-                    }
-                    
+                    Spacer().frame(height: 20)
                     HStack{
-                    ForEach(vm.elementoArray){ ele in
-                        
-                        if(vm.elementoArray.firstIndex(of: ele) ?? 3 >= 3){
-                            Button(){
-                                showmodal.toggle()
-                                elemento = ele
-                            }label: {
-                                elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
-                            }.sheet(isPresented: $showmodal, content: {
-                                ViewDescripcionElemento(elemento: $elemento)
-                            })
-                            if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 5){
-                                Spacer().frame(width: 20)
+                        ForEach(vm.elementoArray){ ele in
+                            
+                            if(vm.elementoArray.firstIndex(of: ele) ?? 3 >= 3){
+                                Button(){
+                                    showmodal.toggle()
+                                    elemento = ele
+                                }label: {
+                                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
+                                }.sheet(isPresented: $showmodal, content: {
+                                    ViewDescripcionElemento(elemento: $elemento)
+                                })
+                                if(vm.elementoArray.firstIndex(of: ele) ?? 3 < 5){
+                                    Spacer().frame(width: 20)
+                                }
                             }
+                            
                         }
-                        
                     }
-                    }
-                        }
-                        
-                    
-                    /*HStack{
-                        elementoResultadoCuadrado(iniciales: "Al", value: ensayo.al)
-                        Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "Ba", value: ensayo.ba)
-                        Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "Ca",  value: ensayo.ca)
-                    }
-                    Spacer().frame(height: 30)
-
-                    HStack{
-                        elementoResultadoCuadrado(iniciales: "RI", value: ensayo.ir)
-                        Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "K", value: ensayo.k)
-                        Spacer().frame(width: 20)
-                        elementoResultadoCuadrado(iniciales: "Mg",value: ensayo.mg)
-                    }*/
+                }
+                
                 
             }.padding(.top,-50)
         }
@@ -129,7 +112,7 @@ struct VistaInfoDetallada: View {
     }
 }
 func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
-
+    
     if(elemento.iniciales == "Al") {return ensayo.al}
     else if(elemento.iniciales == "Ba"){return ensayo.ba}
     else if(elemento.iniciales == "Ca"){return ensayo.ca}

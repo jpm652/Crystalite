@@ -51,7 +51,7 @@ struct ElementoView: View{
                     Text(elemento.iniciales ?? "")
                         .font(.title3)
                         .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                    
                     Text(elemento.nombre ?? "")
                         .foregroundColor(vm.modoOscuro ? .white : .black)
                     
@@ -74,9 +74,9 @@ struct ElementoView: View{
                 }label: {
                     Image(systemName: "plus.circle")
                 }
-
+                
             }
-
+            
             
             if mostrarSlider {
                 VStack{
@@ -103,13 +103,13 @@ struct ElementoView: View{
 }
 func comprobarValorElemento(elemento: ElementoEntity, valor: String){
     @EnvironmentObject var vm: ViewModel
-
+    
     vm.editElemento(elemento: elemento, valorNuevo: Double(valor) ?? 1)
 }
 
 struct estudioHistorial: View{
     @EnvironmentObject var vm: ViewModel
-
+    
     var proceso: Bool
     var tipoCristal: String;
     var nombreEnsayo: String;
@@ -134,7 +134,7 @@ struct estudioHistorial: View{
                             Text("Nombre: \(nombreEnsayo)").font(.caption).tint(vm.modoOscuro ? .white : .black)
                             if proceso{
                                 Text("En proceso").font(.caption).tint(.red)
-
+                                
                             }
                         }.padding(.leading)
                             .frame(width: 170, alignment: .leading)
@@ -179,7 +179,7 @@ struct elementoCristalEdicion: View{
                     
                     Text("Nombre: \(nombreEnsayo)").font(.caption)
                         .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                    
                     
                     Button() {
                         cambiarNombre.toggle()
@@ -190,7 +190,7 @@ struct elementoCristalEdicion: View{
                             }else {
                                 nombreEnsayo = currentNomEnsayo
                                 vm.editNombreEnsayo(ensayo: ensayo, nombrenuevo: currentNomEnsayo)
-
+                                
                             }
                         }
                     } label: {
@@ -215,7 +215,7 @@ struct elementoCristalEdicion: View{
                 Text(fecha)
                     .font(.caption)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                
             }.frame(width: 180, height: 100, alignment: .leading)
                 .padding(.leading, -30)
             Image(tipoCristal)
@@ -233,7 +233,7 @@ struct elementoCristalEdicion: View{
 struct elementoResultadoFila: View{
     
     @EnvironmentObject var vm: ViewModel
-
+    
     var iniciales : String;
     var nombre : String;
     var value : Double;
@@ -248,14 +248,14 @@ struct elementoResultadoFila: View{
             VStack(alignment: .leading) {
                 Text(iniciales).tint(.black)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                
                 Text(nombre).tint(.black)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
                 
             }.frame(width: 170, alignment: .leading)
             Text(String(format: "%.2f",value)).frame(width: 50)
                 .foregroundColor(vm.modoOscuro ? .white : .black)
-
+            
         }
         .frame(width: 300, height: 60)
         .background(vm.modoOscuro ? .black : .white)
@@ -266,7 +266,7 @@ struct elementoResultadoFila: View{
 }
 struct elementoResultadoCuadrado: View{
     @EnvironmentObject var vm: ViewModel
-
+    
     var iniciales : String;
     var value : Double;
     
@@ -280,13 +280,13 @@ struct elementoResultadoCuadrado: View{
                 Text(iniciales).padding(.leading,-30)
                     .font(.title2)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                
                 Text(String(format: "%.2f",value))
                     .padding(.trailing,-20)
                     .frame(width: 50)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
-
-
+                
+                
             }.frame(width: 55)
         }
         .frame(width: 85, height: 120)

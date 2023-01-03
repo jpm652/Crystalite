@@ -13,7 +13,7 @@ struct VistaPrincipal: View {
     @State var seleccion: Int = 1;
     
     var body: some View {
-
+        
         TabView(selection: $selec) {
             VistaClasificacion()
                 .tabItem{

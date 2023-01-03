@@ -18,26 +18,26 @@ struct VistaClasificacion: View {
     @State var valorK: Double = 0.0;
     @State var nombreEnsayo: String = ""
     @State var resultado: String = ""
-
+    
     //@State var ensayo: EnsayoEntity
     
     var body: some View {
         
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
-
+            
             VStack(){
                 VStack(alignment: .leading) {
                     Text("Introducir ensayo")
                         .font(.title)
                         .bold()
                         .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                    
                     Spacer().frame(height: 15)
                     Text("Nombre: ")
                         .font(.title2)
                         .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                    
                     
                     TextField("Introducir nombre del ensayo", text: $nombreEnsayo)
                         .foregroundColor(vm.modoOscuro ? .white : .black)
@@ -57,22 +57,22 @@ struct VistaClasificacion: View {
                 }
                 
                 Button(){
-                        valorAl = vm.elementoArray[0].valor
-                        valorBa = vm.elementoArray[1].valor
-                        valorCa = vm.elementoArray[2].valor
-                        valorIr = vm.elementoArray[3].valor
-                        valorMg = vm.elementoArray[4].valor
-                        valorK = vm.elementoArray[5].valor
+                    valorAl = vm.elementoArray[0].valor
+                    valorBa = vm.elementoArray[1].valor
+                    valorCa = vm.elementoArray[2].valor
+                    valorIr = vm.elementoArray[3].valor
+                    valorMg = vm.elementoArray[4].valor
+                    valorK = vm.elementoArray[5].valor
                     
-
-
-                        if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                            vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                        }else{
-                            resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-
-                            vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                        }
+                    
+                    
+                    if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
+                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                    }else{
+                        resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        
+                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                    }
                     
                     //VistaPrincipal(selec: 1)
                     
@@ -171,7 +171,7 @@ func LM_1(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
     }else{
         return "Vidrio faro"
     }
-
+    
 }
 
 func LM_2(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
@@ -208,7 +208,7 @@ func LM_2(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
     }else{
         return "Vidrio faro"
     }
-
+    
 }
 
 func LM_3(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
@@ -245,7 +245,7 @@ func LM_3(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
     }else{
         return "Vidrio faro"
     }
-
+    
 }
 
 func LM_4(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
@@ -282,7 +282,7 @@ func LM_4(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
     }else{
         return "Vidrio faro"
     }
-
+    
 }
 
 func LM_5(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
@@ -319,7 +319,7 @@ func LM_5(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
     }else{
         return "Vidrio faro"
     }
-
+    
 }
 
 func LM_6(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
@@ -356,7 +356,7 @@ func LM_6(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
     }else{
         return "Vidrio faro"
     }
-
+    
 }
 
 func LM_7(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
@@ -393,7 +393,7 @@ func LM_7(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) ->
     }else{
         return "Vidrio faro"
     }
-
+    
 }
 
 //struct VistaClasificacion_Previews: PreviewProvider {

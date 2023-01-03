@@ -10,7 +10,7 @@ import SwiftUI
 struct BusquedaView: View {
     @Binding var text : String
     @EnvironmentObject var vm : ViewModel
-
+    
     var body: some View {
         ZStack{
             Rectangle()

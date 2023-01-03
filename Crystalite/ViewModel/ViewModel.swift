@@ -76,6 +76,20 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
+    func editCorreoPersona(persona : PersonaEntity, correoNuevo : String){
+        
+        persona.email = correoNuevo
+        
+        guardarDatos()
+    }
+    
+    func editContrasenaPersona(persona : PersonaEntity, contrasenaNueva : String){
+        
+        persona.contrasena = contrasenaNueva
+        
+        guardarDatos()
+    }
+    
     func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double ){
         let newEnsayo = EnsayoEntity(context: gestorCoreData.contexto)
         newEnsayo.personaRelation = persona

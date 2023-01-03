@@ -12,6 +12,10 @@ struct VistaInfoCuenta: View {
     @State private var showGreeting = false
     @State var iniciarSesion : Bool = true
     @State var registro : Bool = false
+    @State var mostrarEditarContrasena: Bool = false
+    @State var mostrarEditarNombre: Bool = false
+    @State var newPass : String = ""
+    @State var newName : String = ""
     
     var body: some View {
         ZStack(alignment: .top){
@@ -23,46 +27,97 @@ struct VistaInfoCuenta: View {
             
             VStack {
                 
-
+                
                 
                 VStack(alignment: .leading) {
                     Form{
                         HStack(){
                             Spacer()
-
-                        Image(uiImage: UIImage(data: vm.personaLogin.foto ?? Data())!)
-                            .resizable()
-                            .frame(width: 150, height: 150, alignment: .center)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                            .padding(5)
+                            
+                            Image(uiImage: UIImage(data: vm.personaLogin.foto ?? Data())!)
+                                .resizable()
+                                .frame(width: 150, height: 150, alignment: .center)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                                .padding(5)
                             Spacer()
-                    }
+                        }
                         
                         Section(header: Text("Información Básica")){
                             
                             HStack(alignment: .top) {
+                                Text("Nombre Usuario")
+                                    .font(.subheadline)
+                                    .bold()
+                                Spacer()
                                 Text(vm.personaLogin.nombre ?? "")
-                                    .font(.title3)
-                                    .bold()
-                            }
-                            
-                            HStack(alignment: .top) {
-                                Text("Correo")
-                                    .font(.subheadline)
-                                    .bold()
-                                Spacer()
-                                Text(vm.personaLogin.email ?? "")
                                     .font(.subheadline)
                             }
                             
-                            HStack(alignment: .top) {
-                                Text("Contraseña")
-                                    .font(.subheadline)
-                                    .bold()
-                                Spacer()
-                                Text(vm.personaLogin.contrasena ?? "")
-                                    .font(.subheadline)
+                            VStack{
+                                HStack(alignment: .top) {
+                                    
+                                    Text("Contraseña")
+                                        .font(.subheadline)
+                                        .bold()
+                                    Spacer()
+                                    Text(vm.personaLogin.contrasena ?? "")
+                                        .font(.subheadline)
+                                    if mostrarEditarContrasena == false{
+                                        Image(systemName: "square.and.pencil")
+                                            .onTapGesture {
+                                                mostrarEditarContrasena = true
+                                            }
+                                    }
+                                    
+                                }
+                                if mostrarEditarContrasena{
+                                    HStack{
+                                        TextField("Nueva contraseña", text: $newPass )
+                                        Button{
+                                            vm.editContrasenaPersona(persona: vm.personaLogin, contrasenaNueva: newPass)
+                                            newPass = ""
+                                            mostrarEditarContrasena = false
+                                        }label: {
+                                            Image(systemName: "arrow.right")
+                                            .tint(.green)                                        }
+                                    }
+                                }
+                            }
+                            VStack{
+                                
+                                HStack(alignment: .top) {
+                                    Text("Correo")
+                                        .font(.subheadline)
+                                        .bold()
+                                    Spacer()
+                                    Text(vm.personaLogin.email ?? "")
+                                        .font(.subheadline)
+                                    if mostrarEditarNombre == false{
+                                        Image(systemName: "square.and.pencil")
+                                            .onTapGesture {
+                                                mostrarEditarNombre = true
+                                            }
+                                    }
+                                }
+                                if mostrarEditarNombre{
+                                    HStack{
+                                        TextField("Nuevo nombre", text: $newName )
+                                        HStack{
+                                            
+                                            Button{
+                                                vm.editCorreoPersona(persona: vm.personaLogin, correoNuevo: newName)
+                                                newName = ""
+                                                mostrarEditarNombre = false
+                                            }label: {
+                                                Image(systemName: "arrow.right")
+                                                    .tint(.green)
+                                            }
+                                        }
+                                        
+                                    }
+                                    
+                                }
                             }
                         }
                         
@@ -75,7 +130,7 @@ struct VistaInfoCuenta: View {
                                         vm.modoOscuro = false
                                     }
                                 }
-                                
+                            
                             
                             HStack(alignment: .top) {
                                 
@@ -89,14 +144,11 @@ struct VistaInfoCuenta: View {
                                         .foregroundColor(.red)
                                 }
                             }
-                            if(iniciarSesion == false){
-                                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
-                            }
+                            
                         }
                         
                     }
                     .preferredColorScheme(vm.modoOscuro ? .dark : .light)
-                    //.background(vm.modoOscuro ? .black : .white)
                     .cornerRadius(10)
                     
                     Spacer()
@@ -105,7 +157,7 @@ struct VistaInfoCuenta: View {
             
         }
         
-        }
+    }
     
 }
 

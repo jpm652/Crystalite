@@ -19,15 +19,15 @@ struct VistaEditarEnProceso: View {
     @State var nombreEnsayo: String = ""
     @State var ensayo: EnsayoEntity
     @State var resultado: String = ""
-
+    
     var body: some View {
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
-
+            
             VStack(){
                 
                 VStack(alignment: .leading) {
-
+                    
                     Text("Ensayo en Proceso")
                         .font(.title).bold()
                         .foregroundColor(vm.modoOscuro ? .white : .black)
@@ -41,7 +41,7 @@ struct VistaEditarEnProceso: View {
                         .frame(width: 300, height: 34)
                         .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                         .cornerRadius(10)
-
+                    
                 }
                 
                 Spacer().frame(height: 20)
@@ -61,15 +61,15 @@ struct VistaEditarEnProceso: View {
                     valorIr = vm.elementoArray[3].valor
                     valorK = vm.elementoArray[4].valor
                     valorMg = vm.elementoArray[5].valor
-
                     
                     
-                        if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                            vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                        }else{
-                            resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                            vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                        }
+                    
+                    if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
+                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                    }else{
+                        resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                    }
                     
                 }label: {
                     Text("Clasificar cristal")

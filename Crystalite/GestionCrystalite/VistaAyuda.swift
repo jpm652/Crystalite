@@ -13,7 +13,7 @@ struct VistaAyuda: View {
     var body: some View {
         NavigationView{
             ZStack{
-                Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+                Color("Gris").ignoresSafeArea()
                 VStack{
                     List() {
                         Section(header: preguntas(preguntas: "¿Como se puede añadir un ensayo?")){
