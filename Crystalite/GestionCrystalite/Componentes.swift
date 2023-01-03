@@ -117,7 +117,7 @@ struct estudioHistorial: View{
     
     var body:some View{
         ZStack{
-            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+            Color("Gris").ignoresSafeArea()
             VStack(alignment: .leading){
                 HStack{
                     Text(ponerFechaPeq(fecha: fecha)).font(.system(size: 13))

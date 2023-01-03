@@ -14,7 +14,7 @@ struct BusquedaView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(vm.modoOscuro ? Color("Busqueda_Oscuro"): .white)
+                .fill(vm.modoOscuro ? .black.opacity(0.55) : .white)
             HStack{
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(text.isEmpty ? (vm.modoOscuro ? .white.opacity(0.5) : Color(.gray).opacity(0.5)) :  (vm.modoOscuro ? .white.opacity(1) : Color(UIColor.gray).opacity(1)))

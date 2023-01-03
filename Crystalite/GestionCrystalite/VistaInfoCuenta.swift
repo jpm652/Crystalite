@@ -10,12 +10,13 @@ import SwiftUI
 struct VistaInfoCuenta: View {
     @EnvironmentObject var vm: ViewModel
     @State private var showGreeting = false
-    @State var iniciarSesion : Bool = true
+    @State var iniciarSesion : Bool = false
     @State var registro : Bool = false
     
     var body: some View {
+        NavigationView{
         ZStack(alignment: .top){
-            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+            Color("Gris").ignoresSafeArea()
             
             //.padding(.top,100)
             //.padding(.trailing,20)
@@ -23,15 +24,21 @@ struct VistaInfoCuenta: View {
             
             VStack {
                 
-                Image(uiImage: UIImage(data: vm.personaLogin.foto ?? Data())!)
-                    .resizable()
-                    .frame(width: 150, height: 150, alignment: .center)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
-                    .padding(5)
+
                 
                 VStack(alignment: .leading) {
                     Form{
+                        HStack(){
+                            Spacer()
+
+                        Image(uiImage: UIImage(data: vm.personaLogin.foto ?? Data())!)
+                            .resizable()
+                            .frame(width: 150, height: 150, alignment: .center)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                            .padding(5)
+                            Spacer()
+                    }
                         
                         Section(header: Text("Información Básica")){
                             
@@ -39,7 +46,7 @@ struct VistaInfoCuenta: View {
                                 Text(vm.personaLogin.nombre ?? "")
                                     .font(.title3)
                                     .bold()
-                            }.background(Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea())
+                            }
                             
                             HStack(alignment: .top) {
                                 Text("Correo")
@@ -59,7 +66,6 @@ struct VistaInfoCuenta: View {
                                     .font(.subheadline)
                             }
                         }
-                        .background(Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea())
                         
                         Section(header: Text("Adicional")){
                             Toggle("Modo Oscuro", isOn: $showGreeting)
@@ -73,6 +79,7 @@ struct VistaInfoCuenta: View {
                                 
                             
                             HStack(alignment: .top) {
+                                
                                 Button(){
                                     vm.personaLogin = PersonaEntity()
                                     VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
@@ -86,9 +93,9 @@ struct VistaInfoCuenta: View {
                         }
                         
                     }
-                    .background(vm.modoOscuro ? .black : .white)
+                    .preferredColorScheme(vm.modoOscuro ? .dark : .light)
+                    //.background(vm.modoOscuro ? .black : .white)
                     .cornerRadius(10)
-                    .foregroundColor(vm.modoOscuro ? .white : .black)
                     
                     Spacer()
                 }
@@ -96,7 +103,7 @@ struct VistaInfoCuenta: View {
             
         }
         
-    }
+        }}
     
 }
 

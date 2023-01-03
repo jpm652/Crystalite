@@ -19,7 +19,7 @@ struct VistaInfoDetallada: View {
     var body: some View {
         
         ZStack(alignment: .top){
-            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+            Color("Gris").ignoresSafeArea()
             
             VStack{
                 Text("Informacion detallada")

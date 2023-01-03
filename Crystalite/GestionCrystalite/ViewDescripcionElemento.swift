@@ -14,7 +14,7 @@ struct ViewDescripcionElemento: View {
     var body: some View{
         
         ZStack(){
-            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+            Color("Gris").ignoresSafeArea()
 
                 Circle()
                 .fill(Color("Azul"))

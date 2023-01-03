@@ -22,7 +22,7 @@ struct VistaEditarEnProceso: View {
 
     var body: some View {
         ZStack(alignment: .top){
-            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+            Color("Gris").ignoresSafeArea()
 
             VStack(){
                 
@@ -39,8 +39,9 @@ struct VistaEditarEnProceso: View {
                     TextField("Introducir nombre del ensayo", text: $nombreEnsayo)
                         .padding(.leading,20)
                         .frame(width: 300, height: 34)
-                        .background(.white)
+                        .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                         .cornerRadius(10)
+
                 }
                 
                 Spacer().frame(height: 20)

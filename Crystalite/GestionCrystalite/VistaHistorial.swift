@@ -24,7 +24,7 @@ struct VistaHistorial: View {
             
             ZStack(alignment: .top){
                 
-                Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+                Color("Gris").ignoresSafeArea()
                 
                 VStack{
                     VStack{
@@ -37,13 +37,12 @@ struct VistaHistorial: View {
                         BusquedaView(text: $query)
                         
                         Spacer().frame(height: 10)
-                    }.padding(.top, -30)
                     
                     HStack(){
                         Text("Mostrar: ")
                             .frame(alignment: .leading)
                             .foregroundColor(vm.modoOscuro ? .white : .black)
-                            .padding(.horizontal, 20)
+                        
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 20)
@@ -54,6 +53,7 @@ struct VistaHistorial: View {
                         ForEach(OpcionEnsayo.allCases, id: \.self){ opcion in
                             Text(opcion.rawValue)
                         }
+                    }
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()

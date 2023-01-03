@@ -24,7 +24,7 @@ struct VistaClasificacion: View {
     var body: some View {
         
         ZStack(alignment: .top){
-            Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea()
+            Color("Gris").ignoresSafeArea()
 
             VStack(){
                 VStack(alignment: .leading) {
@@ -40,9 +40,10 @@ struct VistaClasificacion: View {
 
                     
                     TextField("Introducir nombre del ensayo", text: $nombreEnsayo)
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
                         .padding(.leading,20)
                         .frame(width: 300, height: 34)
-                        .background(.white)
+                        .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                         .cornerRadius(10)
                 }
                 
@@ -66,14 +67,14 @@ struct VistaClasificacion: View {
 
 
                         if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                            vm.addEnsayo(persona: vm.personaArray[0], nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                            vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }else{
                             resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
 
                             vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         }
                     
-                    VistaPrincipal(selec: 1)
+                    //VistaPrincipal(selec: 1)
                     
                 }label: {
                     Text("Clasificar cristal")
