@@ -39,7 +39,7 @@ struct VistaInfoCuenta: View {
                                 Text(vm.personaLogin.nombre ?? "")
                                     .font(.title3)
                                     .bold()
-                            }
+                            }.background(Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea())
                             
                             HStack(alignment: .top) {
                                 Text("Correo")
@@ -59,6 +59,7 @@ struct VistaInfoCuenta: View {
                                     .font(.subheadline)
                             }
                         }
+                        .background(Color(vm.modoOscuro ? "Gris_Oscuro" : "Gris").ignoresSafeArea())
                         
                         Section(header: Text("Adicional")){
                             Toggle("Modo Oscuro", isOn: $showGreeting)
