@@ -7,6 +7,10 @@
 import Foundation
 import SwiftUI
 
+extension UIColor{
+    static let myCustomColor = UIColor(red: 0.229, green: 0.234, blue: 0.245, alpha: 0)
+}
+
 struct boton: View{
     
     var texto : String;
@@ -302,13 +306,11 @@ struct preguntas: View{
     var preguntas: String;
     
     var body: some View{
-        HStack() {
             Text(preguntas).fontWeight(.bold)
                 .frame(width: 330, height: 50)
                 .background(vm.modoOscuro ? .black : .white)
                 .cornerRadius(10)
                 .foregroundColor(vm.modoOscuro ? .white : .black)
-        }
     }
     
 }

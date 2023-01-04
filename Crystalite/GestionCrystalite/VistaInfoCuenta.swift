@@ -16,7 +16,7 @@ struct VistaInfoCuenta: View {
     @State var mostrarEditarNombre: Bool = false
     @State var newPass : String = ""
     @State var newName : String = ""
-    
+    @State var pulsarBoton : Bool = false;
     var body: some View {
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
@@ -31,6 +31,7 @@ struct VistaInfoCuenta: View {
                 
                 VStack(alignment: .leading) {
                     Form{
+                        
                         HStack(){
                             Spacer()
                             
@@ -127,8 +128,10 @@ struct VistaInfoCuenta: View {
                                 .onChange(of: showGreeting){ value in
                                     if(value == true){
                                         vm.modoOscuro = true
+                                        
                                     }else{
                                         vm.modoOscuro = false
+                                        self.pulsarBoton = true;
                                     }
                                 }
                             
@@ -146,17 +149,19 @@ struct VistaInfoCuenta: View {
                                 }
                             }
                             if (iniciarSesion == false){
-                                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)                            }
+                                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
+                            }
+                            
                         }
                         
                     }
                     .preferredColorScheme(vm.modoOscuro ? .dark : .light)
                     
+                    Spacer()
                 }
             }
             
         }
-        
     }
     
 }

@@ -12,6 +12,8 @@ struct VistaPrincipal: View {
     @State var selec: Int
     @State var seleccion: Int = 1;
     @Binding var iniciarSesion: Bool
+        
+    
     
     var body: some View {
         
@@ -39,11 +41,9 @@ struct VistaPrincipal: View {
         }
         .accentColor(vm.modoOscuro ? .white : Color("Morado"))
         .background(vm.modoOscuro ? .black : Color("Gris"))
-        
     }
 
 }
-
 //struct VistaPrincipal_Previews: PreviewProvider {
 //    static var previews: some View {
 //        VistaPrincipal().environmentObject(ViewModel)

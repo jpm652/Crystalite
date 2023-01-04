@@ -15,11 +15,6 @@ struct VistaAyuda: View {
             ZStack{
                 Color("Gris").ignoresSafeArea()
                 VStack{
-                    Text("Ayuda")
-                        .foregroundColor(vm.modoOscuro ? .white : .black)
-                        .frame(alignment: .center)
-                        .font(.title)
-                        
                     List() {
                         Section(header: preguntas(preguntas: "¿Como se puede añadir un ensayo?")){
                             respuestas(respuestas: "Solucion a la pregunta")

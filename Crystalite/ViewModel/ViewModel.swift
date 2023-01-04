@@ -26,7 +26,8 @@ class ViewModel: ObservableObject{
         cargarDatos()
         cargarElementos()
         crearAdministrador()
-        
+        UITabBar.appearance().backgroundColor = .systemBackground
+        UITableView.appearance().backgroundColor = .myCustomColor
     }
     
     func cargarDatos(){
