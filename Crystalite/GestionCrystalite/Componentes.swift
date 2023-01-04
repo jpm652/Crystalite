@@ -303,7 +303,8 @@ struct preguntas: View{
     
     var body: some View{
         HStack() {
-            Text(preguntas).frame(width: 300, height: 50)
+            Text(preguntas).fontWeight(.bold)
+                .frame(width: 330, height: 50)
                 .background(vm.modoOscuro ? .black : .white)
                 .cornerRadius(10)
                 .foregroundColor(vm.modoOscuro ? .white : .black)

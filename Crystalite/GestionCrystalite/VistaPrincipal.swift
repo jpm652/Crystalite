@@ -39,8 +39,9 @@ struct VistaPrincipal: View {
         }
         .accentColor(vm.modoOscuro ? .white : Color("Morado"))
         .background(vm.modoOscuro ? .black : Color("Gris"))
+        
     }
-    
+
 }
 
 //struct VistaPrincipal_Previews: PreviewProvider {

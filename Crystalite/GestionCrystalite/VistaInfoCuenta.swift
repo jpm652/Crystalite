@@ -151,9 +151,7 @@ struct VistaInfoCuenta: View {
                         
                     }
                     .preferredColorScheme(vm.modoOscuro ? .dark : .light)
-                    .cornerRadius(10)
                     
-                    Spacer()
                 }
             }
             
