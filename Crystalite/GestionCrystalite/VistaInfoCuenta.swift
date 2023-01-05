@@ -17,17 +17,12 @@ struct VistaInfoCuenta: View {
     @State var newPass : String = ""
     @State var newName : String = ""
     @State var pulsarBoton : Bool = false;
+    
     var body: some View {
         ZStack(alignment: .top){
             Color("Gris").ignoresSafeArea()
             
-            //.padding(.top,100)
-            //.padding(.trailing,20)
-            
-            
             VStack {
-                
-                
                 
                 VStack(alignment: .leading) {
                     Form{

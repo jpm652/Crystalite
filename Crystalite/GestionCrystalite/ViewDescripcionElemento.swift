@@ -44,9 +44,44 @@ struct ViewDescripcionElemento: View {
         }
         
     }
-    
-    
 }
 
-// @State var width = UIScreen.main.bounds.width
+struct ViewDescripcionCristal: View {
+    @EnvironmentObject var vm: ViewModel
+    @Binding var cristal : CristalEntity
+    
+    var body: some View{
+        
+        ZStack(){
+            Color("Gris").ignoresSafeArea()
+            
+            Circle()
+                .fill(Color("Azul"))
+                .frame(width: 500, height: 500)
+                .padding(.top,-500)
+            
+            VStack(alignment: .center){
+                Image(cristal.nombre ?? "")
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .padding(.top,50)
+                
+                Text(cristal.nombre ?? "").font(.title2)
+                    .padding(.top, 100)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+                
+                Divider()
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+                
+                Text(cristal.descripcion ?? "")
+                    .padding(.horizontal, 100)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(vm.modoOscuro ? .white : .black)
+                
+                
+            }
+        }
+        
+    }
+}
 

@@ -127,7 +127,7 @@ struct estudioHistorial: View{
                     Text(ponerFechaPeq(fecha: fecha)).font(.system(size: 13))
                         .tint(vm.modoOscuro ? .white : .black)
                     Label("", systemImage: "circle.inset.filled")
-                        .tint(vm.modoOscuro ? .white : .black)
+                        .tint(vm.modoOscuro ? .white : Color("Morado"))
                     HStack (){
                         
                         VStack(alignment: .leading) {
@@ -137,6 +137,7 @@ struct estudioHistorial: View{
                                 .tint(vm.modoOscuro ? .white : .black)
                             Text("Nombre: \(nombreEnsayo)").font(.caption).tint(vm.modoOscuro ? .white : .black)
                             if proceso{
+                                Text("")
                                 Text("En proceso").font(.caption).tint(.red)
                                 
                             }
@@ -171,6 +172,8 @@ struct elementoCristalEdicion: View{
     @State var cambiarNombre : Bool = false
     @State var currentNomEnsayo = ""
     @State var ensayo : EnsayoEntity
+    @State var ele_cristal : CristalEntity = CristalEntity()
+    
     var body: some View{
         HStack{
             VStack(alignment: .leading){
@@ -222,11 +225,22 @@ struct elementoCristalEdicion: View{
                 
             }.frame(width: 180, height: 100, alignment: .leading)
                 .padding(.leading, -30)
-            Image(tipoCristal)
-                .resizable()
-                .frame(width: 125, height: 100, alignment: .trailing)
-                .cornerRadius(15)
-                .padding(.trailing,-50)
+            Button(){
+                
+                if let i = vm.cristalArray.firstIndex(where: { $0.nombre == tipoCristal }) {
+                    ele_cristal = vm.cristalArray[i]
+                }
+                ViewDescripcionCristal(cristal: $ele_cristal)
+                
+            }label: {
+                Image(tipoCristal)
+                    .resizable()
+                    .frame(width: 125, height: 100, alignment: .trailing)
+                    .cornerRadius(15)
+                    .padding(.trailing,-50)
+                
+            }
+            
         }
         .frame(width: 320, height: 100)
         .background(vm.modoOscuro ? .black : .white)
@@ -306,11 +320,11 @@ struct preguntas: View{
     var preguntas: String;
     
     var body: some View{
-            Text(preguntas).fontWeight(.bold)
-                .frame(width: 330, height: 50)
-                .background(vm.modoOscuro ? .black : .white)
-                .cornerRadius(10)
-                .foregroundColor(vm.modoOscuro ? .white : .black)
+        Text(preguntas).fontWeight(.bold)
+            .frame(width: 330, height: 50)
+            .background(vm.modoOscuro ? .black : .white)
+            .cornerRadius(10)
+            .foregroundColor(vm.modoOscuro ? .white : .black)
     }
     
 }
