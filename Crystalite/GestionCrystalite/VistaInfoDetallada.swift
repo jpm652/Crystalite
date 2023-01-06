@@ -25,11 +25,9 @@ struct VistaInfoDetallada: View {
                 Text("Informacion detallada")
                     .font(.title)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
-                
-                
+
                 Spacer().frame(height: 30)
                 elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
-                
                 Spacer().frame(height: 50)
                 HStack{
                     Text("Variables usadas (6)")

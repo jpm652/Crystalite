@@ -173,7 +173,7 @@ struct elementoCristalEdicion: View{
     @State var currentNomEnsayo = ""
     @State var ensayo : EnsayoEntity
     @State var ele_cristal : CristalEntity = CristalEntity()
-    
+    @State private var showcristal = false
     var body: some View{
         HStack{
             VStack(alignment: .leading){
@@ -230,8 +230,7 @@ struct elementoCristalEdicion: View{
                 if let i = vm.cristalArray.firstIndex(where: { $0.nombre == tipoCristal }) {
                     ele_cristal = vm.cristalArray[i]
                 }
-                ViewDescripcionCristal(cristal: $ele_cristal)
-                
+                showcristal.toggle()
             }label: {
                 Image(tipoCristal)
                     .resizable()
@@ -239,8 +238,9 @@ struct elementoCristalEdicion: View{
                     .cornerRadius(15)
                     .padding(.trailing,-50)
                 
-            }
-            
+            }.sheet(isPresented: $showcristal, content: {
+                ViewDescripcionCristal(cristal: $ele_cristal)
+            })
         }
         .frame(width: 320, height: 100)
         .background(vm.modoOscuro ? .black : .white)
