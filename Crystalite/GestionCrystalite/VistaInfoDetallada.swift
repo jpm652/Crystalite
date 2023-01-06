@@ -103,9 +103,22 @@ struct VistaInfoDetallada: View {
                             
                         }
                     }
+                    
                 }
-                
-                
+                HStack{
+                    Button(){
+                        vm.deleteEnsayo(ensayo: ensayo)
+                    }label: {
+                        Text("Eliminar ensayo")
+                            .frame(width: 245, height: 59)
+                            .background(vm.modoOscuro ? .black : .red)
+                            .tint(vm.modoOscuro ? .white : .black)
+                            .clipShape(RoundedRectangle (cornerRadius: 19))
+                            .padding(.all, 15)
+                            .labelStyle(TitleOnlyLabelStyle())
+                        
+                    }
+                }
             }.padding(.top,-50)
         }
         

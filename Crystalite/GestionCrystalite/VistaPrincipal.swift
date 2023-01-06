@@ -18,7 +18,7 @@ struct VistaPrincipal: View {
     var body: some View {
         
         TabView(selection: $selec) {
-            VistaClasificacion()
+            VistaClasificacion(seleccion: $selec)
                 .tabItem{
                     Image(systemName: "doc.badge.plus")
                     Text("Clasificación")
