@@ -15,7 +15,6 @@ struct VistaHistorial: View {
     @EnvironmentObject var vm : ViewModel
     @State var query: String = ""
     @State var opcionEnsayo : OpcionEnsayo = .todos
-    
     // View
     
     var body: some View {
@@ -70,6 +69,7 @@ struct VistaHistorial: View {
                         
                     }.frame(maxWidth: .infinity, alignment: .leading)
                     
+                    
                     ScrollView{
                         if let ensayoPersona = vm.personaLogin.ensayoRelation?.allObjects as? [EnsayoEntity]{
                             
@@ -86,7 +86,7 @@ struct VistaHistorial: View {
                                 .frame(alignment: .center)
                                 
                             }else{
-                                
+                                if(vm.personaLogin.admin == false){
                                 ForEach(ensayoPersona){ ensayo in
                                     if(query.isEmpty){
                                         if(opcionEnsayo == .enProceso){
@@ -137,7 +137,7 @@ struct VistaHistorial: View {
                 }
             }.padding(.top,-60)
         }
-        
+        }
     }
 }
 

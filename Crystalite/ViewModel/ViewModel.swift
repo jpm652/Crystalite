@@ -23,9 +23,12 @@ class ViewModel: ObservableObject{
     
     init(){
         
-        cargarDatos()
-        cargarElementos()
+        //addPersona(nombre: "Administrador", foto: UIImage(systemName: "person.badge.key") ?? UIImage(), email: "Admin", contrasena: "admin", admin: true)
+        // NO FUNCIONA //
         crearAdministrador()
+        cargarElementos()
+        cargarDatos()
+        
         UITabBar.appearance().backgroundColor = .systemBackground
         UITableView.appearance().backgroundColor = .myCustomColor
     }

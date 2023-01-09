@@ -18,7 +18,7 @@ struct VistaLogin: View {
     @State var valorAlerta : valorAlerta = .first
     @State var email : String = ""
     @State var contraseña : String = ""
-    
+    @Binding var iniciarSesionAdmin : Bool
     // View
     
     var body: some View {
@@ -61,15 +61,19 @@ struct VistaLogin: View {
                             self.mostrarAlerta = true
                         }else{
                             for persona in vm.personaArray{
-                                if(email == persona.email && contraseña == persona.contrasena){
+                                if(email == persona.email && contraseña == persona.contrasena && persona.admin == false){
                                     iniciarSesion.toggle()
                                     vm.personaLogin = persona
                                     //personaLogin = persona
                                     
                                     // self.persona = persona
-                                }else {
+                                }else{
                                     self.valorAlerta = .second
                                     self.mostrarAlerta = true
+                                }
+                                if(email == persona.email && contraseña == persona.contrasena && persona.admin == true){
+                                    iniciarSesionAdmin.toggle()
+                                    vm.personaLogin = persona
                                 }
                             }
                         }
@@ -113,13 +117,18 @@ struct VistaLogin: View {
                             .clipShape(RoundedRectangle (cornerRadius: 19))
                     }
                     
+                    if (iniciarSesionAdmin == true){
+                        
+                        VistaPrincipal(selec: 1, iniciarSesion: $iniciarSesion, iniciarSesionAdmin: $iniciarSesionAdmin)
+                        
+                    }
                     if (iniciarSesion == true){
                         
-                        VistaPrincipal(selec: 1, iniciarSesion: $iniciarSesion)
+                        VistaPrincipal(selec: 1, iniciarSesion: $iniciarSesion, iniciarSesionAdmin: $iniciarSesionAdmin)
                         
                     }
                     if (registro == true) {
-                        VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion)
+                        VistaRegistro(registro: $registro, iniciarSesion: $iniciarSesion, iniciarSesionAdmin: $iniciarSesionAdmin)
                     }
                     
                 }

@@ -17,6 +17,7 @@ struct VistaInfoCuenta: View {
     @State var newPass : String = ""
     @State var newName : String = ""
     @State var pulsarBoton : Bool = false;
+    @Binding var iniciarSesionAdmin : Bool
     
     var body: some View {
         ZStack(alignment: .top){
@@ -134,7 +135,11 @@ struct VistaInfoCuenta: View {
                             HStack(alignment: .top) {
                                 
                                 Button(){
-                                    iniciarSesion.toggle()
+                                    if(iniciarSesion){
+                                        iniciarSesion.toggle()
+                                    }else {
+                                        iniciarSesionAdmin.toggle()
+                                    }
                                     
                                 }label:{
                                     Text("Cerra Sesión")
@@ -143,8 +148,8 @@ struct VistaInfoCuenta: View {
                                         .foregroundColor(.red)
                                 }
                             }
-                            if (iniciarSesion == false){
-                                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro).environmentObject(vm)
+                            if (iniciarSesion == false && iniciarSesionAdmin == false){
+                                VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro, iniciarSesionAdmin: $iniciarSesionAdmin).environmentObject(vm)
                             }
                             
                         }

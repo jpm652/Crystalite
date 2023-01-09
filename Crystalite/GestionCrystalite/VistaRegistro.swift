@@ -18,6 +18,7 @@ struct VistaRegistro: View {
     @Binding var registro : Bool
     @Binding var iniciarSesion : Bool
     @State var activarAlerta : Bool = false
+    @Binding var iniciarSesionAdmin : Bool
     
     // Atributos de una persona
     
@@ -40,7 +41,7 @@ struct VistaRegistro: View {
                 HStack{
                     Button(){
                         registro.toggle()
-                        VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro)
+                        VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro, iniciarSesionAdmin: $iniciarSesionAdmin)
                     }label: {
                         Image(uiImage: atras)
                             .resizable()
@@ -137,7 +138,7 @@ struct VistaRegistro: View {
                     Button("OK", role: .cancel) { }
                 }
                 if (registro == false) {
-                    VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro)
+                    VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro, iniciarSesionAdmin: $iniciarSesionAdmin)
                 }
             }
         }
@@ -146,6 +147,6 @@ struct VistaRegistro: View {
 
 struct VistaRegistro_Previews: PreviewProvider {
     static var previews: some View {
-        VistaRegistro(registro: .constant(true), iniciarSesion: .constant(false))
+        VistaRegistro(registro: .constant(true), iniciarSesion: .constant(false), iniciarSesionAdmin: .constant(false))
     }
 }
