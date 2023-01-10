@@ -116,12 +116,14 @@ struct ElementoView: View{
 }
 
 struct estudioHistorial: View{
-    @EnvironmentObject var vm: ViewModel
     
+    @EnvironmentObject var vm: ViewModel
     var proceso: Bool
-    var tipoCristal: String;
-    var nombreEnsayo: String;
-    var fecha: Date;
+    var tipoCristal: String
+    var nombreEnsayo: String
+    var fecha: Date
+    var admin : Bool
+    var creador : String
     
     var body:some View{
         ZStack{
@@ -144,6 +146,11 @@ struct estudioHistorial: View{
                                 Text("")
                                 Text("En proceso").font(.caption).tint(.red)
                                 
+                            }
+                            
+                            if(admin == true){
+                                Text("")
+                                Text("Creador: \(creador)").font(.caption).tint(vm.modoOscuro ? .white : .black)
                             }
                         }.padding(.leading)
                             .frame(width: 170, alignment: .leading)
@@ -171,14 +178,15 @@ struct estudioHistorial: View{
 struct elementoCristalEdicion: View{
     
     @EnvironmentObject var vm: ViewModel
-    var tipoCristal: String;
-    @State var nombreEnsayo: String;
-    var fecha: String;
+    var tipoCristal: String
+    @State var nombreEnsayo: String
+    var fecha: String
     @State var cambiarNombre : Bool = false
     @State var currentNomEnsayo = ""
     @State var ensayo : EnsayoEntity
     @State var ele_cristal : CristalEntity = CristalEntity()
     @State private var showcristal = false
+    
     var body: some View{
         HStack{
             VStack(alignment: .leading){

@@ -24,6 +24,26 @@
 		29903DE5295F67EC005AF4BC /* ViewDescripcionElemento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29903DE4295F67EC005AF4BC /* ViewDescripcionElemento.swift */; };
 		29A2BE49295C4BC100FDA810 /* VistaEditarEnProceso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2BE48295C4BC100FDA810 /* VistaEditarEnProceso.swift */; };
 		29BD887A296D98CB00B8A858 /* Funciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD8879296D98CB00B8A858 /* Funciones.swift */; };
+		29DCC37D296DD7F70075BCD7 /* VistaAyuda.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388FB2930BFAA0084987B /* VistaAyuda.swift */; };
+		29DCC37E296DD7F70075BCD7 /* VistaHistorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8842927F08300FAE131 /* VistaHistorial.swift */; };
+		29DCC37F296DD7F70075BCD7 /* VistaInfoDetallada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F5A29323E6E00DC66FC /* VistaInfoDetallada.swift */; };
+		29DCC380296DD7F70075BCD7 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */; };
+		29DCC381296DD7F70075BCD7 /* VistaPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB86A2927D32300FAE131 /* VistaPrincipal.swift */; };
+		29DCC382296DD7F70075BCD7 /* CrystaliteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8792927D43400FAE131 /* CrystaliteModel.xcdatamodeld */; };
+		29DCC383296DD7F70075BCD7 /* Componentes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292388F92930BB1B0084987B /* Componentes.swift */; };
+		29DCC384296DD7F70075BCD7 /* CrystaliteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8682927D32300FAE131 /* CrystaliteApp.swift */; };
+		29DCC385296DD7F70075BCD7 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB87E2927E07800FAE131 /* CoreDataManager.swift */; };
+		29DCC386296DD7F70075BCD7 /* ViewDescripcionElemento.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29903DE4295F67EC005AF4BC /* ViewDescripcionElemento.swift */; };
+		29DCC387296DD7F70075BCD7 /* VistaClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F582909656900DC66FC /* VistaClasificacion.swift */; };
+		29DCC388296DD7F70075BCD7 /* VistaRegistro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8822927EED100FAE131 /* VistaRegistro.swift */; };
+		29DCC389296DD7F70075BCD7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB8802927E36B00FAE131 /* ViewModel.swift */; };
+		29DCC38A296DD7F70075BCD7 /* VistaLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296BB87C2927DFD000FAE131 /* VistaLogin.swift */; };
+		29DCC38B296DD7F70075BCD7 /* VistaEditarEnProceso.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2BE48295C4BC100FDA810 /* VistaEditarEnProceso.swift */; };
+		29DCC38C296DD7F70075BCD7 /* VistaInfoCuenta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292BF53F29312CD8009A0B1E /* VistaInfoCuenta.swift */; };
+		29DCC38D296DD7F70075BCD7 /* Funciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BD8879296D98CB00B8A858 /* Funciones.swift */; };
+		29DCC38E296DD7F70075BCD7 /* BusquedaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29060BE82934A29300362E2C /* BusquedaView.swift */; };
+		29DCC391296DD7F70075BCD7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 296BB86F2927D32600FAE131 /* Preview Assets.xcassets */; };
+		29DCC392296DD7F70075BCD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 296BB86C2927D32600FAE131 /* Assets.xcassets */; };
 		29F7F2CB2934BAF100BE68C2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */; };
 		756B4F592909656900DC66FC /* VistaClasificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F582909656900DC66FC /* VistaClasificacion.swift */; };
 		756B4F5B29323E6E00DC66FC /* VistaInfoDetallada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B4F5A29323E6E00DC66FC /* VistaInfoDetallada.swift */; };
@@ -48,6 +68,7 @@
 		29903DE4295F67EC005AF4BC /* ViewDescripcionElemento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDescripcionElemento.swift; sourceTree = "<group>"; };
 		29A2BE48295C4BC100FDA810 /* VistaEditarEnProceso.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaEditarEnProceso.swift; sourceTree = "<group>"; };
 		29BD8879296D98CB00B8A858 /* Funciones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Funciones.swift; sourceTree = "<group>"; };
+		29DCC396296DD7F70075BCD7 /* CrystaliteEasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrystaliteEasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F7F2CA2934BAF000BE68C2 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		756B4F582909656900DC66FC /* VistaClasificacion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaClasificacion.swift; sourceTree = "<group>"; };
 		756B4F5A29323E6E00DC66FC /* VistaInfoDetallada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaInfoDetallada.swift; sourceTree = "<group>"; };
@@ -55,6 +76,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		296BB8622927D32300FAE131 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29DCC38F296DD7F70075BCD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				296BB8652927D32300FAE131 /* Crystalite.app */,
+				29DCC396296DD7F70075BCD7 /* CrystaliteEasy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -167,6 +196,23 @@
 			productReference = 296BB8652927D32300FAE131 /* Crystalite.app */;
 			productType = "com.apple.product-type.application";
 		};
+		29DCC37B296DD7F70075BCD7 /* CrystaliteEasy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29DCC393296DD7F70075BCD7 /* Build configuration list for PBXNativeTarget "CrystaliteEasy" */;
+			buildPhases = (
+				29DCC37C296DD7F70075BCD7 /* Sources */,
+				29DCC38F296DD7F70075BCD7 /* Frameworks */,
+				29DCC390296DD7F70075BCD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CrystaliteEasy;
+			productName = Crystalite;
+			productReference = 29DCC396296DD7F70075BCD7 /* CrystaliteEasy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,6 +242,7 @@
 			projectRoot = "";
 			targets = (
 				296BB8642927D32300FAE131 /* Crystalite */,
+				29DCC37B296DD7F70075BCD7 /* CrystaliteEasy */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +254,15 @@
 			files = (
 				296BB8702927D32600FAE131 /* Preview Assets.xcassets in Resources */,
 				296BB86D2927D32600FAE131 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29DCC390296DD7F70075BCD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29DCC391296DD7F70075BCD7 /* Preview Assets.xcassets in Resources */,
+				29DCC392296DD7F70075BCD7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +291,31 @@
 				292BF54029312CD8009A0B1E /* VistaInfoCuenta.swift in Sources */,
 				29BD887A296D98CB00B8A858 /* Funciones.swift in Sources */,
 				29060BE92934A29300362E2C /* BusquedaView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29DCC37C296DD7F70075BCD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29DCC37D296DD7F70075BCD7 /* VistaAyuda.swift in Sources */,
+				29DCC37E296DD7F70075BCD7 /* VistaHistorial.swift in Sources */,
+				29DCC37F296DD7F70075BCD7 /* VistaInfoDetallada.swift in Sources */,
+				29DCC380296DD7F70075BCD7 /* ImagePicker.swift in Sources */,
+				29DCC381296DD7F70075BCD7 /* VistaPrincipal.swift in Sources */,
+				29DCC382296DD7F70075BCD7 /* CrystaliteModel.xcdatamodeld in Sources */,
+				29DCC383296DD7F70075BCD7 /* Componentes.swift in Sources */,
+				29DCC384296DD7F70075BCD7 /* CrystaliteApp.swift in Sources */,
+				29DCC385296DD7F70075BCD7 /* CoreDataManager.swift in Sources */,
+				29DCC386296DD7F70075BCD7 /* ViewDescripcionElemento.swift in Sources */,
+				29DCC387296DD7F70075BCD7 /* VistaClasificacion.swift in Sources */,
+				29DCC388296DD7F70075BCD7 /* VistaRegistro.swift in Sources */,
+				29DCC389296DD7F70075BCD7 /* ViewModel.swift in Sources */,
+				29DCC38A296DD7F70075BCD7 /* VistaLogin.swift in Sources */,
+				29DCC38B296DD7F70075BCD7 /* VistaEditarEnProceso.swift in Sources */,
+				29DCC38C296DD7F70075BCD7 /* VistaInfoCuenta.swift in Sources */,
+				29DCC38D296DD7F70075BCD7 /* Funciones.swift in Sources */,
+				29DCC38E296DD7F70075BCD7 /* BusquedaView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +492,62 @@
 			};
 			name = Release;
 		};
+		29DCC394296DD7F70075BCD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Crystalite/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UAL.Crystalite;
+				PRODUCT_NAME = CrystaliteEasy;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29DCC395296DD7F70075BCD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Crystalite/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = UAL.Crystalite;
+				PRODUCT_NAME = CrystaliteEasy;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -428,6 +565,15 @@
 			buildConfigurations = (
 				296BB8742927D32600FAE131 /* Debug */,
 				296BB8752927D32600FAE131 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29DCC393296DD7F70075BCD7 /* Build configuration list for PBXNativeTarget "CrystaliteEasy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29DCC394296DD7F70075BCD7 /* Debug */,
+				29DCC395296DD7F70075BCD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
