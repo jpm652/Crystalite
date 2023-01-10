@@ -20,16 +20,20 @@ struct VistaAyuda: View {
                         .frame(alignment: .center)
                         .font(.title)
                     List(){
-                        Section(header: preguntas(preguntas: "¿Cómo se puede añadir un ensayo?")){
-                        respuestas(respuestas: "Para realizar un ensayo se tiene que ir al apartado de Clasificación y rellenar los datos que se le pide y por último darle al botón de Clasificar Cristal")
+                        Section(header: preguntas(preguntas: "¿Qué es Cristalyte?")){
+                            respuestas(respuestas: "")
                         }
-                            Section(header: preguntas(preguntas: "¿Qué pasa si dejo un campo vacío?")){
+                        
+                        Section(header: preguntas(preguntas: "¿Cómo se puede añadir un ensayo?")){
+                            respuestas(respuestas: "Para realizar un ensayo se tiene que ir al apartado de Clasificación y rellenar los datos que se le pide y por último darle al botón de Clasificar Cristal")
+                        }
+                        Section(header: preguntas(preguntas: "¿Qué pasa si dejo un campo vacío?")){
                             respuestas(respuestas: "Si se deja un campo vacío no pasa nada, ya que el si le das a Clasificar Cristal, se te guardará pero aun no estará terminado y en la vista Historial te aparecerá como que está en proceso")
                         }
-                            Section(header: preguntas(preguntas: "¿Se puede cambiar el nombre del ensayo?")){
+                        Section(header: preguntas(preguntas: "¿Se puede cambiar el nombre del ensayo?")){
                             respuestas(respuestas: "Sí, una vez creado el ensayo accedes a dicho ensayo y tendrás un botón de editar con el cual podrás cambiar el nombre")
                         }
-                            Section(header: preguntas(preguntas: "Contacta con nosotros")){
+                        Section(header: preguntas(preguntas: "Contacta con nosotros")){
                             respuestas(respuestas: "Si tienes alguna duda sobre la aplicación contacta al siguiente mail: crystalite@gmail.com")
                         }
                     }
@@ -37,7 +41,7 @@ struct VistaAyuda: View {
             }.padding(.top,-60)
             
         }
-                   
+        
     }
 }
 

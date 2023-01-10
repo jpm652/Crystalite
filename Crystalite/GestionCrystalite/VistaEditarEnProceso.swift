@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct VistaEditarEnProceso: View {
-    @EnvironmentObject var vm: ViewModel
     
-    @State var valorAl: Double = 0.0;
-    @State var valorBa: Double = 0.0;
-    @State var valorCa: Double = 0.0;
-    @State var valorIr: Double = 0.0;
-    @State var valorMg: Double = 0.0;
-    @State var valorK: Double = 0.0;
+    // Variables
+    
+    @EnvironmentObject var vm: ViewModel
+    @State var valorAl: Double = 0.0
+    @State var valorBa: Double = 0.0
+    @State var valorCa: Double = 0.0
+    @State var valorIr: Double = 0.0
+    @State var valorMg: Double = 0.0
+    @State var valorK: Double = 0.0
     @State var nombreEnsayo: String = ""
     @State var ensayo: EnsayoEntity
     @State var resultado: String = ""
+    @State var mostrarAlerta : Bool = false
+    @State var valorAlerta : valorAlerta = .first
+    
+    //View
     
     var body: some View {
         ZStack(alignment: .top){
@@ -66,9 +72,17 @@ struct VistaEditarEnProceso: View {
                     
                     if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
                         vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        
+                        self.valorAlerta = .first
+                        self.mostrarAlerta = true
+                        
                     }else{
                         resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        
+                        self.valorAlerta = .second
+                        self.mostrarAlerta = true
+                        
                     }
                     
                 }label: {
@@ -79,9 +93,16 @@ struct VistaEditarEnProceso: View {
                         .clipShape(RoundedRectangle (cornerRadius: 19))
                         .padding(.all, 15)
                         .labelStyle(TitleOnlyLabelStyle())
+                }.alert(isPresented: $mostrarAlerta) {
+                    switch valorAlerta {
+                    case .first:
+                        return Alert(title: Text("Ensayo en proceso"), message: Text("Faltan datos por introducir"), dismissButton: .default(Text("Aceptar")))
+                    case .second:
+                        return Alert(title: Text("Cristal encontrado"), message: Text("Se ha calculado el resultado correctamente"), dismissButton: .default(Text("Aceptar")))
+                    }
                 }
-                
             }.padding(.top,50)
+            
         }.onAppear(){
             nombreEnsayo = ensayo.nombre ?? ""
             vm.elementoArray[0].valor = ensayo.al
@@ -99,8 +120,6 @@ struct VistaEditarEnProceso: View {
                 vm.elementoArray[4].valor = 0
                 vm.elementoArray[5].valor = 0
             }
-        
     }
-    
 }
 

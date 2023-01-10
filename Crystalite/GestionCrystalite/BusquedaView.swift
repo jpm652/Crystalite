@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct BusquedaView: View {
+    
+    // Variables
+    
     @Binding var text : String
     @EnvironmentObject var vm : ViewModel
+    
+    //View
     
     var body: some View {
         ZStack{
@@ -40,9 +45,4 @@ struct BusquedaView: View {
         .shadow(color: .gray, radius: 5)
     }
 }
-//
-//struct BusquedaView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VistaHistorial().environmentObject(ViewModel())
-//    }
-//}
+

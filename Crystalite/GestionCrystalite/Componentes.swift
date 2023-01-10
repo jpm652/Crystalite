@@ -11,6 +11,15 @@ extension UIColor{
     static let myCustomColor = UIColor(red: 0.229, green: 0.234, blue: 0.245, alpha: 0)
 }
 
+enum OpcionEnsayo : String, CaseIterable{
+    case todos = "Todos"
+    case enProceso = "En proceso"
+}
+
+enum valorAlerta {
+    case first, second
+}
+
 struct boton: View{
     
     var texto : String;
@@ -148,6 +157,7 @@ struct estudioHistorial: View{
                             .resizable()
                             .frame(width: 125, height: 100)
                             .clipShape(RoundedRectangle (cornerRadius: 10))
+                            .background(vm.modoOscuro ? .white : .white)
                         
                     }
                     .frame(width: 280, height: 100)

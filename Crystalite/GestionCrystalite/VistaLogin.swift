@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VistaLogin: View {
     
-    // Atributos
+    // Variables
     
     @EnvironmentObject var vm: ViewModel
     @Binding var iniciarSesion : Bool
@@ -19,6 +19,7 @@ struct VistaLogin: View {
     @State var email : String = ""
     @State var contraseña : String = ""
     @Binding var iniciarSesionAdmin : Bool
+    
     // View
     
     var body: some View {
@@ -56,7 +57,7 @@ struct VistaLogin: View {
                     
                     Button {
                         if(email == "" || contraseña == ""){
-                            // Poner pop up
+                            
                             self.valorAlerta = .first
                             self.mostrarAlerta = true
                         }else{
@@ -64,9 +65,7 @@ struct VistaLogin: View {
                                 if(email == persona.email && contraseña == persona.contrasena && persona.admin == false){
                                     iniciarSesion.toggle()
                                     vm.personaLogin = persona
-                                    //personaLogin = persona
                                     
-                                    // self.persona = persona
                                 }else{
                                     self.valorAlerta = .second
                                     self.mostrarAlerta = true
@@ -105,8 +104,8 @@ struct VistaLogin: View {
                                 .frame(width: 100)
                                 .background(Color.black)
                         }
-                        
                     }
+                    
                     Button {
                         registro.toggle()
                     } label: {
@@ -135,8 +134,4 @@ struct VistaLogin: View {
             }
         }
     }
-}
-
-enum valorAlerta {
-    case first, second
 }

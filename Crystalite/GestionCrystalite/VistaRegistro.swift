@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VistaRegistro: View {
     
-    // Atributos
+    // Variables
     
     @EnvironmentObject var vm : ViewModel
     @State var imageGeneral : UIImage = (UIImage(systemName: "person.crop.circle.badge.plus") ?? nil)!

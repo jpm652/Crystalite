@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct VistaPrincipal: View {
+    
+    // Variables
+    
     @EnvironmentObject var vm: ViewModel;
     @State var selec: Int
     @State var seleccion: Int = 1;
     @Binding var iniciarSesion: Bool
     @Binding var iniciarSesionAdmin: Bool
     
+    // View
     
     var body: some View {
         
@@ -44,8 +48,4 @@ struct VistaPrincipal: View {
     }
 
 }
-//struct VistaPrincipal_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VistaPrincipal().environmentObject(ViewModel)
-//    }
-//}
+

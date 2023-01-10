@@ -15,6 +15,7 @@ struct VistaHistorial: View {
     @EnvironmentObject var vm : ViewModel
     @State var query: String = ""
     @State var opcionEnsayo : OpcionEnsayo = .todos
+    
     // View
     
     var body: some View {
@@ -71,9 +72,75 @@ struct VistaHistorial: View {
                     
                     
                     ScrollView{
-                        if let ensayoPersona = vm.personaLogin.ensayoRelation?.allObjects as? [EnsayoEntity]{
+                        
+                        if(vm.personaLogin.admin == false){
                             
-                            if(ensayoPersona.isEmpty){
+                            if let ensayoPersona = vm.personaLogin.ensayoRelation?.allObjects as? [EnsayoEntity]{
+                                
+                                if(ensayoPersona.isEmpty){
+                                    
+                                    VStack{
+                                        Image(systemName: "exclamationmark.circle")
+                                            .resizable()
+                                            .frame(width: 120, height: 120)
+                                            .foregroundColor(.red)
+                                        Text("Actualmente no hay ensayos")
+                                    }
+                                    .padding(.top, 120)
+                                    .frame(alignment: .center)
+                                    
+                                }else{
+                                    
+                                    ForEach(ensayoPersona){ ensayo in
+                                        if(query.isEmpty){
+                                            if(opcionEnsayo == .enProceso){
+                                                if(ensayo.enProceso){
+                                                    NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
+                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                                    }
+                                                }
+                                            }
+                                            else{
+                                                
+                                                if(ensayo.enProceso){
+                                                    NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
+                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                                    }
+                                                }else{
+                                                    NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                                    }
+                                                }
+                                            }
+                                            
+                                        }else{
+                                            if((ensayo.nombre ?? "" ).contains(query)){
+                                                if(opcionEnsayo == .enProceso){
+                                                    if(ensayo.enProceso){
+                                                        NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
+                                                            estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                                        }
+                                                    }
+                                                }else{
+                                                    if(ensayo.enProceso){
+                                                        NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
+                                                            estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                                        }
+                                                    }else{
+                                                        NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                                            estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date())
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                        }else{
+                            
+                            if(vm.ensayoArray.isEmpty){
                                 
                                 VStack{
                                     Image(systemName: "exclamationmark.circle")
@@ -86,8 +153,8 @@ struct VistaHistorial: View {
                                 .frame(alignment: .center)
                                 
                             }else{
-                                if(vm.personaLogin.admin == false){
-                                ForEach(ensayoPersona){ ensayo in
+                                
+                                ForEach(vm.ensayoArray){ ensayo in
                                     if(query.isEmpty){
                                         if(opcionEnsayo == .enProceso){
                                             if(ensayo.enProceso){
@@ -110,7 +177,7 @@ struct VistaHistorial: View {
                                         }
                                         
                                     }else{
-                                        if((ensayo.nombre ?? "" ).hasPrefix(query)){
+                                        if((ensayo.nombre ?? "" ).contains(query)){
                                             if(opcionEnsayo == .enProceso){
                                                 if(ensayo.enProceso){
                                                     NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
@@ -132,16 +199,11 @@ struct VistaHistorial: View {
                                     }
                                 }
                             }
+                            
                         }
                     }
-                }
-            }.padding(.top,-60)
-        }
+                }.padding(.top,-60)
+            }
         }
     }
-}
-
-enum OpcionEnsayo : String, CaseIterable{
-    case todos = "Todos"
-    case enProceso = "En proceso"
 }
