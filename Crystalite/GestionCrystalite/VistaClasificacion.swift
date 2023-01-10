@@ -50,6 +50,12 @@ struct VistaClasificacion: View {
                         .frame(width: 300, height: 34)
                         .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                         .cornerRadius(10)
+                    
+                    #if CrystaliteEasy
+                    Text("Tipo Cristal: ")
+                        .font(.title2)
+                        .foregroundColor(vm.modoOscuro ? .white : .black)
+                    #endif
                 }
                 
                 Spacer().frame(height: 20)
