@@ -7,6 +7,39 @@
 
 import Foundation
 
+
+func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
+    
+    if(elemento.iniciales == "Al") {return ensayo.al}
+    else if(elemento.iniciales == "Ba"){return ensayo.ba}
+    else if(elemento.iniciales == "Ca"){return ensayo.ca}
+    else if(elemento.iniciales == "RI"){return ensayo.ir}
+    else if(elemento.iniciales == "Mg"){return ensayo.mg}
+    else{return ensayo.k}
+    
+    
+}
+
+func ponerFecha(fecha : Date) -> String{
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM/YY"
+    return dateFormatter.string(from: fecha)
+}
+
+func ponerFechaPeq(fecha : Date) -> String{
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd/MM"
+    return dateFormatter.string(from: fecha)
+}
+
+func comprobarValorElemento(elemento: ElementoEntity, valor: String, vm: ViewModel){
+    // @EnvironmentObject var vm: ViewModel
+    
+    vm.editElemento(elemento: elemento, valorNuevo: Double(valor) ?? 1)
+}
+
 func calcularResultado(al:Double, ba:Double, ca: Double, ir: Double, k: Double, mg:Double) -> String{
     
     if(ba <= 0.27){

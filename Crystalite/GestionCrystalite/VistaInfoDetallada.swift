@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct VistaInfoDetallada: View {
+    
+    // Variables
+    
     @EnvironmentObject var vm: ViewModel
     @State var disposicion : Bool = false
     @State var cambiarNomEnsayo : Bool = false
@@ -16,6 +19,11 @@ struct VistaInfoDetallada: View {
     @State private var showmodal = false
     @State var elemento : ElementoEntity = ElementoEntity()
     @State var count : Int = 0
+    @State var mostrarAlerta : Bool = false
+    @State var valorAlerta : valorAlerta = .first
+    
+    // View
+    
     var body: some View {
         
         ZStack(alignment: .top){
@@ -27,14 +35,31 @@ struct VistaInfoDetallada: View {
                     .foregroundColor(vm.modoOscuro ? .white : .black)
 
                 Spacer().frame(height: 30)
+                
                 elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
-                Spacer().frame(height: 50)
+                
+                Spacer().frame(height: 40)
+                
                 HStack{
                     Text("Variables usadas (6)")
                         .foregroundColor(vm.modoOscuro ? .white : .black)
                     
-                    Spacer().frame(width: 110);
+                    Spacer().frame(width: 80)
                     
+                    Button(){
+                        
+                        self.mostrarAlerta = true
+                        
+                    }label:{
+                        Image(systemName: "trash.circle")
+                            .foregroundColor(.red)
+                    }.alert(isPresented: $mostrarAlerta) {
+                        Alert(title: Text("Eliminar Ensayo"), message: Text("¿Desea eliminar el ensayo?"), primaryButton: .destructive(Text("Eliminar")){
+                            vm.deleteEnsayo(ensayo: ensayo)
+                        }, secondaryButton: .cancel(Text("Cancelar")))
+                    }
+                    
+                    Spacer().frame(width: 20)
                     
                     Button(){
                         disposicion.toggle()
@@ -103,47 +128,9 @@ struct VistaInfoDetallada: View {
                     }
                     
                 }
-                HStack{
-                    Button(){
-                        vm.deleteEnsayo(ensayo: ensayo)
-                    }label: {
-                        Text("Eliminar ensayo")
-                            .frame(width: 245, height: 59)
-                            .background(vm.modoOscuro ? .black : .red)
-                            .tint(vm.modoOscuro ? .white : .black)
-                            .clipShape(RoundedRectangle (cornerRadius: 19))
-                            .padding(.all, 15)
-                            .labelStyle(TitleOnlyLabelStyle())
-                        
-                    }
-                }
             }.padding(.top,-50)
         }
-        
     }
-}
-func ObtenerValor(elemento: ElementoEntity, ensayo : EnsayoEntity) -> Double{
-    
-    if(elemento.iniciales == "Al") {return ensayo.al}
-    else if(elemento.iniciales == "Ba"){return ensayo.ba}
-    else if(elemento.iniciales == "Ca"){return ensayo.ca}
-    else if(elemento.iniciales == "RI"){return ensayo.ir}
-    else if(elemento.iniciales == "Mg"){return ensayo.mg}
-    else{return ensayo.k}
-    
-    
-}
+    }
 
-func ponerFecha(fecha : Date) -> String{
-    
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd/MM/YY"
-    return dateFormatter.string(from: fecha)
-}
 
-func ponerFechaPeq(fecha : Date) -> String{
-    
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "dd/MM"
-    return dateFormatter.string(from: fecha)
-}

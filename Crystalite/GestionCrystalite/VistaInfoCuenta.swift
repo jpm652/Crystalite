@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct VistaInfoCuenta: View {
+    
+    // Variables
+    
     @EnvironmentObject var vm: ViewModel
     @State private var showGreeting = false
     @Binding var iniciarSesion : Bool
@@ -18,6 +21,8 @@ struct VistaInfoCuenta: View {
     @State var newName : String = ""
     @State var pulsarBoton : Bool = false;
     @Binding var iniciarSesionAdmin : Bool
+    
+    // View
     
     var body: some View {
         ZStack(alignment: .top){
@@ -78,7 +83,9 @@ struct VistaInfoCuenta: View {
                                             mostrarEditarContrasena = false
                                         }label: {
                                             Image(systemName: "arrow.right")
-                                            .tint(.green)                                        }
+                                            .tint(.green)
+                                            
+                                        }
                                     }
                                 }
                             }
@@ -163,13 +170,4 @@ struct VistaInfoCuenta: View {
             
         }
     }
-    
 }
-
-
-/*struct VistaInfoCuenta_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        VistaInfoCuenta()
-    }
-}*/

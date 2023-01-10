@@ -23,10 +23,9 @@ class ViewModel: ObservableObject{
     
     init(){
         
-        //addPersona(nombre: "Administrador", foto: UIImage(systemName: "person.badge.key") ?? UIImage(), email: "Admin", contrasena: "admin", admin: true)
-        // NO FUNCIONA //
         crearAdministrador()
         cargarElementos()
+        cargarAyuda()
         cargarDatos()
         
         UITabBar.appearance().backgroundColor = .systemBackground
@@ -52,7 +51,7 @@ class ViewModel: ObservableObject{
             self.cristalArray = try gestorCoreData.contexto.fetch(fetchCristales).sorted(){$0.nombre! < $1.nombre!}
             self.personaArray = try gestorCoreData.contexto.fetch(fetchPersonas).sorted(){$0.nombre! < $1.nombre!}
             self.ensayoArray = try gestorCoreData.contexto.fetch(fetchEnsayos).sorted(){$0.nombre! < $1.nombre!}
-            self.ayudaArray = try gestorCoreData.contexto.fetch(fetchAyuda).sorted(){$0.pregunta! < $1.pregunta!}
+            self.ayudaArray = try gestorCoreData.contexto.fetch(fetchAyuda) // .sorted(){$0.pregunta! < $1.pregunta!}
         }catch let error{
             print("Error al cargar los datos: \(error)")
         }
@@ -206,4 +205,21 @@ class ViewModel: ObservableObject{
     func crearAdministrador(){
         addPersona(nombre: "Administrador", foto: UIImage(systemName: "person.badge.key") ?? UIImage(), email: "Admin", contrasena: "admin", admin: true)
     }
+    
+    func cargarAyuda(){
+        
+        if(!ayudaArray.isEmpty){
+            for i in 0...(ayudaArray.count - 1){
+                gestorCoreData.contexto.delete(ayudaArray[i])
+            }
+        }
+        
+        addAyuda(pregunta: "¿Qué es Cristalyte?", respuesta: "Respuesta 1")
+        addAyuda(pregunta: "¿Cómo se puede añadir un ensayo?", respuesta: "Para realizar un ensayo se tiene que ir al apartado de Clasificación y rellenar los datos que se le pide y por último darle al botón de Clasificar Cristal")
+        addAyuda(pregunta: "¿Qué pasa si dejo un campo vacío?", respuesta: "Si se deja un campo vacío no pasa nada, ya que el si le das a Clasificar Cristal, se te guardará pero aun no estará terminado y en la vista Historial te aparecerá como que está en proceso")
+        addAyuda(pregunta: "¿Se puede cambiar el nombre del ensayo?", respuesta: "Sí, una vez creado el ensayo accedes a dicho ensayo y tendrás un botón de editar con el cual podrás cambiar el nombre")
+        addAyuda(pregunta: "Contacta con nosotros", respuesta: "Si tienes alguna duda sobre la aplicación contacta al siguiente mail: crystalite@gmail.com")
+        
+    }
+    
 }

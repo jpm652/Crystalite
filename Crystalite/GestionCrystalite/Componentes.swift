@@ -114,11 +114,6 @@ struct ElementoView: View{
     }
     
 }
-func comprobarValorElemento(elemento: ElementoEntity, valor: String){
-    @EnvironmentObject var vm: ViewModel
-    
-    vm.editElemento(elemento: elemento, valorNuevo: Double(valor) ?? 1)
-}
 
 struct estudioHistorial: View{
     @EnvironmentObject var vm: ViewModel
@@ -233,13 +228,18 @@ struct elementoCristalEdicion: View{
                     .font(.caption)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
                 
-            }.frame(width: 180, height: 100, alignment: .leading)
-                .padding(.leading, -30)
+            }
+            .frame(width: 180, height: 100, alignment: .leading)
+            .padding(.leading, -30)
+            
             Button(){
                 
-                if let i = vm.cristalArray.firstIndex(where: { $0.nombre == tipoCristal }) {
-                    ele_cristal = vm.cristalArray[i]
+                for cristal in vm.cristalArray{
+                    if (cristal.nombre == tipoCristal) {
+                        ele_cristal = cristal
+                    }
                 }
+                
                 showcristal.toggle()
             }label: {
                 Image(tipoCristal)
@@ -249,8 +249,9 @@ struct elementoCristalEdicion: View{
                     .padding(.trailing,-50)
                 
             }.sheet(isPresented: $showcristal, content: {
-                ViewDescripcionCristal(cristal: $ele_cristal)
+                ViewDescripcionCristal(cristal: ele_cristal)
             })
+            
         }
         .frame(width: 320, height: 100)
         .background(vm.modoOscuro ? .black : .white)
@@ -320,35 +321,6 @@ struct elementoResultadoCuadrado: View{
         .frame(width: 85, height: 120)
         .background(vm.modoOscuro ? .black : .white)
         .cornerRadius(15)
-    }
-    
-}
-
-struct preguntas: View{
-    
-    @EnvironmentObject var vm: ViewModel
-    var preguntas: String;
-    
-    var body: some View{
-        Text(preguntas).fontWeight(.bold)
-            .frame(width: 330, height: 50)
-            .background(vm.modoOscuro ? .black : .white)
-            .cornerRadius(10)
-            .foregroundColor(vm.modoOscuro ? .white : .black)
-    }
-    
-}
-
-struct respuestas: View{
-    
-    @EnvironmentObject var vm: ViewModel
-    var respuestas: String;
-    
-    var body: some View{
-        HStack() {
-            Text(respuestas)
-        }.background(vm.modoOscuro ? .black : .white)
-            .foregroundColor(vm.modoOscuro ? .white : .black)
     }
     
 }

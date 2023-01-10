@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ViewDescripcionElemento: View {
+    
+    // Variables
+
     @EnvironmentObject var vm: ViewModel
     @Binding var elemento : ElementoEntity
+    
+    // View
     
     var body: some View{
         
@@ -47,8 +52,13 @@ struct ViewDescripcionElemento: View {
 }
 
 struct ViewDescripcionCristal: View {
+    
+    // Variables
+    
     @EnvironmentObject var vm: ViewModel
-    @Binding var cristal : CristalEntity
+    @State var cristal : CristalEntity
+    
+    // View
     
     var body: some View{
         
