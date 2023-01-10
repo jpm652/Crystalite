@@ -20,6 +20,7 @@ enum valorAlerta {
     case first, second
 }
 
+
 struct boton: View{
     
     var texto : String;

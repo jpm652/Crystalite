@@ -23,10 +23,13 @@ class ViewModel: ObservableObject{
     
     init(){
         
+
+
+        cargarDatos()
+        
+        cargarAyuda()
         crearAdministrador()
         cargarElementos()
-        cargarAyuda()
-        cargarDatos()
         
         UITabBar.appearance().backgroundColor = .systemBackground
         UITableView.appearance().backgroundColor = .myCustomColor
@@ -93,7 +96,7 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
-    func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double ){
+    func addEnsayo(persona: PersonaEntity, nombre: String, fecha: Date, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double, creador: String ){
         let newEnsayo = EnsayoEntity(context: gestorCoreData.contexto)
         newEnsayo.personaRelation = persona
         newEnsayo.nombre = nombre
@@ -106,6 +109,7 @@ class ViewModel: ObservableObject{
         newEnsayo.mg = mg
         newEnsayo.k = k
         newEnsayo.ir = ir
+        newEnsayo.creador = creador
         
         guardarDatos()
     }
@@ -116,7 +120,7 @@ class ViewModel: ObservableObject{
         guardarDatos()
     }
     
-    func editEnsayoEnProceso(ensayo:EnsayoEntity, nombrenuevo: String, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double ){
+    func editEnsayoEnProceso(ensayo:EnsayoEntity, nombrenuevo: String, enProceso: Bool, resultado: String, al:Double, ba:Double, ca:Double,ir:Double, k:Double, mg:Double , creador : String){
         
         ensayo.nombre = nombrenuevo
         ensayo.enProceso = enProceso
@@ -127,7 +131,7 @@ class ViewModel: ObservableObject{
         ensayo.ir = ir
         ensayo.k = k
         ensayo.mg = mg
-        
+        ensayo.creador = creador
         guardarDatos()
     }
     
@@ -203,6 +207,13 @@ class ViewModel: ObservableObject{
     }
     
     func crearAdministrador(){
+        if(!personaArray.isEmpty){
+            for i in 0...(personaArray.count - 1){
+                if(personaArray[i].admin == true){
+                    gestorCoreData.contexto.delete(personaArray[i])
+                }
+            }
+        }
         addPersona(nombre: "Administrador", foto: UIImage(systemName: "person.badge.key") ?? UIImage(), email: "Admin", contrasena: "admin", admin: true)
     }
     

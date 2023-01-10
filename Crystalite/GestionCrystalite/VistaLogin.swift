@@ -23,12 +23,11 @@ struct VistaLogin: View {
     // View
     
     var body: some View {
-        
+
         ZStack{
             Color("Gris").ignoresSafeArea()
-            
+        
             VStack {
-                
                 Image("Logo").resizable().frame(width: 180, height: 150)
                 Spacer().frame(height: 40)
                 

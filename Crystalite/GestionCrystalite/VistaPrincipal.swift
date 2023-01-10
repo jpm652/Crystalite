@@ -34,7 +34,7 @@ struct VistaPrincipal: View {
                 }.tag(1)
             VistaAyuda()
                 .tabItem{
-                    Image(systemName: "lifepreserver")
+                   Image(systemName: "lifepreserver")
                     Text("Ayuda")
                 }.tag(2)
             VistaInfoCuenta(iniciarSesion: $iniciarSesion, iniciarSesionAdmin: $iniciarSesionAdmin)

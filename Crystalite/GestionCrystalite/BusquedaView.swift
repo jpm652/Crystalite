@@ -23,7 +23,7 @@ struct BusquedaView: View {
             HStack{
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(text.isEmpty ? (vm.modoOscuro ? .white.opacity(0.5) : Color(.gray).opacity(0.5)) :  (vm.modoOscuro ? .white.opacity(1) : Color(UIColor.gray).opacity(1)))
-                TextField("Buscar ensayo ...", text:  $text)
+                TextField("Buscar...", text:  $text)
                     .tint(.red)
                     .foregroundColor(vm.modoOscuro ? .white :.gray)
                     .disableAutocorrection(true)

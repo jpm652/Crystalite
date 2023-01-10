@@ -24,6 +24,9 @@ struct VistaClasificacion: View {
     @State var mostrarAlerta : Bool = false
     @State var valorAlerta : valorAlerta = .first
     
+    var tipoCristal = ["Vidrio construccion flotado","Vidrio construccion no flotado","Vidrio contenedor","Vidrio Faro","Vidrio vajilla","Vidrio vehiculo flotado","Vidrio vehiculo no flotado"]
+
+    @State var selectedItem = ""
     // View
     
     var body: some View {
@@ -33,12 +36,14 @@ struct VistaClasificacion: View {
             
             VStack(){
                 VStack(alignment: .leading) {
+
                     Text("Introducir ensayo")
                         .font(.title)
                         .bold()
                         .foregroundColor(vm.modoOscuro ? .white : .black)
                     
                     Spacer().frame(height: 15)
+                    #if Crystalite
                     Text("Nombre: ")
                         .font(.title2)
                         .foregroundColor(vm.modoOscuro ? .white : .black)
@@ -50,11 +55,47 @@ struct VistaClasificacion: View {
                         .frame(width: 300, height: 34)
                         .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                         .cornerRadius(10)
-                    
+                    #endif
+
                     #if CrystaliteEasy
-                    Text("Tipo Cristal: ")
-                        .font(.title2)
-                        .foregroundColor(vm.modoOscuro ? .white : .black)
+                    Spacer().frame(height: 15)
+
+                    HStack{
+                        Text("Nombre: ")
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                            .padding(.leading,15)
+                        Spacer().frame(width:50)
+
+                        TextField("Introducir nombre...", text: $nombreEnsayo)
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                            
+                    }.frame(width: 300, height: 34)
+                        .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
+                        .cornerRadius(10)
+                    
+                    HStack{
+                        Text("Tipo Cristal: ")
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                            .padding(.leading,10)
+
+                        Spacer()
+                            .frame(width: 30)
+                        Picker("Pick a language", selection: $selectedItem) { // 3
+                                    ForEach(tipoCristal, id: \.self) {  // 4
+                                        Text($0)
+                                    }
+                                
+                        }.frame(width: 150, height: 30,alignment: .leading)
+                            .padding(.leading,10)
+                            .background(.gray.opacity(0.25))
+                            .cornerRadius(10)
+
+                    
+                    }.frame(width:300, height: 34)
+                        .background(.white)
+                        .cornerRadius(10)
+
+
                     #endif
                 }
                 
@@ -78,7 +119,7 @@ struct VistaClasificacion: View {
                     
                     
                     if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg, creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .first
                         self.mostrarAlerta = true
@@ -87,7 +128,7 @@ struct VistaClasificacion: View {
                     }else{
                         resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         
-                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .second
                         self.mostrarAlerta = true

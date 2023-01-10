@@ -10,7 +10,6 @@ import SwiftUI
 struct VistaEditarEnProceso: View {
     
     // Variables
-    
     @EnvironmentObject var vm: ViewModel
     @State var valorAl: Double = 0.0
     @State var valorBa: Double = 0.0
@@ -65,23 +64,23 @@ struct VistaEditarEnProceso: View {
                     valorBa = vm.elementoArray[1].valor
                     valorCa = vm.elementoArray[2].valor
                     valorIr = vm.elementoArray[3].valor
-                    valorK = vm.elementoArray[4].valor
-                    valorMg = vm.elementoArray[5].valor
+                    valorMg = vm.elementoArray[4].valor
+                    valorK = vm.elementoArray[5].valor
                     
                     
                     
                     if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .first
                         self.mostrarAlerta = true
-                        
                     }else{
                         resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .second
                         self.mostrarAlerta = true
+                            
                         
                     }
                     

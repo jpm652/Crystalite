@@ -161,20 +161,20 @@ struct VistaHistorial: View {
                                     if(query.isEmpty){
                                         if(opcionEnsayo == .enProceso){
                                             if(ensayo.enProceso){
-                                                NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
-                                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: nomCreador)
+                                                NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: ensayo.creador ?? "")
                                                 }
                                             }
                                         }
                                         else{
                                             
                                             if(ensayo.enProceso){
-                                                NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
-                                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: nomCreador)
+                                                NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: ensayo.creador ?? "")
                                                 }
                                             }else{
                                                 NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
-                                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: nomCreador)
+                                                    estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: ensayo.creador ?? "")
                                                 }
                                             }
                                         }
@@ -183,18 +183,18 @@ struct VistaHistorial: View {
                                         if((ensayo.nombre ?? "" ).contains(query)){
                                             if(opcionEnsayo == .enProceso){
                                                 if(ensayo.enProceso){
-                                                    NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
-                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: nomCreador)
+                                                    NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: ensayo.creador ?? "")
                                                     }
                                                 }
                                             }else{
                                                 if(ensayo.enProceso){
-                                                    NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){
-                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: nomCreador)
+                                                    NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
+                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: ensayo.creador ?? "")
                                                     }
                                                 }else{
                                                     NavigationLink(destination: VistaInfoDetallada(ensayo: ensayo)){
-                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: nomCreador)
+                                                        estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: true, creador: ensayo.creador ?? "")
                                                     }
                                                 }
                                             }
