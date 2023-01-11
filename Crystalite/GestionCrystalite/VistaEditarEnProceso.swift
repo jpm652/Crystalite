@@ -95,7 +95,7 @@ struct VistaEditarEnProceso: View {
                         
                     }
                     .frame(width:300, height: 34)
-                    .background(.white)
+                    .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                     .cornerRadius(10)
                     
                     

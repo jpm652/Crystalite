@@ -98,7 +98,7 @@ struct VistaClasificacion: View {
                         
                     }
                     .frame(width:300, height: 34)
-                    .background(.white)
+                    .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                     .cornerRadius(10)
                     
                     
@@ -132,7 +132,13 @@ struct VistaClasificacion: View {
                         self.seleccion = 1
                         
                     }else{
+#if Crystalite
                         resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
+#endif
+                        
+#if CrystaliteEasy
+                        resultado = selectedItem
+#endif
                         
                         vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         

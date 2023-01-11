@@ -65,6 +65,7 @@ struct VistaInfoDetallada: View {
                     
                     Button(){
                         disposicion.toggle()
+                       
                     }label: {
                         Image(systemName: disposicion ? "list.dash" : "square.grid.3x3.topleft.filled")
                             .foregroundColor(vm.modoOscuro ? .white : .black)
