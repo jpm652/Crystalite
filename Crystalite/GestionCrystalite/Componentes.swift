@@ -308,6 +308,7 @@ struct elementoResultadoFila: View{
     }
     
 }
+
 struct elementoResultadoCuadrado: View{
     @EnvironmentObject var vm: ViewModel
     

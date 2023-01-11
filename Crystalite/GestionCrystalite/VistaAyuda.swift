@@ -64,20 +64,6 @@ struct VistaAyuda: View {
                             }
                         }
                     }
-//                    
-//                    Form(){
-//                    Section{
-//                        DisclosureGroup() {
-//                            Text("Respuesta")
-//                            
-//                        }label: {
-//                            Text("Contacta con nosotros")
-//                                .fontWeight(.semibold)
-//                            
-//                        }
-//                    }
-//                    }.frame(alignment: .bottom)
-                    
                 }.padding(.top,-70)
                 
             }

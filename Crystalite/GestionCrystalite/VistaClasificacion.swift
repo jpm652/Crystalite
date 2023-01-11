@@ -125,7 +125,8 @@ struct VistaClasificacion: View {
                     
                     
                     if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg, creador : vm.personaLogin.nombre ?? "")
+                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: true,
+                                     resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg, creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .first
                         self.mostrarAlerta = true
@@ -140,7 +141,8 @@ struct VistaClasificacion: View {
                         resultado = selectedItem
 #endif
                         
-                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
+                        vm.addEnsayo(persona: vm.personaLogin, nombre: nombreEnsayo, fecha: Date(), enProceso: false,
+                                     resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .second
                         self.mostrarAlerta = true

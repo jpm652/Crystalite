@@ -2,7 +2,7 @@
 //  VistaInfoDetallada.swift
 //  Crystalite
 //
-//  Created by David Silvente on 26/11/22.
+//  Created by Aula11 on 26/11/22.
 //
 
 import SwiftUI
@@ -36,7 +36,8 @@ struct VistaInfoDetallada: View {
                 
                 Spacer().frame(height: 30)
                 
-                elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
+                elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",
+                                       nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
                 
                 Spacer().frame(height: 40)
                 
@@ -56,7 +57,8 @@ struct VistaInfoDetallada: View {
                                 .frame(width: 20, height: 20)
                                 .foregroundColor(.red)
                         }.alert(isPresented: $mostrarAlerta) {
-                            Alert(title: Text("Eliminar Ensayo"), message: Text("¿Desea eliminar el ensayo?"), primaryButton: .destructive(Text("Eliminar")){
+                            Alert(title: Text("Eliminar Ensayo"),
+                                  message: Text("¿Desea eliminar el ensayo?"), primaryButton: .destructive(Text("Eliminar")){
                                 vm.deleteEnsayo(ensayo: ensayo)
                             }, secondaryButton: .cancel(Text("Cancelar")))
                         }
@@ -81,7 +83,8 @@ struct VistaInfoDetallada: View {
                                 showmodal.toggle()
                                 elemento = ele
                             }label: {
-                                elementoResultadoFila(iniciales: ele.iniciales ?? "", nombre: ele.nombre ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo) )
+                                elementoResultadoFila(iniciales: ele.iniciales ?? "",
+                                                      nombre: ele.nombre ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo) )
                             }.sheet(isPresented: $showmodal, content: {
                                 ViewDescripcionElemento(elemento: $elemento)
                             })
@@ -97,7 +100,8 @@ struct VistaInfoDetallada: View {
                                     showmodal.toggle()
                                     elemento = ele
                                 }label: {
-                                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
+                                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",
+                                                              value: ObtenerValor(elemento: ele, ensayo: ensayo))
                                 }.sheet(isPresented: $showmodal, content: {
                                     ViewDescripcionElemento(elemento: $elemento)
                                 })
@@ -118,7 +122,8 @@ struct VistaInfoDetallada: View {
                                     showmodal.toggle()
                                     elemento = ele
                                 }label: {
-                                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",value: ObtenerValor(elemento: ele, ensayo: ensayo))
+                                    elementoResultadoCuadrado(iniciales: ele.iniciales ?? "",
+                                                              value: ObtenerValor(elemento: ele, ensayo: ensayo))
                                 }.sheet(isPresented: $showmodal, content: {
                                     ViewDescripcionElemento(elemento: $elemento)
                                 })

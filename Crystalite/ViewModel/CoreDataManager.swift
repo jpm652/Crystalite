@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class CoreDataManager{
+    
     static let instance = CoreDataManager()
     let contenedor: NSPersistentContainer
     let contexto: NSManagedObjectContext
@@ -19,10 +20,10 @@ class CoreDataManager{
             if let error = error{
                 print("Error al cargar datos de CoreData: \(error)")
             }else{
-                    print("Carga de datos correcta")
+                print("Carga de datos correcta")
             }
         }
-                      contexto = contenedor.viewContext
+        contexto = contenedor.viewContext
     }
     
     func save(){

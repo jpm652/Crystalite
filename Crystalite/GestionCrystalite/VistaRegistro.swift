@@ -34,10 +34,7 @@ struct VistaRegistro: View {
         ZStack{
             Color("Gris").ignoresSafeArea()
             
-            
-            
             VStack {
-                
                 HStack{
                     Button(){
                         registro.toggle()

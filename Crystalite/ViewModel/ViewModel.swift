@@ -225,7 +225,7 @@ class ViewModel: ObservableObject{
             }
         }
         
-        addAyuda(pregunta: "¿Qué es Cristalyte?", respuesta: "Respuesta 1")
+        addAyuda(pregunta: "¿Qué es Crystalite?", respuesta: "Crystalite es una app para obtener el tipo de cristal en base a los compoenntes que tiene")
         addAyuda(pregunta: "¿Cómo se puede añadir un ensayo?", respuesta: "Para realizar un ensayo se tiene que ir al apartado de Clasificación y rellenar los datos que se le pide y por último darle al botón de Clasificar Cristal")
         addAyuda(pregunta: "¿Qué pasa si dejo un campo vacío?", respuesta: "Si se deja un campo vacío no pasa nada, ya que el si le das a Clasificar Cristal, se te guardará pero aun no estará terminado y en la vista Historial te aparecerá como que está en proceso")
         addAyuda(pregunta: "¿Se puede cambiar el nombre del ensayo?", respuesta: "Sí, una vez creado el ensayo accedes a dicho ensayo y tendrás un botón de editar con el cual podrás cambiar el nombre")

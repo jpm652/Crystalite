@@ -10,6 +10,7 @@ import SwiftUI
 struct VistaEditarEnProceso: View {
     
     // Variables
+    
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: ViewModel
     @State var valorAl: Double = 0.0
@@ -125,14 +126,16 @@ struct VistaEditarEnProceso: View {
                     
                     
                     if(valorAl == 0.0 || valorBa == 0.0 || valorCa == 0.0 || valorIr == 0.0 || valorK == 0.0 || valorMg == 0.0){
-                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true, resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
+                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: true,
+                                               resultado: "En proceso", al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .first
                         self.mostrarAlerta = true
                         presentationMode.wrappedValue.dismiss()
                     }else{
                         resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
-                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
+                        vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false,
+                                               resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .second
                         self.mostrarAlerta = true

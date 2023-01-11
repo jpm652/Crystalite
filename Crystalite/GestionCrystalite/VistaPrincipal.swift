@@ -22,6 +22,7 @@ struct VistaPrincipal: View {
     var body: some View {
         
         TabView(selection: $selec) {
+            
             if(iniciarSesionAdmin == false){
                 VistaClasificacion(seleccion: $selec)
                     .tabItem{
