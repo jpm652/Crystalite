@@ -225,11 +225,19 @@ class ViewModel: ObservableObject{
             }
         }
         
-        addAyuda(pregunta: "¿Qué es Crystalite?", respuesta: "Crystalite es una app para obtener el tipo de cristal en base a los compoenntes que tiene")
-        addAyuda(pregunta: "¿Cómo se puede añadir un ensayo?", respuesta: "Para realizar un ensayo se tiene que ir al apartado de Clasificación y rellenar los datos que se le pide y por último darle al botón de Clasificar Cristal")
-        addAyuda(pregunta: "¿Qué pasa si dejo un campo vacío?", respuesta: "Si se deja un campo vacío no pasa nada, ya que el si le das a Clasificar Cristal, se te guardará pero aun no estará terminado y en la vista Historial te aparecerá como que está en proceso")
-        addAyuda(pregunta: "¿Se puede cambiar el nombre del ensayo?", respuesta: "Sí, una vez creado el ensayo accedes a dicho ensayo y tendrás un botón de editar con el cual podrás cambiar el nombre")
-        addAyuda(pregunta: "Contacta con nosotros", respuesta: "Si tienes alguna duda sobre la aplicación contacta al siguiente mail: crystalite@gmail.com")
+        addAyuda(pregunta: "¿Qué es Crystalite?", respuesta: "Crystalite es una app que va a obtener el tipo de cristal a raiz del porcentaje de los elementos quimicos, obtenidos mediante el analisis del cristal.")
+        
+        addAyuda(pregunta: "¿Cómo añadir un ensayo?", respuesta: "Para realizar un ensayo y obtener el tipo de cristal se debe de ir a la pestaña 'Clasificación' e introducir el porcentajee obtenido de cada elemento, y por último, seleccionar al botón 'Clasificar Cristal'.")
+        
+        addAyuda(pregunta: "¿Dónde se puede ver los ensayos realizados?", respuesta: "Los ensayos relizados se pueden ver y/o completar en la pestaña 'Historial'. ")
+        
+        addAyuda(pregunta: "¿Se puede dejar un ensayo incompleto?", respuesta: "Sí, si no se tienen todos los datos necesarios se puede dejar el ensayo 'En Proceso' y posteriormente finalizarlo. Para encontrar los ensayos que estan en proceso, existe una opcion en la vista Historial llamada 'En Proceso' donde se podran ver. ")
+        
+        addAyuda(pregunta: "¿Se puede cambiar el nombre del ensayo?", respuesta: "Sí, una vez creado el ensayo se accede a este y al lado del nombre habrá un botón de editar que, al seleccionarlo, se desplegara un campo de texto para introducir el nuevo nombre. ")
+        
+        addAyuda(pregunta: "¿Se puede cambiar los datos personales?", respuesta: "Sí, en la pestaña 'Perfil' podrá cambiar el correo y la contraseña. ")
+
+        addAyuda(pregunta: "Contacta con nosotros", respuesta: "Si tiene alguna duda o desea realizar alguna consulta acerca de la aplicación podra contactar mediante el siguiente email: crystalite@gmail.com")
         
     }
     

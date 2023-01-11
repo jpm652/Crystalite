@@ -248,13 +248,13 @@ struct elementoCristalEdicion: View{
             
             Button(){
                 
-                for cristal in vm.cristalArray{
-                    if (cristal.nombre == tipoCristal) {
-                        ele_cristal = cristal
-                    }
-                }
+//                for cristal in vm.cristalArray{
+//                    if (cristal.nombre == tipoCristal) {
+//                        ele_cristal = cristal
+//                    }
+//                }
                 
-                showcristal.toggle()
+//                showcristal.toggle()
             }label: {
                 Image(tipoCristal)
                     .resizable()
@@ -264,7 +264,7 @@ struct elementoCristalEdicion: View{
                     .padding(.trailing,-50)
                 
             }.sheet(isPresented: $showcristal, content: {
-                ViewDescripcionCristal(cristal: ele_cristal)
+                // ViewDescripcionCristal(cristal: ele_cristal)
             })
             
         }
