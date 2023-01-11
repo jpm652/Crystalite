@@ -74,8 +74,6 @@ struct VistaHistorial: View {
                     
                     ScrollView{
                         
-                        // nomCreador = vm.personaLogin.nombre
-                        
                         if(vm.personaLogin.admin == false){
                             
                             if let ensayoPersona = vm.personaLogin.ensayoRelation?.allObjects as? [EnsayoEntity]{
@@ -102,8 +100,7 @@ struct VistaHistorial: View {
                                                         estudioHistorial(proceso: ensayo.enProceso, tipoCristal: ensayo.resultCristal ?? "", nombreEnsayo: ensayo.nombre ?? "", fecha: ensayo.fecha ?? Date(), admin: false, creador: nomCreador)
                                                     }
                                                 }
-                                            }
-                                            else{
+                                            }else{
                                                 
                                                 if(ensayo.enProceso){
                                                     NavigationLink(destination: VistaEditarEnProceso(ensayo: ensayo)){

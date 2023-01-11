@@ -10,6 +10,7 @@ import SwiftUI
 struct VistaEditarEnProceso: View {
     
     // Variables
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var vm: ViewModel
     @State var valorAl: Double = 0.0
     @State var valorBa: Double = 0.0
@@ -22,6 +23,9 @@ struct VistaEditarEnProceso: View {
     @State var resultado: String = ""
     @State var mostrarAlerta : Bool = false
     @State var valorAlerta : valorAlerta = .first
+    
+    var tipoCristal = ["Vidrio construccion flotado","Vidrio construccion no flotado","Vidrio contenedor","Vidrio Faro","Vidrio vajilla","Vidrio vehiculo flotado","Vidrio vehiculo no flotado"]
+    @State var selectedItem = ""
     
     //View
     
@@ -37,6 +41,8 @@ struct VistaEditarEnProceso: View {
                         .font(.title).bold()
                         .foregroundColor(vm.modoOscuro ? .white : .black)
                     Spacer().frame(height: 15)
+                    
+#if Crystalite
                     Text("Nombre: ")
                         .font(.title2)
                         .foregroundColor(vm.modoOscuro ? .white : .black)
@@ -46,10 +52,59 @@ struct VistaEditarEnProceso: View {
                         .frame(width: 300, height: 34)
                         .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
                         .cornerRadius(10)
+#endif
+                    
+#if CrystaliteEasy
+                    Spacer().frame(height: 15)
+                    
+                    HStack{
+                        Text("Nombre: ")
+                            .fontWeight(.semibold)
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                            .padding(.leading,15)
+                        
+                        Spacer().frame(width:50)
+                        
+                        TextField("Introducir nombre...", text: $nombreEnsayo)
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                        
+                    }
+                    .frame(width: 300, height: 34)
+                    .background(vm.modoOscuro ? .black.opacity(0.55) : .white)
+                    .cornerRadius(10)
+                    
+                    HStack{
+                        Text("Tipo Cristal: ")
+                            .fontWeight(.semibold)
+                            .foregroundColor(vm.modoOscuro ? .white : .black)
+                            .padding(.leading,10)
+                        
+                        Spacer().frame(width: 20)
+                        
+                        Picker("Selecciona un cristal", selection: $selectedItem) {
+                            ForEach(tipoCristal, id: \.self) {
+                                Text($0)
+                            }
+                            
+                        }
+                        .frame(width: 150, height: 30,alignment: .leading)
+                        .padding(.leading,10)
+                        .background(.gray.opacity(0.25))
+                        .cornerRadius(10)
+                        
+                        
+                    }
+                    .frame(width:300, height: 34)
+                    .background(.white)
+                    .cornerRadius(10)
+                    
+                    
+#endif
                     
                 }
                 
                 Spacer().frame(height: 20)
+                
                 
                 ScrollView{
                     ForEach(vm.elementoArray){
@@ -74,13 +129,14 @@ struct VistaEditarEnProceso: View {
                         
                         self.valorAlerta = .first
                         self.mostrarAlerta = true
+                        presentationMode.wrappedValue.dismiss()
                     }else{
                         resultado = calcularResultado(al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg)
                         vm.editEnsayoEnProceso(ensayo: ensayo, nombrenuevo: nombreEnsayo, enProceso: false, resultado: resultado, al: valorAl, ba: valorBa, ca: valorCa, ir: valorIr, k: valorK, mg: valorMg,creador : vm.personaLogin.nombre ?? "")
                         
                         self.valorAlerta = .second
                         self.mostrarAlerta = true
-                            
+                        presentationMode.wrappedValue.dismiss()
                         
                     }
                     
@@ -108,8 +164,8 @@ struct VistaEditarEnProceso: View {
             vm.elementoArray[1].valor = ensayo.ba
             vm.elementoArray[2].valor = ensayo.ca
             vm.elementoArray[3].valor = ensayo.ir
-            vm.elementoArray[4].valor = ensayo.k
-            vm.elementoArray[5].valor = ensayo.mg
+            vm.elementoArray[4].valor = ensayo.mg
+            vm.elementoArray[5].valor = ensayo.k
         }.padding(.top,-95)
             .onDisappear(){
                 vm.elementoArray[0].valor = 0

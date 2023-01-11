@@ -161,6 +161,7 @@ struct estudioHistorial: View{
                             .frame(width: 125, height: 100)
                             .clipShape(RoundedRectangle (cornerRadius: 10))
                             .background(vm.modoOscuro ? .white : .white)
+                            .cornerRadius(10)
                         
                     }
                     .frame(width: 280, height: 100)
@@ -195,31 +196,33 @@ struct elementoCristalEdicion: View{
                     .font(.body)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
                 
-                Spacer().frame(height: 0.1)
+                vm.personaLogin.admin == false ? Spacer().frame(height: 0.1) : Spacer().frame(height: 10)
+                
                 HStack{
                     
                     Text("Nombre: \(nombreEnsayo)").font(.caption)
                         .foregroundColor(vm.modoOscuro ? .white : .black)
                     
-                    
-                    Button() {
-                        cambiarNombre.toggle()
-                        if !cambiarNombre {
-                            if(currentNomEnsayo.isEmpty){
-                                nombreEnsayo = nombreEnsayo
-                                vm.editNombreEnsayo(ensayo: ensayo, nombrenuevo: nombreEnsayo)
-                            }else {
-                                nombreEnsayo = currentNomEnsayo
-                                vm.editNombreEnsayo(ensayo: ensayo, nombrenuevo: currentNomEnsayo)
-                                
+                    if(vm.personaLogin.admin == false){
+                        Button() {
+                            cambiarNombre.toggle()
+                            if !cambiarNombre {
+                                if(currentNomEnsayo.isEmpty){
+                                    nombreEnsayo = nombreEnsayo
+                                    vm.editNombreEnsayo(ensayo: ensayo, nombrenuevo: nombreEnsayo)
+                                }else {
+                                    nombreEnsayo = currentNomEnsayo
+                                    vm.editNombreEnsayo(ensayo: ensayo, nombrenuevo: currentNomEnsayo)
+                                    
+                                }
                             }
+                        } label: {
+                            Image(systemName: (cambiarNombre ? "pencil.slash":"pencil" ))
+                                .resizable()
+                                .frame(width: 10, height: 10)
+                                .padding()
+                                .foregroundColor(.gray)
                         }
-                    } label: {
-                        Image(systemName: (cambiarNombre ? "pencil.slash":"pencil" ))
-                            .resizable()
-                            .frame(width: 10, height: 10)
-                            .padding()
-                            .foregroundColor(.gray)
                     }
                 }
                 if cambiarNombre {
@@ -227,12 +230,14 @@ struct elementoCristalEdicion: View{
                         .font(.caption2)
                         .padding(.horizontal,15)
                         .background(Color(red: 0.95, green: 0.95, blue: 0.95))
+                        .foregroundColor(.black)
                         .cornerRadius(5)
                         .frame(width: 150, height: 40, alignment: .leading)
                         .padding(.top,-30)
                 }
                 
-                Spacer().frame(height: 0.1)
+                vm.personaLogin.admin == false ? Spacer().frame(height: 0.1) : Spacer().frame(height: 10)
+                
                 Text(fecha)
                     .font(.caption)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
@@ -254,6 +259,7 @@ struct elementoCristalEdicion: View{
                 Image(tipoCristal)
                     .resizable()
                     .frame(width: 125, height: 100, alignment: .trailing)
+                    .background(vm.modoOscuro ? .white : .white)
                     .cornerRadius(15)
                     .padding(.trailing,-50)
                 

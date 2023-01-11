@@ -22,11 +22,13 @@ struct VistaPrincipal: View {
     var body: some View {
         
         TabView(selection: $selec) {
-            VistaClasificacion(seleccion: $selec)
-                .tabItem{
-                    Image(systemName: "doc.badge.plus")
-                    Text("Clasificación")
-                }.tag(0)
+            if(iniciarSesionAdmin == false){
+                VistaClasificacion(seleccion: $selec)
+                    .tabItem{
+                        Image(systemName: "doc.badge.plus")
+                        Text("Clasificación")
+                    }.tag(0)
+            }
             VistaHistorial()
                 .tabItem{
                     Image(systemName: "clock.arrow.circlepath")
@@ -34,7 +36,7 @@ struct VistaPrincipal: View {
                 }.tag(1)
             VistaAyuda()
                 .tabItem{
-                   Image(systemName: "lifepreserver")
+                    Image(systemName: "lifepreserver")
                     Text("Ayuda")
                 }.tag(2)
             VistaInfoCuenta(iniciarSesion: $iniciarSesion, iniciarSesionAdmin: $iniciarSesionAdmin)
@@ -46,6 +48,6 @@ struct VistaPrincipal: View {
         .accentColor(vm.modoOscuro ? .white : Color("Morado"))
         .background(vm.modoOscuro ? .black : Color("Gris"))
     }
-
+    
 }
 

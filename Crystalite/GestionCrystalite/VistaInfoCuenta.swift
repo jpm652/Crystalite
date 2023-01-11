@@ -58,38 +58,6 @@ struct VistaInfoCuenta: View {
                             }
                             
                             VStack{
-                                HStack(alignment: .top) {
-                                    
-                                    Text("Contraseña")
-                                        .font(.subheadline)
-                                        .bold()
-                                    Spacer()
-                                    Text(vm.personaLogin.contrasena ?? "")
-                                        .font(.subheadline)
-                                    if mostrarEditarContrasena == false{
-                                        Image(systemName: "square.and.pencil")
-                                            .onTapGesture {
-                                                mostrarEditarContrasena = true
-                                            }
-                                    }
-                                    
-                                }
-                                if mostrarEditarContrasena{
-                                    HStack{
-                                        TextField("Nueva contraseña", text: $newPass )
-                                        Button{
-                                            vm.editContrasenaPersona(persona: vm.personaLogin, contrasenaNueva: newPass)
-                                            newPass = ""
-                                            mostrarEditarContrasena = false
-                                        }label: {
-                                            Image(systemName: "arrow.right")
-                                            .tint(.green)
-                                            
-                                        }
-                                    }
-                                }
-                            }
-                            VStack{
                                 
                                 HStack(alignment: .top) {
                                     Text("Correo")
@@ -122,6 +90,39 @@ struct VistaInfoCuenta: View {
                                         
                                     }
                                     
+                                }
+                            }
+                            
+                            VStack{
+                                HStack(alignment: .top) {
+                                    
+                                    Text("Contraseña")
+                                        .font(.subheadline)
+                                        .bold()
+                                    Spacer()
+                                    Text(vm.personaLogin.contrasena ?? "")
+                                        .font(.subheadline)
+                                    if mostrarEditarContrasena == false{
+                                        Image(systemName: "square.and.pencil")
+                                            .onTapGesture {
+                                                mostrarEditarContrasena = true
+                                            }
+                                    }
+                                    
+                                }
+                                if mostrarEditarContrasena{
+                                    HStack{
+                                        TextField("Nueva contraseña", text: $newPass )
+                                        Button{
+                                            vm.editContrasenaPersona(persona: vm.personaLogin, contrasenaNueva: newPass)
+                                            newPass = ""
+                                            mostrarEditarContrasena = false
+                                        }label: {
+                                            Image(systemName: "arrow.right")
+                                            .tint(.green)
+                                            
+                                        }
+                                    }
                                 }
                             }
                         }

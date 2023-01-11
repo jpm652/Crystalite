@@ -33,7 +33,7 @@ struct VistaInfoDetallada: View {
                 Text("Informacion detallada")
                     .font(.title)
                     .foregroundColor(vm.modoOscuro ? .white : .black)
-
+                
                 Spacer().frame(height: 30)
                 
                 elementoCristalEdicion(tipoCristal: ensayo.resultCristal ?? "Ensayo",nombreEnsayo: ensayo.nombre ?? "Nombre", fecha: ponerFecha(fecha: ensayo.fecha ?? Date()), ensayo: ensayo)
@@ -46,20 +46,20 @@ struct VistaInfoDetallada: View {
                     
                     Spacer().frame(width: 80)
                     if(vm.personaLogin.admin == false){
-                    Button(){
-                        
-                        self.mostrarAlerta = true
-                        
-                    }label:{
-                        Image(systemName: "trash")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .foregroundColor(.red)
-                    }.alert(isPresented: $mostrarAlerta) {
-                        Alert(title: Text("Eliminar Ensayo"), message: Text("¿Desea eliminar el ensayo?"), primaryButton: .destructive(Text("Eliminar")){
-                            vm.deleteEnsayo(ensayo: ensayo)
-                        }, secondaryButton: .cancel(Text("Cancelar")))
-                    }
+                        Button(){
+                            
+                            self.mostrarAlerta = true
+                            
+                        }label:{
+                            Image(systemName: "trash")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .foregroundColor(.red)
+                        }.alert(isPresented: $mostrarAlerta) {
+                            Alert(title: Text("Eliminar Ensayo"), message: Text("¿Desea eliminar el ensayo?"), primaryButton: .destructive(Text("Eliminar")){
+                                vm.deleteEnsayo(ensayo: ensayo)
+                            }, secondaryButton: .cancel(Text("Cancelar")))
+                        }
                     }
                     Spacer().frame(width: 20)
                     
@@ -133,6 +133,6 @@ struct VistaInfoDetallada: View {
             }.padding(.top,-50)
         }
     }
-    }
+}
 
 

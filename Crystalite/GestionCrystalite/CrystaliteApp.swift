@@ -9,12 +9,17 @@ import SwiftUI
 
 @main
 struct CrystaliteApp: App {
+    
+    // Variables
+    
     @StateObject private var vm: ViewModel = ViewModel()
     @State var iniciarSesion : Bool = false
     @State var registro : Bool = false
     @State var iniciarSesionAdmin : Bool = false
-
+    
+    // View
     var body: some Scene {
+        
         WindowGroup {
             if(iniciarSesion == false && registro == false && iniciarSesionAdmin == false){
                 VistaLogin(iniciarSesion: $iniciarSesion, registro: $registro, iniciarSesionAdmin: $iniciarSesionAdmin).environmentObject(vm)
