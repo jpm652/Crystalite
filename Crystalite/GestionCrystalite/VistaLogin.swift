@@ -28,8 +28,17 @@ struct VistaLogin: View {
             Color("Gris").ignoresSafeArea()
             
             VStack {
+                
+#if Crystalite
                 Image("Logo").resizable().frame(width: 180, height: 150)
-                Spacer().frame(height: 40)
+                Spacer().frame(height: 40)#endif
+                
+#if CrystaliteEasy
+                Image("LogoEasy").resizable().frame(width: 250, height: 230)
+                Spacer().frame(height: 20)
+#endif
+                
+                
                 
                 VStack(alignment: .leading) {
                     
